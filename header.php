@@ -56,7 +56,7 @@
               <div class="row g-0 justify-content-center" style="height:100%;">
                 <div class="col-10 col-md-8 align-self-center">
                     <span class="text-4">Tour virtual</span>
-                    <span style="color:white;">322.100.2030</span>
+                    <span style="color:white;"> 322 100 2030</span>
                 </div>
                 <div class="col-2 col-md-2 align-self-center" style="padding-left:0;">
                     <i class="fas fa-2x fa-phone" style="color:white;"></i>
@@ -68,4 +68,3 @@
       </div>
     </header>
 
-    <div class="container-fluid">

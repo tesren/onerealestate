@@ -39,7 +39,7 @@
                 'thumbnail',
                 'revisions',
             ),
-            'menu_icon' => 'dashicons-list-view',
+            'menu_icon' => 'dashicons-money-alt',
             'menu_positions' => 7,
             'exclude_from_search' => false
 
@@ -65,7 +65,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'name'  => 'Precio',
                 'desc'  => 'Solo numeros, sin signos ni puntos',
                 'id'    => 'price',
-                'type'  => 'text',
+                'type'  => 'number',
             ],
             [
                 'name'            => 'Moneda',

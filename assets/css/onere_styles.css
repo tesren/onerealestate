@@ -28,8 +28,38 @@ a{
     text-decoration:none;
     color:#ab9154;
     font-weight: 350;
-
 }
+
+.container-fluid, .row, .col, .col-md-6{
+    padding: 0;
+    margin: 0;
+} 
+
+/*Listings y rentals*/
+
+.secondary-text{
+    color: #707070;
+}
+
+.listings-rentals h2{
+    font-size: 4rem;
+    font-weight: normal;
+}
+
+.listings-rentals h3{
+    font-size: 1.5rem;
+}
+
+.listings-rentals h5{
+    font-size: 2rem;
+}
+
+.listings-rentals hr{
+    width:70%;
+    text-align:left;
+    margin-left:0
+}
+
 /*NAVBAR*/
 .logo{
     height: 4rem;
@@ -240,6 +270,7 @@ select{
 }
 
 .footer{
+    color: #FFF;
     position: relative; 
     z-index: 1; 
     background-color: #A28234;
@@ -342,6 +373,28 @@ select{
 
 }
 @media (min-width: 360px) and (max-width: 767px) {
+   /*Listings y rentasl mobile*/
+    .listings-rentals h2{
+        font-size: 2rem;
+        font-weight: normal;
+    }
+    
+    .listings-rentals h3{
+        font-size: 1rem;
+    }
+    
+    .listings-rentals h5{
+        font-size: 1rem;
+    }
+
+    .listings-rentals hr{
+        width:90%;
+        text-align:center;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    /**/
     .icon-size-4{
         height: 2rem;
     }

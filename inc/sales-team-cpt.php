@@ -41,7 +41,7 @@
                 'revisions',
             ),
             //'taxonomies' => array('category', 'post_tag'),
-            'menu_icon' => 'dashicons-columns',
+            'menu_icon' => 'dashicons-businessman',
             'menu_positions' => 5,
             'exclude_from_search' => false,
             'show_in_nav_menus' => false,

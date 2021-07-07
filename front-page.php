@@ -71,175 +71,39 @@
 
     <!--CARD-BOX-->
 
-    <div class="row align-items-center p-5">
+    <div class="row align-items-center p-1">
 
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
+      <div class="col-sm-4">
+          <div class="card text-end bg-light">
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+              src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
+              class="img-fluid"
+              />
+              <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              </a>
+          </div>
+          <div class="card-body">
+              <div class="card-text d-flex justify-content-between">
+              <h5 id="item-name">EN VENTA</h5>
+              <span><h2>US $445,000</h2></span>
+              </div>
+              <h3>Casa frente a playa destiladoras</h3>
+              <div class="flex1 align-items-center">
+              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1">2</p>
+              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1">2</p>
+              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/ruler-vertical-solid.svg' ?>" alt="ruler"><p class="margin1">362m</p>
+              </div>
+              <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
+              <a href="#!" ><p class="text-right">Mas info</p></a>
+          </div>
+          </div>
+      </div>
 
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
 
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
+
     
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-        <div class="card text-end">
-        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-            <img
-            src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-            class="img-fluid"
-            />
-            <a href="#!">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <div class="card-text d-flex justify-content-between">
-            <h5 id="item-name">EN VENTA</h5>
-            <span><h2>US $445,000</h2></span>
-            </div>
-            <h3>Casa frente a playa destiladoras</h3>
-            <div class="flex1 align-items-center">
-            <img class="icon-size margin1" src="images/bed-solid.svg" alt="bed"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/bath-solid.svg" alt="bath"><p class="margin1">2</p>
-            <img class="icon-size margin1" src="images/ruler-vertical-solid.svg" alt="ruler"><p class="margin1">362m</p>
-            </div>
-            <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-            <a href="#!" ><p class="text-right">Mas info</p></a>
-        </div>
-        </div>
-    </div>
 
     </div>
     
