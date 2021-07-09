@@ -62,15 +62,17 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
-                'name'  => 'Precio',
+                'name'  => 'Precio al mes',
                 'desc'  => 'Solo numeros, sin signos ni puntos',
                 'id'    => 'price',
                 'type'  => 'number',
+                'size'  => 30,
             ],
             [
                 'name'            => 'Moneda',
                 'id'              => 'currency',
                 'type'            => 'select',
+                
                 // Array of 'value' => 'Label' pairs
                 'options'         => array(
                     'USD'       => 'USD',
@@ -82,11 +84,13 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'placeholder'     => 'Seccione la moneda',
                 // Display "Select All / None" button?
                 'select_all_none' => false,
+                'size'            => 30,
             ],
             [
                     'name'       => 'Tipo propiedad',
                     'id'         => 'taxonomy',
                     'type'       => 'taxonomy',
+                    'size'       => 30,
 
                     // Taxonomy slug.
                     'taxonomy'   => 'property_type',
@@ -99,7 +103,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                     'name'       => 'Ubicación',
                     'id'         => 'location',
                     'type'       => 'taxonomy',
-
+                    'size'  => 30,
                     // Taxonomy slug.
                     'taxonomy'   => 'regiones',
 
@@ -111,23 +115,27 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'desc'  => 'Solo numeros',
                 'id'    => 'bedrooms',
                 'type'  => 'number',
+                'size'  => 30,
             ],
             [
                 'name'  => 'Baños',
                 'desc'  => 'Solo números',
                 'id'    => 'bathrooms',
                 'type'  => 'number',
+                'size'  => 30,
             ],
             [
                 'name'  => 'Medios Baños',
                 'desc'  => 'Solo números',
                 'id'    => 'half_baths',
                 'type'  => 'number',
+                'size'  => 30,
             ],
             [
                 'name'            => 'Muebles',
                 'id'              => 'furniture',
                 'type'            => 'select',
+                'size'            => 30,
                 // Array of 'value' => 'Label' pairs
                 'options'         => array(
                     'Amueblado'       => 'Amueblado',
@@ -146,22 +154,53 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'construction',
                 'type'  => 'text',
+                'size'  => 30,
             ],
             [
                 'name'  => 'Lote',
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'lot_area',
                 'type'  => 'text',
+                'size'  => 30,
             ],
             [
                 'name'  => 'Estacionamiento',
                 'desc'  => 'Especificar tipo de estacionamiento',
                 'id'    => 'parking_stalls',
                 'type'  => 'text',
+                'size'  => 30,
             ],
             
             // More fields.
         ],
+    ];
+
+     //Featured img 2
+     $meta_boxes[] = [
+        
+        'title' => 'Foto destacada 2',
+        'post_types' => 'rentals',
+
+        'fields' => [
+            [
+                'id'               => 'featured_img_2',
+                'name'             => 'Image upload',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 1,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
+            ],
+        ]
     ];
 
     // Add more field groups if you want
@@ -175,6 +214,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'id'               => 'listing_gallery',
                 'name'             => 'Image upload',
                 'type'             => 'image_upload',
+                'size'             => 30,
 
                 // Delete file from Media Library when remove it from post meta?
                 // Note: it might affect other posts if you use same file for multiple posts
@@ -192,7 +232,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
         ]
     ];
 
-    $meta_boxes[] = [
+  /*   $meta_boxes[] = [
         
         'title' => 'Tour virtual y video del lugar',
         'post_types' => 'rentals',
@@ -203,15 +243,17 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'name'             => 'Video de Youtube',
                 'desc'             => 'Por favor pegue el enlace ',
                 'type'             => 'oembed',
+                'size'             => 30,
              ],
             [
                 'id'               => 'listing_tour',
                 'name'             => 'Link del Tour virtual',
                 'desc'             => 'Por favor pegue el enlace del Tour virtual" ',
                 'type'             => 'text',
+                'size'             => 30,
             ],
         ]
-    ];
+    ]; */
 
      $meta_boxes[] = [
         
@@ -219,11 +261,6 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
         'post_types' => 'rentals',
 
         'fields' => [
-            [
-                'id'   => 'address',
-                'name' => 'Address',
-                'type' => 'text',
-            ],
             // Map field.
             [
                 'id'            => 'listings_map',

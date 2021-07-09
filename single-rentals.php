@@ -42,7 +42,7 @@
 
             <div class="col-lg-6 order-2 order-lg-1">
                 <div class="px-4 px-lg-5 pt-4"><?php echo the_content(); ?></div>
-                <h2 class="py-3 mt-1 mt-lg-5 text-center"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?></h2>
+                <h2 class="py-3 mt-1 mt-lg-5 text-center"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?> al mes</h2>
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2">

@@ -1,39 +1,38 @@
-<div class="row">
+<div class="row contact-form">
 
-        <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
-            <h3 class="">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
+        <div class="col-lg-6">
+            <img class="w-100 img-fluid mx-0 mx-lg-4" src="<?php echo get_template_directory_uri() .'/assets/images/playa.jpg';?>" alt="One Real Estate Contact">
         </div>
         
         <!--formulario-->
-        <div class="col-sm-6 order-sm-12">
-            <h3 class="pt-3 px-3 px-xxl-5 fs-1">Escríbenos</h3>
-            <form id="v4youContactForm" action="#" class="text-start px-3 px-xxl-5" method="POST" data-url="<?php echo admin_url('admin-ajax.php');?>">
-                <div class="form-floating mb-3">
-                    <h4 class="labels-form-grande d-none d-xl-block">Nombre</h4>
+        <div class="col-lg-6">
+
+            <h3 class="px-3 px-lg-5 text-center text-lg-start fs-1 mt-3 mt-lg-1 mb-2">Contacto</h3>
+
+            <form id="v4youContactForm" action="#" class="text-start px-3 px-lg-5" method="POST" data-url="<?php echo admin_url('admin-ajax.php');?>">
+                
+                <div class="form-floating mb-3 mb-lg-4">
                     <input type="text" class="form-control" id="name" name="name" placeholder="nombre" required>
-                    <label class="labels-form-small d-xl-none" for="name">Nombre</label>
+                    <label for="name">Nombre</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <h4 class="labels-form-grande d-none d-xl-block">Correo electrónico</h4>
+                <div class="form-floating mb-3 mb-lg-4">
                     <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" required>
-                    <label class="labels-form-small d-xl-none" for="email">Correo electrónico</label>
+                    <label for="email">Correo electrónico</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <h4 class="labels-form-grande d-none d-xl-block">Teléfono</h4>
+                <div class="form-floating mb-3 mb-lg-4">
                     <input type="number" class="form-control" id="phone" name="phone" placeholder="322 555 5555" required>
-                    <label class="labels-form-small d-xl-none" for="phone">Teléfono</label>
+                    <label for="phone">Teléfono</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <h4 class="labels-form-grande d-none d-xl-block">Mensaje</h4>
+                <div class="form-floating mb-3 mb-lg-4">
                     <textarea class="form-control" placeholder="Mensaje" id="message" name="message" style="height: 150px" required></textarea>
-                    <label class="labels-form-small d-xl-none" for="message">Mensaje</label>
+                    <label for="message">Mensaje</label>
                 </div>
 
                 
-                <button type="submit" class="btn btn-amarillo btn-lg">Enviar mensaje</button>
+                <button type="submit" class="btn btn1 w-100">Enviar mensaje</button>
 
             </form>
         </div>

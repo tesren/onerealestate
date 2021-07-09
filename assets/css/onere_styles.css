@@ -30,10 +30,22 @@ a{
     font-weight: 350;
 }
 
-.container-fluid, .row, .col, .col-md-6{
+.container-fluid, .row, .col, .col-lg-6{
     padding: 0;
     margin: 0;
 } 
+
+.landing h1{
+    text-align: center;
+    color: #fff;
+    font-size: 6rem;
+    position: absolute;
+    top: 40% ;
+    left: 37.5%;
+    right: 37.5%;
+    width: 25%;
+    border: 5px solid white;
+}
 
 /*Listings y rentals*/
 
@@ -55,9 +67,79 @@ a{
 }
 
 .listings-rentals hr{
+    margin-top: 0 !important;
     width:70%;
     text-align:left;
     margin-left:0
+}
+
+.listings-rentals img{
+    max-height: 50vh;
+    object-fit: cover;
+}
+
+.listings-dorado{
+    color: #fff;
+    background-color: #ab9154;
+}
+
+.listings-dorado a{
+    background-color: #fff;
+    color: #ab9154;
+}
+
+.hr-dorado{
+    width:70%;
+    text-align: end !important;
+    margin-right: 0 !important;
+    margin-left: 30% !important;
+}
+
+/*single listings y rentals*/
+
+.single-listings h1{
+    font-size: 3rem;
+    color: white;
+    background-color: #ab9154;
+}
+
+.single-listings h3{
+    font-size: 1rem;
+    font-weight: lighter;
+    color: white;
+}
+
+.single-listings h2{
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #A28234;
+}
+
+.single-listings p{
+    font-size: 1.3rem;
+    color: #929292;
+    font-weight: 300;
+}
+
+.single-listings img{
+    max-height: 65vh;
+    object-fit: cover;
+}
+
+.single-listings h5{
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+/*Contact form*/
+
+.contact-form h3{
+    color: #A28234;
+    font-weight: bold;
+}
+
+.contact-form img{
+    border-radius: 50px;
 }
 
 /*NAVBAR*/
@@ -105,6 +187,11 @@ nav .nav-item i{
     font-size: 5px;
     padding-bottom: 2px;
     color: #929292;
+}
+
+/*form de busqueda*/
+.form-select{
+    width: fit-content !important;
 }
 
 /*Boton de Whatsapp*/
@@ -387,11 +474,23 @@ select{
         font-size: 1rem;
     }
 
-    .listings-rentals hr{
-        width:90%;
-        text-align:center;
-        margin-left: 5%;
-        margin-right: 5%;
+    .listings-rentals hr, .hr-dorado{
+        width:90% !important;
+        text-align:center !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+    }
+
+    .landing h1{
+        text-align: center;
+        color: #fff;
+        font-size: 3.5rem;
+        position: absolute;
+        top: 30% ;
+        left: 20%;
+        right: 20%;
+        width: 60%;
+        border: 5px solid white;
     }
     
     /**/
@@ -439,7 +538,26 @@ select{
         padding-bottom: 0mm;
     }
   }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .listings-rentals hr, .hr-dorado{
+        width:90% !important;
+        text-align:center !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+    }
+
+    .landing h1{
+        text-align: center;
+        color: #fff;
+        font-size: 4.5rem;
+        position: absolute;
+        top: 30% ;
+        left: 20%;
+        right: 20%;
+        width: 60%;
+        border: 5px solid white;
+    }
     .margin1{
         margin-right: 0.5rem;
         font-weight: bold;
