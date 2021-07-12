@@ -170,6 +170,45 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'type'  => 'text',
                 'size'  => 30,
             ],
+            [
+                'name'    => 'Datos generales',
+                'id'      => 'amenities',
+                'type'    => 'checkbox_list',
+                'inline'  => 'true',
+                // Options of checkboxes, in format 'value' => 'Label'
+                'options' => array(
+                    'Alberca'             => 'Alberca',
+                    'Alberca para niños'  => 'Alberca para niños',
+                    'Bar'                 => 'Bar',
+                    'Restaurante'         => 'Restaurante',
+                    'Terraza'             => 'Terraza',
+                    'Gimnasio'            => 'Gimnasio',
+                    'Spa'                 => 'Spa',
+                    'Jardines'            => 'Jardines',
+                    'Jacuzzi'             => 'Jacuzzi',
+                    'Asador'              => 'Asador',
+                    'Sauna'               => 'Sauna',
+                    'Palapa'              => 'Palapa',
+                    'Área para niños'     => 'Área para niños',
+                    'Área para picnic'    => 'Área para picnic',
+                    'Acceso a playa'      => 'Acceso a playa',
+                    'Elevador'            => 'Elevador',
+                    'Estacionamiento'     => 'Estacionamiento',
+                    'Área de bodega'      => 'Área de bodega',
+                    'Cuarto de servicio'  =>'Cuarto de servicio',
+                    'Cuarto de lavado'    =>'Cuarto de lavado',
+                    'Balcón'              =>'Balcón',
+                    'Acceso controlado'   =>'Acceso controlado',
+                    'Seguridad 24 horas'  =>'Seguridad 24 horas',
+                    'Golf'                =>'Golf',
+                    'Cancha de baloncesto'=>'Cancha de baloncesto',
+                    'Cancha de tennis'    =>'Cancha de tennis',
+                ),
+                // Display options in a single row?
+                // 'inline' => true,
+                // Display "Select All / None" button?
+                'select_all_none' => false,
+            ],
             
             // More fields.
         ],
@@ -211,7 +250,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
-                'id'               => 'listing_gallery',
+                'id'               => 'rental_gallery',
                 'name'             => 'Image upload',
                 'type'             => 'image_upload',
                 'size'             => 30,

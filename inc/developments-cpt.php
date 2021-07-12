@@ -147,6 +147,12 @@ function developments_register_meta_boxes( $meta_boxes ) {
                     // How to show taxonomy.
                     'field_type' => 'select_tree',
             ],
+            [
+                'name'  => 'Recámaras desde ',
+                'desc'  => 'Ejemplo: 3,4,5 o 3-6',
+                'id'    => 'starting_at_bedrooms',
+                'type'  => 'text',
+            ],
             
             // More fields.
         ],
@@ -154,40 +160,12 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Residencias Destacadas',
+        'title' => 'Logo del Desarrollo',
         'post_types' => 'developments',
 
         'fields' => [
             [
-                'id'               => 'residences_gallery',
-                'name'             => 'Image upload',
-                'type'             => 'image_upload',
-                'desc'             => 'Seleccione 4 fotos',
-
-                // Delete file from Media Library when remove it from post meta?
-                // Note: it might affect other posts if you use same file for multiple posts
-                'force_delete'     => false,
-
-                // Maximum file uploads.
-                'max_file_uploads' => 4,
-
-                // Do not show how many files uploaded/remaining.
-                'max_status'       => 'false',
-
-                // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
-            ],
-        ]
-    ];
-
-    $meta_boxes[] = [
-        
-        'title' => 'Galeria de Amenidades',
-        'post_types' => 'developments',
-
-        'fields' => [
-            [
-                'id'               => 'amenities_gallery',
+                'id'               => 'logo-dev',
                 'name'             => 'Image upload',
                 'type'             => 'image_upload',
 
@@ -196,7 +174,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 'force_delete'     => false,
 
                 // Maximum file uploads.
-                'max_file_uploads' => 30,
+                'max_file_uploads' => 1,
 
                 // Do not show how many files uploaded/remaining.
                 'max_status'       => 'false',
@@ -236,7 +214,36 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Mas fotos',
+        'title' => 'Galeria de Amenidades',
+        'post_types' => 'developments',
+
+        'fields' => [
+            [
+                'id'               => 'amenities_gallery',
+                'name'             => 'Image upload',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 30,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
+            ],
+        ]
+    ];
+
+   
+
+    $meta_boxes[] = [
+        
+        'title' => 'Galería',
         'post_types' => 'developments',
 
         'fields' => [
@@ -250,7 +257,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 'force_delete'     => false,
 
                 // Maximum file uploads.
-                'max_file_uploads' => 5,
+                'max_file_uploads' => 30,
 
                 // Do not show how many files uploaded/remaining.
                 'max_status'       => 'false',

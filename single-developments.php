@@ -6,310 +6,158 @@
         
         while( have_posts() ){ ?>
 
+    <div class="container-fluid single-developments">
         <!--Imagen con texto-->
       <div class="container-fluid " style="position:relative;">
-        <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
-                  <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
-                  <div class="caption-naya text-center">
-                      <h1 id="naya"><?php the_title();?></h1>
-                      <p class="fs-3"> <?php 
-            
-                          $locations = array_reverse(rwmb_meta( 'location' ));
+            <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
 
-                          $i =1;
-                          if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
-                              foreach ( $locations as $location ) {
-                                  echo $location->name;
-                                  if( $i < count($locations) ){
-                                      echo ', ';
-                                  }
-                                  $i++;
-                              }
-                          }
-                      ?> <br> Desde: <?php echo rwmb_meta( 'currency' );?> $ <?php echo rwmb_meta( 'starting_at' ); ?> 
-                      </p>
-                  </div>
+            <img class="w-100 img-fluid mobile-img"  src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
+
+            <!--logo Desarrollo-->
+            <?php $logos = rwmb_meta( 'logo-dev', array( 'size' => 'large' ) );
+                $j = 0;
+                    foreach ( $logos as $logo ) { ?>
+
+                <img id="logo-desarrollo" class="img-fluid " src="<?php echo $logo[ 'url' ];?>" alt="<?php echo $logo[ 'title' ];?>">
+            <?php     $j++; }?>
+            
+            <div class="row text-center dev-prices">
+                <div style="background-color: #ab9154;" class="col-12 col-lg-5 p-2">
+
+                    <div class="row">
+                        <p class="col-6">Precios Desde:</p>
+                        <p class ="col-6">Recámaras Desde:</p>
+                    </div>
+
+                    <div class="row">
+                        <h3 class="col-6"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo rwmb_meta( 'starting_at' ); ?> </h3>
+                        <h3 class="col-6"><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'starting_at_bedrooms' ); ?></h3>
+                    </div>
+
+                </div>
+            </div>
+     </div>
+
+      <!--foto destacada 2-->
+      <div class="container-fluid text-center text-lg-start" style="position:relative;">
+        
+        <div class="description row px-3 px-lg-5">
+
+            <div class="col-12 col-lg-4">
+                <div style="background-color: #ab9154;"><h2 class="p-2">Descripción</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-7" id="el-content"><p><?php echo the_content();?></p></div>
+            </div>
+
+        </div>
+
+        <div class="fondo-oscuro"></div>
+        <?php $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'large' ) );
+                $i = 0;
+                    foreach ( $ft_photos as $ft_photo ) { ?>
+
+          <img class="img-fluid w-100 mobile-img" src="<?php echo $ft_photo[ 'url' ];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
+        <?php     $i++; }?>
       </div>
 
-        <!--Acerca del proyecto-->
-        <div class="container text-center p-5">
+       <!--MAPA google-->
+       <div class="container-fluid" style="position:relative;">
 
-            <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            </div>
+        <div class="row justify-content-center justify-content-lg-end location-titles">
 
-            <div class="fs-3 py-5">
-              <p><?php echo the_content();?></p>
-            </div>      
-
-        </div>
-
-        <!--Propiedades-->
-        <div class="container-fluid text-center" id="propiedades">
+            <div class="col-12 col-lg-4 p-0">
             
-            <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1">Propiedades</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            </div>
+                <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Ubicación</h2></div>
 
-            <div class="row">
-            <?php 
-            
-                    $residences = rwmb_meta( 'residences_gallery', array( 'size' => 'full' ) ); 
-                    
-                    $total = count($residences);
-                    
-                    switch($total)
-                    {
-                        case 1:
+                <div class="row justify-content-center justify-content-lg-end">
+                    <div class="col-6 col-lg-6 mb-3 mb-lg-0 p-0" style="background-color: #929292;">
+                        <h3 class="py-1 mb-0 ps-0 ps-lg-2"><?php 
                             
-                            foreach ( $residences as $residence ) { ?>
+                            $locations = array_reverse(rwmb_meta( 'location' ));
 
-                                <div class="col-md-12">
-                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
-                                    <hr class="linea-grande">
-                                </div>
-                            
-                            <?php
+                            $i =1;
+                            if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
+                                foreach ( $locations as $location ) {
+                                    echo $location->name;
+                                    if( $i < count($locations) ){
+                                        echo ', ';
+                                    }
+                                $i++;
                             }
-
-                            break;
-
-                        case 2:
-                            foreach ( $residences as $residence ) { ?>
-
-                                <div class="col-md-6">
-                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
-                                    <hr class="lineas">
-                                </div>
-                            
-                            <?php
-                            }
-                        break;
-                       
-                        case 3:
-                            foreach ( $residences as $residence ) { ?>
-
-                                <div class="col-md-4">
-                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
-                                    <hr class="lineas">
-                                </div>
-        
-                            <?php
-                            }
-                        break;
-                        
-                        case 4:
-                            $i=0;
-                            foreach ( $residences as $residence ) {   ?>
-
-                                <div class="col-md-<?php if($i==3){echo '12';}else{echo '4';} ?>">
-                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
-                                    <hr class="<?php if($i==3){echo 'linea-grande';}else{echo 'lineas';} ?>">
-                                </div>
-        
-                            <?php 
-                            $i++;}
-                        break;
-
-                    }
-
-                   // echo $total;
-            ?>
-
-            </div>
-        </div>
-
-         <!--carrusel de cards de propiedades-->
-
-         <div class="container-fluid text-center my-5">
-
-<div class="row mx-auto my-auto justify-content-center">
-    <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
-        
-      <div class="carousel-inner" role="listbox">
-
-
-      <?php 
-
-          /*
-          *  Query posts for a relationship value.
-          *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-          */
-
-          $units = get_posts(array(
-              'post_type' => 'inventory',
-              'meta_query' => array(
-                  array(
-                      'key' => 'developments', // name of custom field
-                      'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
-                      'compare' => 'LIKE'
-                  )
-              )
-          ));
-
-      ?>
-      <?php if( $units ): ?>
-          <?php $i=1;?>
-          <?php foreach( $units as $unit ): ?>
-              <?php 
-
-          
-              $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
-
-              ?>
-              <div class="carousel-item<?php if($i==1){echo ' active';}?>">
-                  <div class="col-md-3">
-                      <div class="card">
-                          <img src="<?php echo $portada[0];?>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
-                              <p class="card-text">
-                                  <ul class="list-unstyled">
-                                      <li><?php echo $unit->bedrooms;?> recámaras</li>
-                                      <li><?php echo $unit->bathrooms;?> baños</li>
-                                      <li><?php echo $unit->half_baths;?> medios baños</li>
-                                      <li><?php echo $unit->construction;?> m<sup>2</sup></li>
-                                  </ul>        
-                              </p>
-                              <h5 class="card-title fw-bold">Desde <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
-                          </div>
-                      </div>
-                  
-                  </div>
-              </div>
-          <?php $i++; ?>
-          <?php endforeach; ?>
-         
-      <?php endif; ?>
-            
-          
-          </div>
-
-
-
-        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
-    </div>
-</div>
-</div>
-
-
-        
-        <!--foto destacada-->
-        <?php          $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'large' ) );
-                        $i = 0;
-                            foreach ( $ft_photos as $ft_photo ) { ?>
-
-          <img class="img-fluid w-100" src="<?php echo $ft_photo[ 'url' ];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
-        <?php     $i++; }?>
-
-       <!--Carrusel de amenidades-->
-        <div class="d-flex justify-content-center mt-5 mb-3">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center ">Amenidades</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-        </div>
-        
-        <div id="carouselAmenidades" class="carousel slide" data-bs-ride="carousel">
-                    
-                    <div class="carousel-inner">
-                    <?php
-
-                        $amenities = rwmb_meta( 'amenities_gallery', array( 'size' => 'large' ) );
-                        $i = 0;
-                            foreach ( $amenities as $amenitie ) { ?>
-
-                                <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $amenitie['url'];?>">
-                                    <div class="carousel-caption d-md-block">
-                                        <h2 class="fs-1"><?php echo $amenitie['title'];?></h2>
-                                    </div>
-                                </div>
-                                
-
-                    <?php     $i++; }?>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselAmenidades" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselAmenidades" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-        </div>
-
-       
-          <!--CARRUSEL mas fotos-->
-        <div class="d-flex justify-content-center mt-5 mb-3">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center ">Mas fotos</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-        </div>
-        
-        <div id="carouselMasFotos" class="carousel slide" data-bs-ride="carousel">
-                    
-                    <div class="carousel-inner">
-                    <?php
-
-                        $masfotos = rwmb_meta( 'more_photos', array( 'size' => 'large' ) );
-                        $i = 0;
-                            foreach ( $masfotos as $foto ) { ?>
-
-                                <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $foto['url'];?>" alt="<?php echo $foto['title'];?>">
-                                </div>
-                                
-
-                    <?php     $i++; }?>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMasFotos" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselMasFotos" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-        </div>
-       
-       
-        <div class="d-flex justify-content-center mt-5 mb-3">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center "> Mapa</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-        </div>
-
-        <!--MAPA google-->
-        <div class="container-fluid animatable fadeIn">
-                    <div style="height: 50vh;" class="col-12">
-                    <?php $args = array(
-                        'width'        => '100%',
-                        'height'       => '100%',
-                        'zoom'         => 14,
-                        'marker'       => true,
-                        //'marker_icon'  => 'https://url_to_icon.png',
-                        //'marker_title' => 'Click me',
-                        //'info_window'  => '<h3>Title</h3><p>Content</p>.',
-                    );
-                    
-                    echo rwmb_meta( 'development_map', $args );
-                    ?>
+                        }
+                        ?></h3>
                     </div>
                 </div>
+            </div>
+
+
+            </div>
+            <div style="height: 60vh;" class="col-12">
+                <?php $args = array(
+                    'width'        => '100%',
+                    'height'       => '100%',
+                    'zoom'         => 14,
+                    'marker'       => true,
+                );
+                
+                echo rwmb_meta( 'development_map', $args );
+                ?>
+            </div>
+        </div>
+
+         <!--Galeria de Amenidades-->
+         <div class="container-fluid text-center mt-5" style="position:relative;">
+            <div class="row justify-content-center mb-2">
+                <div class="col-12 col-lg-5 p-0">
+                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Amenidades</h2></div>
+                </div>
+                
+                
+            </div>
+            <div class="row gallery-images">
+                <?php $images = rwmb_meta( 'amenities_gallery', array( 'size' => 'full' ) );
+                    $k = 0;
         
+                    foreach ( $images as $image ) { ?>
+                        
+                    <div class="<?php gallery_grid($k) ?> p-0 ">
+                        <img class="img-fluid w-100 p-1" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>">
+                    </div>
+
+                <?php $k++;}?>
+            </div>
+
+        </div>
+
+
+        <!--Galeria de fotos-->
+        <div class="container-fluid text-center mt-5" style="position:relative;">
+            <div class="row justify-content-center mb-2">
+                <div class="col-12 col-lg-5 p-0">
+                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Galería</h2></div>
+                </div>
+                
+                
+            </div>
+            <div class="row gallery-images">
+                <?php $images = rwmb_meta( 'more_photos', array( 'size' => 'full' ) );
+                    $l = 0;
+        
+                    foreach ( $images as $image ) { ?>
+                        
+                    <div class="<?php gallery_grid($l) ?> p-0 ">
+                        <img class="img-fluid w-100 p-1" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>">
+                    </div>
+
+                <?php $l++;}?>
+            </div>
+
+        </div>
+
+    </div><!--Single developments-->
+
+
         <!--contacto-->
        <div class="container-fluid py-5">
            <?php get_template_part( 'partials/content', 'contact-form' ); ?>

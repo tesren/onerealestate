@@ -266,5 +266,21 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }
     }
 
+    function gallery_grid($loops){
+        if($loops==0){
+            echo'col-12 d-block col-lg-4';
+        }
+        else if( $loops > 0 && $loops<3){
+            echo'col-12 d-none d-lg-block col-lg-4';
+        }
+        else if($loops>3 && $loops<8){
+            echo 'd-none d-lg-block col-lg-3';
+        }
+        else{
+            echo 'd-none d-lg-none';
+        }
+
+    }
+
 
 ?>

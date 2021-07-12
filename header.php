@@ -13,7 +13,8 @@
         <!--fuente-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
+        <!--fancybox-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
         
     </head>
     
@@ -25,12 +26,12 @@
         <div class="row">
         
           <div class="col-12 col-md-9 col-lg-10">
-            <nav class="navbar navbar-expand-xl navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light" role="navigation" style="position:relative;">
               <a class="navbar-brand" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
-                <img src="<?php echo get_template_directory_uri() .'/assets/svgs/ore/logo-one-real-estate-black.svg';?>" id="nav_heder_logo" alt="Logo Tierra" width="250px" height="auto">
+                <img src="<?php echo get_template_directory_uri() .'/assets/svgs/ore/logo-one-real-estate-black.svg';?>" id="nav_heder_logo" alt="Logo One real estate" width="250px" height="auto">
               </a>
              
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
             
