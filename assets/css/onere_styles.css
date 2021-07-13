@@ -46,6 +46,22 @@ a{
     width: 25%;
     border: 5px solid white;
 }
+/*Home page*/
+.img-front-listings{
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+#prop-de-lujo{
+    color: #fff;
+    font-size: 8rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 4;
+}
 
 /*Listings y rentals*/
 
@@ -152,8 +168,19 @@ a{
     object-fit: cover;
     overflow: hidden;
 }
-.gallery-images img{
-    object-fit: cover;
+.gallery-images figure img{
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.gallery-images figure:hover img{
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+figure{
     overflow: hidden;
 }
 
@@ -192,7 +219,7 @@ a{
     width: 100%;
     height: 100%;
     z-index: 3;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .single-developments .description{
@@ -285,7 +312,7 @@ nav .nav-item i{
 
 /*form de busqueda*/
 .form-select{
-    width: fit-content !important;
+    width: fit-content;
 }
 
 /*Boton de Whatsapp*/
@@ -353,8 +380,8 @@ nav .nav-item i{
 
 
 /*FORMULARIO*/
-select{
-    text-align-last:center;
+.select{
+    text-align: start;
 }
 .pad1{
     padding-top: 1rem;
@@ -504,7 +531,7 @@ select{
 
 /*CARDBOX*/
 .icon-size{
-    height: 1rem;
+    height: 1.1rem;
 }
 .flex1{
     display: flex;
@@ -526,6 +553,11 @@ select{
 }
 .text-2{
     font-size: 1.2rem;
+}
+
+.img-testimonials{
+    border-radius: 50% !important;
+    object-fit: cover;
 }
 
 /*MEDIA QUERY*/
@@ -554,6 +586,14 @@ select{
 
 }
 @media (min-width: 360px) and (max-width: 767px) {
+    /*Home page*/
+    .img-front-listings{
+        height: 15rem;
+    }
+
+    #prop-de-lujo{
+        font-size: 2rem;
+    }
 
     /*single developments*/
 
@@ -580,6 +620,14 @@ select{
         font-size:0.8rem ;
     }
 
+    .single-developments .location-titles{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
 
    /*Listings y rentasl mobile*/
 
@@ -668,6 +716,11 @@ select{
         padding-bottom: 0mm;
     }
 
+    /*form de busqueda*/
+    .form-select{
+        width: 100%;
+    }
+
     /*NAVBAR MOBILE*/
     #ore_main_navbar li a:after{
         content: "";
@@ -706,6 +759,12 @@ select{
   }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    .form-select{
+        width: 100%;
+    }
+    #prop-de-lujo{ 
+        font-size: 5rem;
+    }
 
     .single-listings p{
         font-size: 1.2rem;

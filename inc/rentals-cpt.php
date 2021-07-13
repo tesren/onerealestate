@@ -171,6 +171,12 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'size'  => 30,
             ],
             [
+                'name' => 'Mostrar en homepage',
+                'id'   => 'featured_rental',
+                'type' => 'checkbox',
+                'std'  => 0, // 0 or 1
+            ],
+            [
                 'name'    => 'Datos generales',
                 'id'      => 'amenities',
                 'type'    => 'checkbox_list',

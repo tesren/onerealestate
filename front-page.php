@@ -1,168 +1,219 @@
 <?php 
     get_header();
 
-    $developments = get_posts(array(
-        'post_type' => 'developments',
-        'numberposts' => -1,
-        
-    ));
+    $rentals = get_posts(array(
+      'post_type' => 'rentals',
+      'numberposts' => -1,
+      'meta_query'=> array(
+          array(
+              'key' => 'featured_rental',
+              'compare' => '=',
+              'value' => 1,
+          )
+  ),
+
+      
+  ));
     $listings = get_posts(array(
-        'post_type' => 'listings',
-        'numberposts' => -1,
-    ));
+      'post_type' => 'listings',
+      'numberposts' => -1,
+      'meta_query'=> array(
+          array(
+              'key' => 'featured_listing',
+              'compare' => '=',
+              'value' => 1,
+          )
+      ),
+  ));
 ?>
 
-      <!--FORMULARIO-->
-    <div class="row">
-      <div style="padding: 0rem;" class="col-12">
-        <section class="main py-5" style="height:90vh; background-image: url(<?php echo get_template_directory_uri() .'/assets/images/header.jpg';?>);">
-          <!-- <div class="container py-5">
-            <div class="row justify-content-center py-5">
-              <div class="col-lg-12 py-5">
-                <h1 class="text-white text-center">Busquemos el lugar de tus sueños</h1>
-                <form action="#" method="post">
-                  
-                  <div class="form-row">
-                    <div class="col-6 col-sm-4 col-lg-4">
-                      <label for="tipo" class="sr-only">tipo</label>
-                      <select class="form-control" name="tipo" id="tipo">
-                        <option value="">RENTA</option>
-                        <option value="">VENTA</option>
-                      </select>
-                    </div>
-  
-                    <div class="col-6 col-sm-4 col-lg-4">
-                      <label for="tipo" class="sr-only">tipo</label>
-                      <select class="form-control" name="tipo" id="tipo">
-                        <option value="">TIPO</option>
-                        <option value="">CASA</option>
-                        <option value="">DEPARTAMENTO</option>
-                      </select>                     
-                    </div>
-                    
-                    <div class="col-12 col-sm-4 col-lg-4">
-                      <label for="tipo" class="sr-only">tipo</label>
-                      <select class="form-control" name="tipo" id="tipo">
-                        <option value="">UBICACIÓN</option>
-                        <option value="">PUERTO VALLARTA</option>
-                        <option value="">PUNTA DE MITA</option>
-                        <option value="">BUCERÍAS</option>
-                      </select>
-                    </div>
-  
-                  </div>
-  
-                  <div class="form-row"> 
-                    <div class="col-12 text-right pad1">
-                      <label for="tipo" class="sr-only">tipo</label>
-                      <input type="button" class="btn1" value="BUSCAR">
-                    </div>
-                  </div>
-  
-                </form>
+    <!--Imagen-->
+    <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/header.jpg';?>" alt="">
+
+
+    <!--Propiedades en Venta-->
+
+    <h2 class="titulo2 text-center mt-5">PROPIEDADES EN <span class="fw-bold">VENTA</span></h2>
+
+    <?php if( $listings ): 
+          $l = 0;?>
+
+    <div class="row justify-content-center p-1">
+
+      <?php foreach( $listings as $listing ):  setup_postdata($listing);
+      $fotoListing = wp_get_attachment_image_src( get_post_thumbnail_id( $listing->ID ), 'full' );?>
+
+        <div class="col-sm-4 col-md-6 col-lg-4">
+            <div class="card text-end bg-light">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                  <img src="<?php echo $fotoListing[0];?>" class="img-front-listings"/>
+                  <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                  </a>
               </div>
+              <div class="card-body">
+                  <div class="card-text d-flex justify-content-between">
+                    <h5 id="item-name">EN VENTA</h5>
+                    <span><h2><?php echo $listing->currency;?> $<?php echo number_format($listing->price);?></h2></span>
+                  </div>
+                  <h3><?php echo get_the_title( $listing->ID );?></h3>
+                  <div class="flex1 justify-content-end justify-content-lg-start">
+                    <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1"><?php echo $listing->bedrooms;?></p>
+                    <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $listing->bathrooms;?></p>
+                    <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $listing->construction;?>m<sup>2</sup></p>
+                  </div>
+                  <h5 style="margin-top: 0.5rem;"><?php                                          
+                                    $terms_list = array_reverse(wp_get_post_terms( $listing->ID, 'regiones' ) );
+
+                                    $j =1;
+                                    if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
+                                        foreach ( $terms_list as $term ) {
+                                            echo $term->name;
+                                            if( $j < count($terms_list) ){
+                                                echo ', ';
+                                            }
+                                            $j++;
+                                        }
+                                    }                                                                                     
+                                    ?> </h5>
+                  <a href="<?php echo get_the_permalink( $listing->ID );?>"><p class="text-right">Mas info</p></a>
+               </div>
             </div>
-          </div> -->
-        </section>
-      </div>
+        </div>
+      <?php endforeach;
+            endif;?>
     </div>
 
 
+     <!--Propiedades en Renta-->
 
-    <!--CARD-BOX-->
+     <h2 class="titulo2 text-center mt-5">PROPIEDADES EN <span class="fw-bold">RENTA</span></h2>
 
-    <div class="row align-items-center p-1">
+<?php if( $rentals ): 
+      $k = 0;?>
 
-      <div class="col-sm-4">
-          <div class="card text-end bg-light">
+<div class="row justify-content-center p-1">
+
+  <?php foreach( $rentals as $rental ):  setup_postdata($rental);
+  $fotoRental = wp_get_attachment_image_src( get_post_thumbnail_id( $rental->ID ), 'full' );?>
+
+    <div class="col-sm-4 col-md-6 col-lg-4">
+        <div class="card text-end bg-light">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img
-              src="https://mdbootstrap.com/img/new/standard/nature/111.jpg"
-              class="img-fluid"
-              />
+              <img src="<?php echo $fotoRental[0];?>" class="img-front-listings"/>
               <a href="#!">
               <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
               </a>
           </div>
           <div class="card-body">
               <div class="card-text d-flex justify-content-between">
-              <h5 id="item-name">EN VENTA</h5>
-              <span><h2>US $445,000</h2></span>
+                <h5 id="item-name">EN RENTA</h5>
+                <span><h2><?php echo $rental->currency;?> $<?php echo number_format($rental->price);?> por mes</h2></span>
               </div>
-              <h3>Casa frente a playa destiladoras</h3>
-              <div class="flex1 align-items-center">
-              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1">2</p>
-              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1">2</p>
-              <img class="icon-size margin1" src="<?php echo get_template_directory_uri(). '/assets/images/ruler-vertical-solid.svg' ?>" alt="ruler"><p class="margin1">362m</p>
+              <h3><?php echo get_the_title( $rental->ID );?></h3>
+              <div class="flex1 justify-content-end justify-content-lg-start">
+                <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1"><?php echo $rental->bedrooms;?></p>
+                <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $rental->bathrooms;?></p>
+                <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $rental->construction;?>m<sup>2</sup></p>
               </div>
-              <h5 style="margin-top: 0.5rem;">MARINA VALLARTA</h5>
-              <a href="#!" ><p class="text-right">Mas info</p></a>
-          </div>
-          </div>
-      </div>
+              <h5 style="margin-top: 0.5rem;"><?php                                          
+                                $terms_list = array_reverse(wp_get_post_terms( $rental->ID, 'regiones' ) );
 
-
-
-    
-
+                                $j =1;
+                                if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
+                                    foreach ( $terms_list as $term ) {
+                                        echo $term->name;
+                                        if( $j < count($terms_list) ){
+                                            echo ', ';
+                                        }
+                                        $j++;
+                                    }
+                                }                                                                                     
+                                ?> </h5>
+              <a href="<?php echo get_the_permalink( $rental->ID );?>"><p class="text-right">Mas info</p></a>
+           </div>
+        </div>
     </div>
+  <?php endforeach;
+        endif;?>
+</div>
     
-
     <!--TITULO 1-->
-
     <div class="row text-center pad2">
         <h1 class="titulo2">RENTA Y VENTA DE PROPIEDADES<br>EN <span style="font-weight: bold;">PUERTO VALLARTA.</span></h1>
     </div>
+  
 
-    <!--IMAGEN VIVE EN EL PARAISO-->
-
-    <div class="row">
-        <img style="position: relative;
-        z-index: 1;" src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid" alt="Vive en el paraiso">
+    <!--IMAGEN PROPIEDADES DE LUJO-->
+    <div class="container-fluid" style="position: relative; z-index: 1;">
+        <img src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid w-100 p-0" alt="Vive en el paraiso">
+        <h2 class="p-5" id="prop-de-lujo">Propiedades<br>de lujo</h2>
+        <div class="fondo-oscuro"></div>
     </div>
 
     <!--TESTIMONIALES-->
+    <?php 
+      $testimonials = get_posts(array(
+          'post_type' => 'testimonials',
+      )); ?>
 
-    <div style="padding-bottom: 3rem; padding-top: 10rem;" class="row text-center">
-      <h1 style="font-weight: bold;">TESTIMONIALES</h1>
+    <?php if( $testimonials ): 
+                    
+                    $i = 0;
+                    $j = 0;
+
+                    ?>
+
+    <div class="row text-center mt-5 mb-3">
+      <h1 class="fw-bold mt-5">TESTIMONIALES</h1>
     </div>
 
+    <div id="carouselTestimonials" class="carousel slide carousel-dark" data-bs-ride="carousel">
 
-    <div class="row justify-content-center" style="padding-bottom: 10rem;">
-
-        <div class="col-sm-2 col-md-4 col-lg-2">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/1.png';?>" class="img-size-1" alt="Testimonio 1">
+        <div class="carousel-indicators">
+        <?php foreach( $testimonials as $testi ):  setup_postdata($testi);?>
+          <button type="button" data-bs-target="#carouselTestimonials" data-bs-slide-to="<?php echo $j;?>" class="<?php if($j==0){echo 'active';}?>" aria-current="true" aria-label="Slide <?php echo $j+1;?>"></button>
+        <?php $j++; endforeach; ?>
         </div>
 
-        <div class="col-sm-3 col-md-6 col-lg-3">
-            <div><h3 class="text-2">Laura Montezv</h3></div>
-            <div class="text-1"><p>Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Sed lobortis tellus a urna
-            scelerisque venenatis. Quisque aliquet velit
-            non tempor facilisis. Quisque sit amet aliquet
-            leo, a fringilla diam.</p>
-            </div>
+        <div class="carousel-inner">
+
+          <?php foreach( $testimonials as $testi ):  setup_postdata($testi);
+          $fotoTesti = wp_get_attachment_image_src( get_post_thumbnail_id( $testi->ID ), 'full' );?>
+            <div class="carousel-item <?php if($i==0){echo 'active';}?>">
+              <div class="row justify-content-center pb-5">
+
+                  <div class="col-6 col-md-4 col-lg-2" style="position:relative;">
+                      <img src="<?php echo $fotoTesti[0];?>" class="w-100 img-fluid img-testimonials" alt="Testimonio 1">
+                  </div>
+
+                  <div class="col-12 col-md-6 col-lg-4">
+                      <div><h3 class="text-2 my-2"><?php echo get_the_title($testi->ID);?></h3></div>
+                      <div class="text-1"><p><?php echo the_content($testi->ID);?></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <?php  $i++;  endforeach; ?>
+        
+            <?php endif; ?>
+          
         </div>
 
-        <div class="col-sm-2 col-md-4 col-lg-2">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/2.png';?>" class="img-size-1" alt="Testimonio 2">
-        </div>
-
-        <div class="col-sm-3 col-md-6 col-lg-3">
-            <div><h3 class="text-2">Louis & Katy</h3></div>
-            <div class="text-1"><p>Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Sed lobortis tellus a urna
-            scelerisque venenatis. Quisque aliquet velit
-            non tempor facilisis. Quisque sit amet aliquet
-            leo, a fringilla diam.</p>
-            </div>
-        </div>
-
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonials" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
     </div>
  
 
     <!--TITULO 2 Y BOTON-->
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-12">
             <div class="text-center p-2">
             <h1 class="text1">¿Quieres vender o rentar un <span style="font-weight:bold">inmueble?</span></h1>

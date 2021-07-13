@@ -1,6 +1,6 @@
 <div class="row contact-form">
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 px-2 px-lg-0">
             <img class="w-100 img-fluid mx-0 mx-lg-4" src="<?php echo get_template_directory_uri() .'/assets/images/playa.jpg';?>" alt="One Real Estate Contact">
         </div>
         

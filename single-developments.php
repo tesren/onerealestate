@@ -62,7 +62,7 @@
       </div>
 
        <!--MAPA google-->
-       <div class="container-fluid" style="position:relative;">
+       <div class="container-fluid text-center text-lg-start" style="position:relative;">
 
         <div class="row justify-content-center justify-content-lg-end location-titles">
 
@@ -108,7 +108,7 @@
 
          <!--Galeria de Amenidades-->
          <div class="container-fluid text-center mt-5" style="position:relative;">
-            <div class="row justify-content-center mb-2">
+            <div class="row justify-content-center mb-0 mb-lg-2">
                 <div class="col-12 col-lg-5 p-0">
                     <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Amenidades</h2></div>
                 </div>
@@ -122,7 +122,7 @@
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($k) ?> p-0 ">
-                        <img class="img-fluid w-100 p-1" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>">
+                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
                     </div>
 
                 <?php $k++;}?>
@@ -133,7 +133,7 @@
 
         <!--Galeria de fotos-->
         <div class="container-fluid text-center mt-5" style="position:relative;">
-            <div class="row justify-content-center mb-2">
+            <div class="row justify-content-center mb-0 mb-lg-2">
                 <div class="col-12 col-lg-5 p-0">
                     <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Galería</h2></div>
                 </div>
@@ -146,8 +146,8 @@
         
                     foreach ( $images as $image ) { ?>
                         
-                    <div class="<?php gallery_grid($l) ?> p-0 ">
-                        <img class="img-fluid w-100 p-1" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>">
+                    <div class="<?php gallery_grid($l) ?> p-0 " style="position:relative;">
+                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
                     </div>
 
                 <?php $l++;}?>

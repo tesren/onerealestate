@@ -60,7 +60,7 @@
                     <span style="color:white;"> 322 100 2030</span>
                 </div>
                 <div class="col-2 col-md-2 align-self-center" style="padding-left:0;">
-                    <i class="fas fa-2x fa-phone" style="color:white;"></i>
+                    <i class="fas fa-2x fa-phone my-1" style="color:white;"></i>
                 </div>
               </div>
           </div>

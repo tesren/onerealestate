@@ -210,6 +210,12 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'type'  => 'text',
             ],
             [
+                'name' => 'Mostrar en Página de inicio',
+                'id'   => 'featured_listing',
+                'type' => 'checkbox',
+                'std'  => 0, // 0 or 1
+            ],
+            [
                 'name'    => 'Datos generales',
                 'id'      => 'amenities',
                 'type'    => 'checkbox_list',
