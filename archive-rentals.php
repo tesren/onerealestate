@@ -10,9 +10,7 @@
             *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
             */
 
-            $rentals = get_posts(array(
-                'post_type' => 'rentals',
-            ));
+      
 
         ?>
         <div class="container-fluid landing" style="position:relative;">
@@ -53,15 +51,15 @@
             
         </form>
 
-        <div class="row p-0 mx-0 mb-5">
+        <div class="row p-0 mx-0">
 
-            <?php if( $rentals ): 
+            <?php if( have_posts() ): 
                 
                 $i = 1;
                 ?>
                 
-                <?php foreach( $rentals as $unit ):  setup_postdata($unit);
-                $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );?>
+                <?php while( have_posts()):  the_post();
+                $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );?>
             
                     
                     <div class="col-12 p-0 m-0 text-center text-lg-start listings-rentals <?php if( $i%2 == 0 ){echo 'listings-dorado';}?>">
@@ -72,10 +70,10 @@
                             </div>
 
                             <div class="col-lg-6 ps-0 pe-0 ps-lg-5 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
-                                <h2 class="pt-3 pt-lg-3 "><?php echo get_the_title( $unit->ID );?></h3>
+                                <h2 class="pt-3 pt-lg-3 "><?php echo get_the_title();?></h3>
                                 <hr class="<?php if( $i%2 == 0 ){echo 'hr-dorado';}?>" >
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php                                          
-                                    $terms_list = array_reverse(wp_get_post_terms( $unit->ID, 'regiones' ) );
+                                    $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
 
                                     $j =1;
                                     if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
@@ -92,15 +90,15 @@
                                 
                                 <!--camas baños y construction-->
                                 <div class="d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <h3><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Bedrooms</h3>
-                                    <h3 class="px-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> Baths</h3>
-                                    <h3><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
+                                    <h3><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Bedrooms</h3>
+                                    <h3 class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baths</h3>
+                                    <h3><i class="fas fa-home"></i> <?php echo rwmb_meta('construction');?> m<sup>2</sup></h3>
                                 </div>
                                 
                                 <!--precio y moneda-->
-                                <h2 class="my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h2>
+                                <h2 class="my-3"><?php echo rwmb_meta( 'currency');?>$<?php echo number_format(rwmb_meta('price'));?></h2>
                                 
-                                <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn1 mt-3 mb-5 mb-lg-1">Más Info</a>
+                                <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1">Más Info</a>
                             </div>
 
                         </div>
@@ -109,8 +107,11 @@
                 
                                     
                 <?php   $i++;
-                        endforeach; ?>
-        
+                        
+                        endwhile; 
+                        the_posts_pagination();
+                        ?>
+            
             <?php endif; ?>
 
         </div>

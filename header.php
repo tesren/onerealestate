@@ -56,8 +56,10 @@
           <div class="col-12 col-md-3 col-lg-2 text-center" style="background-color: #A28234; z-index: 1;">
               <div class="row g-0 justify-content-center" style="height:100%;">
                 <div class="col-10 col-md-8 align-self-center">
-                    <span class="text-4">Tour virtual</span>
-                    <span style="color:white;"> 322 100 2030</span>
+                    <div class="row justify-content-center">
+                      <span class="col-5 col-lg-12 text-4">Tour virtual</span>
+                      <span class="col-6 col-lg-12 " style="color:white;"> 322 100 2030</span>
+                    </div>
                 </div>
                 <div class="col-2 col-md-2 align-self-center" style="padding-left:0;">
                     <i class="fas fa-2x fa-phone my-1" style="color:white;"></i>

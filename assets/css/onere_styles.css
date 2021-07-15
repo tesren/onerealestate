@@ -35,6 +35,11 @@ a{
     margin: 0;
 } 
 
+.responsive-img{
+    max-height: 70vh;
+    object-fit: cover;
+}
+
 .landing h1{
     text-align: center;
     color: #fff;
@@ -46,6 +51,67 @@ a{
     width: 25%;
     border: 5px solid white;
 }
+
+/*Boton de whatsapp e inglés*/
+#whatsapp {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    right:30px;
+    background-color:#080F24;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:45px;
+    z-index:100;
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+
+  #whatsapp:hover{
+      background-color: #23ce63;
+      opacity: 1;
+      transition: 0.3s;
+  }
+
+  #whatsapp .fa-whatsapp {
+    position: relative;
+    vertical-align: top;
+    top: 7px;
+    left: 0;
+    width: 100%;
+  }
+
+  #boton-idioma {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    left:30px;
+    background-color:#080F24;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:45px;
+    z-index:100;
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+
+  #boton-idioma:hover{
+      background-color: lightskyblue;
+      opacity: 1;
+      transition: 0.3s;
+  }
+
+  #boton-idioma .fa-language {
+    position: relative;
+    vertical-align: top;
+    top: 7px;
+    width: 70%;
+  }
+
 /*Home page*/
 .img-front-listings{
     height: 20rem;
@@ -136,7 +202,7 @@ a{
     color: #929292;
     font-weight: 300;
 }
-.single-listings p:before{
+.single-listings .datos-generales p:before{
     color: #A28234;
     content: "•";
     font-weight: bold;
@@ -219,7 +285,7 @@ figure{
     width: 100%;
     height: 100%;
     z-index: 3;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .single-developments .description{
@@ -314,70 +380,6 @@ nav .nav-item i{
 .form-select{
     width: fit-content;
 }
-
-/*Boton de Whatsapp*/
-
-#whatsapp {
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:30px;
-    left:30px;
-    background-color:#080F24;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:45px;
-    z-index:100;
-    opacity: 0.8;
-    transition: 0.3s;
-  }
-
-  #whatsapp:hover{
-      opacity: 1;
-      background-color:#25d366;
-      transition: 0.3s;
-  }
-
-  #whatsapp .fa-whatsapp {
-    position: relative;
-    vertical-align: top;
-    top: 7px;
-    left: 0;
-    width: 100%;
-  }
-
-  /*boton de lenguaje*/
-  #language {
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:30px;
-    right:30px;
-    background-color:#080F24;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:45px;
-    z-index:100;
-    opacity: 0.8;
-    transition: 0.3s;
-  }
-
-  #language:hover{
-      opacity: 1;
-      background-color: lightskyblue;
-      transition: 0.3s;
-  }
-
-  #language .fa-globe {
-    position: relative;
-    vertical-align: top;
-    top: 7px;
-    left: 0;
-    width: 100%;
-  }
-
 
 /*FORMULARIO*/
 .select{
@@ -528,6 +530,36 @@ nav .nav-item i{
     justify-content: space-between;
     width: 3rem;
 }
+/*Paginación*/
+.pagination{
+    margin-top: 1rem;
+    text-align: center;
+    display: block;
+}
+
+.pagination h2{
+    display: none;
+    font-size: 2rem;
+}
+
+.pagination .nav-links{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.pagination .nav-links .current{
+    text-decoration: none;
+    color: black;
+}
+
+.pagination .page-numbers{
+    margin-right: 5px;
+    text-decoration: underline;
+}
+
+.pagination a{
+    color: #ab9154;
+}
 
 /*CARDBOX*/
 .icon-size{
@@ -593,6 +625,11 @@ nav .nav-item i{
 
     #prop-de-lujo{
         font-size: 2rem;
+    }
+
+    .responsive-img{
+        height: 55vh;
+        object-fit: cover;
     }
 
     /*single developments*/
@@ -759,6 +796,14 @@ nav .nav-item i{
   }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    .single-developments .location-titles{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 10;
+    }
+    
     .form-select{
         width: 100%;
     }

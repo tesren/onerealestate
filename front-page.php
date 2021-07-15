@@ -28,7 +28,7 @@
 ?>
 
     <!--Imagen-->
-    <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/header.jpg';?>" alt="">
+    <img class="img-fluid w-100 responsive-img" src="<?php echo get_template_directory_uri() .'/assets/images/header.jpg';?>" alt="">
 
 
     <!--Propiedades en Venta-->
@@ -146,7 +146,7 @@
 
     <!--IMAGEN PROPIEDADES DE LUJO-->
     <div class="container-fluid" style="position: relative; z-index: 1;">
-        <img src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid w-100 p-0" alt="Vive en el paraiso">
+        <img src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid w-100 p-0 responsive-img" alt="Vive en el paraiso">
         <h2 class="p-5" id="prop-de-lujo">Propiedades<br>de lujo</h2>
         <div class="fondo-oscuro"></div>
     </div>

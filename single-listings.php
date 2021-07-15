@@ -114,7 +114,7 @@
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($j) ?> p-0 gallery-images">
-                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="gallery-listings" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
+                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="gallery-listings" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
                     </div>
 
                 <?php $j++;}?>
