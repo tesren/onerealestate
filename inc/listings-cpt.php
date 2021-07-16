@@ -36,7 +36,7 @@
                 'title',
                 'editor',
                 //'excerpt',
-                'thumbnail',
+                //'thumbnail',
                 'revisions',
             ),
             //'taxonomies' => array('category', 'post_tag'),
@@ -259,33 +259,6 @@ function listings_register_meta_boxes( $meta_boxes ) {
         ],
     ];
 
-    //Featured img 2
-    $meta_boxes[] = [
-        
-        'title' => 'Foto destacada 2',
-        'post_types' => 'listings',
-
-        'fields' => [
-            [
-                'id'               => 'featured_img_2',
-                'name'             => 'Image upload',
-                'type'             => 'image_upload',
-
-                // Delete file from Media Library when remove it from post meta?
-                // Note: it might affect other posts if you use same file for multiple posts
-                'force_delete'     => false,
-
-                // Maximum file uploads.
-                'max_file_uploads' => 1,
-
-                // Do not show how many files uploaded/remaining.
-                'max_status'       => 'false',
-
-                // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
-            ],
-        ]
-    ];
 
     // Add more field groups if you want
     $meta_boxes[] = [
@@ -342,11 +315,6 @@ function listings_register_meta_boxes( $meta_boxes ) {
         'post_types' => 'listings',
 
         'fields' => [
-            [
-                'id'   => 'address',
-                'name' => 'Address',
-                'type' => 'text',
-            ],
             // Map field.
             [
                 'id'            => 'listings_map',

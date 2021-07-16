@@ -40,13 +40,16 @@
 
     <div class="row justify-content-center p-1">
 
-      <?php foreach( $listings as $listing ):  setup_postdata($listing);
-      $fotoListing = wp_get_attachment_image_src( get_post_thumbnail_id( $listing->ID ), 'full' );?>
+      <?php foreach( $listings as $listing ):  setup_postdata($listing);?>
 
         <div class="col-sm-4 col-md-6 col-lg-4">
             <div class="card text-end bg-light">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                  <img src="<?php echo $fotoListing[0];?>" class="img-front-listings"/>
+
+                <?php $images = rwmb_meta( 'listing_gallery', array('size' => 'large', 'limit' => '1' ),$listing->ID); 
+                foreach ( $images as $image ) {?>
+                  <img src="<?php echo $image['url'];?>" class="img-front-listings" alt="<?php echo $image['title'];?>"/>
+                    <?php }?>
                   <a href="#!">
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                   </a>
@@ -94,13 +97,17 @@
 
 <div class="row justify-content-center p-1">
 
-  <?php foreach( $rentals as $rental ):  setup_postdata($rental);
-  $fotoRental = wp_get_attachment_image_src( get_post_thumbnail_id( $rental->ID ), 'full' );?>
+  <?php foreach( $rentals as $rental ):  setup_postdata($rental);?>
 
     <div class="col-sm-4 col-md-6 col-lg-4">
         <div class="card text-end bg-light">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <img src="<?php echo $fotoRental[0];?>" class="img-front-listings"/>
+
+            <?php $imagesr = rwmb_meta( 'rental_gallery', array('size' => 'large', 'limit' => '1' ),$rental->ID); 
+              foreach ( $imagesr as $imager ) {?>
+              <img src="<?php echo $imager['url'];?>" class="img-front-listings" alt="<?php echo $imager['title'];?>"/>
+              <?php }?>
+  
               <a href="#!">
               <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
               </a>
@@ -108,13 +115,20 @@
           <div class="card-body">
               <div class="card-text d-flex justify-content-between">
                 <h5 id="item-name">EN RENTA</h5>
-                <span><h2><?php echo $rental->currency;?> $<?php echo number_format($rental->price);?> por mes</h2></span>
+
+                <?php 
+                  $pricesBaja = rwmb_meta( 'precio-baja',$args = [], $rental->ID); 
+                  $priceNoche = $pricesBaja['noche'];
+                  $priceSemana = $pricesBaja['semana'];
+                  $priceMes = $pricesBaja['mes'];
+                ?>
+                <span><h2>Desde: <?php echo $rental->currency;?> $<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2></span>
               </div>
               <h3><?php echo get_the_title( $rental->ID );?></h3>
               <div class="flex1 justify-content-end justify-content-lg-start">
                 <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1"><?php echo $rental->bedrooms;?></p>
                 <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $rental->bathrooms;?></p>
-                <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $rental->construction;?>m<sup>2</sup></p>
+                <p class="fw-bold"><i class="fas fa-male"></i> <?php echo $rental->rentals_capacity;?></p>
               </div>
               <h5 style="margin-top: 0.5rem;"><?php                                          
                                 $terms_list = array_reverse(wp_get_post_terms( $rental->ID, 'regiones' ) );

@@ -11,7 +11,7 @@
     <div class="container-fluid single-listings">
         <div class="row">
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 mt-3">
                 <div style="background-color: #ab9154;"><h1 class="text-center text-lg-start ms-0 ms-lg-5 mb-0"><?php the_title();?></h1></div>
                 <div class="row justify-content-center justify-content-lg-end ">
 
@@ -41,26 +41,74 @@
         <div class="row pt-3 pt-lg-5">
 
             <div class="col-lg-6 order-2 order-lg-1">
+                <!--descripcion-->
                 <div class="px-4 px-lg-5 pt-4"><?php echo the_content(); ?></div>
-                <h2 class="py-3 mt-1 mt-lg-5 text-center"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?> al mes</h2>
+
+                <!--precios-->
+                <?php 
+                    $pricesBaja = rwmb_meta( 'precio-baja' ); 
+                    $priceBnoche = $pricesBaja['noche'];
+                    $priceBsemana = $pricesBaja['semana'];
+                    $priceBmes = $pricesBaja['mes'];
+
+                    $pricesAlta = rwmb_meta( 'precio-alta' ); 
+                    $priceAnoche = $pricesAlta['noche'];
+                    $priceAsemana = $pricesAlta['semana'];
+                    $priceAmes = $pricesAlta['mes'];
+                ?>
+
+                    <div class="row mt-3" id="carouselPrecios" > 
+                        <div class="col-lg-6">
+                            <h2 class="col-12 pb-3 text-center">Precios Temporada Baja</h2>
+                            <div class="row justify-content-center">
+                                <?php if(!empty($priceBmes)){?>
+                                <h3 class="col-5 p-0">Mes:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBmes);?></h3>
+                                <?php } if(!empty($priceBsemana)){?>
+                                <h3 class="col-5 p-0">Semana:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBsemana);?></h3>
+                                <?php } if(!empty($priceBnoche)){?>
+                                <h3 class="col-5 p-0">Noche:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBnoche);?></h3>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <h2 class="col-12 pb-3 text-center mt-3 mt-lg-0">Precios Temporada Alta</h2>
+                            <div class="row justify-content-center">
+                                <?php if(!empty($priceAmes)){?>
+                                <h3 class="col-5 p-0">Mes:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAmes);?></h3>
+                                <?php } if(!empty($priceAsemana)){?>
+                                <h3 class="col-5 p-0">Semana:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAsemana);?></h3>
+                                <?php } if(!empty($priceAnoche)){?>
+                                <h3 class="col-5 p-0">Noche:</h3>
+                                <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAnoche);?></h3>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2">
-                <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
-                <img class="w-100 img-fluid px-0" src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>" alt="">
+                <?php $images = rwmb_meta( 'rental_gallery', array( 'size' => 'full', 'limit' => '2' ) );?>
+                <img class="w-100 img-fluid px-0" src="<?php echo $images[0]['url']; ?>" alt="<?php the_title();?>" alt="">
 
-                <div class="row ps-4 ps-lg-5 pt-3 text-center">
-                    <div class="col-6 col-lg-3">
-                        <h5><i class="fas fa-ruler-combined"></i> <?php echo rwmb_meta( 'lot_area' );?> m<sup>2</sup></h5>
+                <div class="row pt-3 text-center justify-content-center">
+                    <div class="col-4 col-lg-3">
+                        <h5><i class="fas fa-male"></i> <?php echo rwmb_meta( 'rentals_capacity' );?></h5>
                     </div>
-                    <div class="col-6 col-lg-3">
-                        <h5><i class="fas fa-home"></i> <?php echo rwmb_meta( 'construction' );?> m<sup>2</sup></h5>
-                    </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-4 col-lg-3">
                         <h5><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'bedrooms' );?></h5>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-4 col-lg-3">
                         <h5><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?></h5>
+                    </div>
+                    <div class="col-4 col-lg-3">
+                        <h5><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?></h5>
                     </div>
                 </div>
             </div>
@@ -71,12 +119,7 @@
 
             <div class="col-lg-6">
                 <!--foto destacada-->
-                <?php $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'full' ) );
-                                $l = 0;
-                                    foreach ( $ft_photos as $ft_photo ) { ?>
-
-                <img class="img-fluid w-100" src="<?php echo $ft_photo[ 'url' ];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
-                <?php $l++; }?>
+                <img class="img-fluid w-100" src="<?php echo $images[1]['url'];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
                         
             </div>
             

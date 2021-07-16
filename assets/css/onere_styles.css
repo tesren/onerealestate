@@ -136,7 +136,7 @@ a{
 }
 
 .listings-rentals h2{
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: normal;
 }
 
@@ -178,6 +178,18 @@ a{
 }
 
 /*single listings y rentals*/
+
+#carouselPrecios h2{
+    font-size: 1.2rem;
+    color: #707070;
+    font-weight: 400;
+}
+
+#carouselPrecios h3{
+    font-size: 1.5rem;
+    color: #ab9154;
+    font-weight: bold;
+}
 
 .single-listings h1{
     font-size: 3rem;

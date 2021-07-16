@@ -243,7 +243,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     function check_post_type_and_remove_media_buttons() {
         global $current_screen;
         // Replace following array items with your own custom post types
-        $post_types = array('listings','lifestyle', 'developments', 'realtors');
+        $post_types = array('listings','rentals', 'developments', 'realtors');
         if (in_array($current_screen->post_type,$post_types)) {
         remove_action('media_buttons', 'media_buttons');
         }
@@ -282,6 +282,34 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             echo 'd-none d-lg-none';
         }
 
+    }
+
+    function check_empty_prices($precioNoche, $precioSemana, $precioMes){
+        
+        //si solo llenan un campo
+        if(empty($precioMes) && empty($precioSemana)){
+            return $precioNoche;
+        }
+        elseif(empty($precioNoche) && empty($precioSemana)){
+            return $precioMes;
+        }
+        elseif( empty($precioNoche) && empty($precioMes)){
+            return $precioSemana;
+        }
+        //si llenan 2
+        elseif(empty($precioMes) && !empty($precioSemana) && !empty($precioNoche)){
+            return $precioNoche;
+        }
+        elseif(empty($precioNoche) && !empty($precioSemana) && !empty($precioMes)){
+            return $precioSemana;
+        }
+        elseif(empty($precioSemana) && !empty($precioNoche) && !empty($precioMes)){
+            return $precioNoche;
+        }
+        //si llenan todos
+        else{
+            return $precioNoche;
+        }
     }
 
 

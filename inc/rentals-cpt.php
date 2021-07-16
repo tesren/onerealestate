@@ -36,7 +36,7 @@
                 'title',
                 'editor',
                 //'excerpt',
-                'thumbnail',
+                //'thumbnail',
                 'revisions',
             ),
             'menu_icon' => 'dashicons-money-alt',
@@ -62,11 +62,36 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
-                'name'  => 'Precio al mes',
-                'desc'  => 'Solo numeros, sin signos ni puntos',
-                'id'    => 'price',
-                'type'  => 'number',
-                'size'  => 30,
+                'id'      => 'precio-alta',
+                'name'    => 'Precios temporada alta',
+                'type'    => 'fieldset_text',
+                'desc'    => 'Ingrese los precios de la temporada alta, por mes, semana y noche',
+                // Options: array of key => Label for text boxes
+                // Note: key is used as key of array of values stored in the database
+                'options' => array(
+                    'mes'    => 'Mes',
+                    'semana' => 'Semana',
+                    'noche' => 'Noche',
+                ),
+            
+                // Is field cloneable?
+                'clone' => false,
+            ],
+            [
+                'id'      => 'precio-baja',
+                'name'    => 'Precios temporada baja',
+                'type'    => 'fieldset_text',
+                'desc'    => 'Ingrese los precios de la temporada alta, por mes, semana y noche',
+                // Options: array of key => Label for text boxes
+                // Note: key is used as key of array of values stored in the database
+                'options' => array(
+                    'mes'    => 'Mes',
+                    'semana' => 'Semana',
+                    'noche' => 'Noche',
+                ),
+            
+                // Is field cloneable?
+                'clone' => false,
             ],
             [
                 'name'            => 'Moneda',
@@ -125,13 +150,6 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'size'  => 30,
             ],
             [
-                'name'  => 'Medios Baños',
-                'desc'  => 'Solo números',
-                'id'    => 'half_baths',
-                'type'  => 'number',
-                'size'  => 30,
-            ],
-            [
                 'name'            => 'Muebles',
                 'id'              => 'furniture',
                 'type'            => 'select',
@@ -150,17 +168,10 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'select_all_none' => false,
             ],
             [
-                'name'  => 'Construcción',
-                'desc'  => 'Solo números (m2)',
-                'id'    => 'construction',
-                'type'  => 'text',
-                'size'  => 30,
-            ],
-            [
-                'name'  => 'Lote',
-                'desc'  => 'Solo números (m2)',
-                'id'    => 'lot_area',
-                'type'  => 'text',
+                'name'  => 'Personas',
+                'desc'  => 'Especifique un número máximo de personas',
+                'id'    => 'rentals_capacity',
+                'type'  => 'number',
                 'size'  => 30,
             ],
             [
@@ -209,6 +220,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                     'Golf'                =>'Golf',
                     'Cancha de baloncesto'=>'Cancha de baloncesto',
                     'Cancha de tennis'    =>'Cancha de tennis',
+                    'Servicio de limpieza'=>'Servicio de limpieza',
                 ),
                 // Display options in a single row?
                 // 'inline' => true,
@@ -218,34 +230,6 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
             
             // More fields.
         ],
-    ];
-
-     //Featured img 2
-     $meta_boxes[] = [
-        
-        'title' => 'Foto destacada 2',
-        'post_types' => 'rentals',
-
-        'fields' => [
-            [
-                'id'               => 'featured_img_2',
-                'name'             => 'Image upload',
-                'type'             => 'image_upload',
-
-                // Delete file from Media Library when remove it from post meta?
-                // Note: it might affect other posts if you use same file for multiple posts
-                'force_delete'     => false,
-
-                // Maximum file uploads.
-                'max_file_uploads' => 1,
-
-                // Do not show how many files uploaded/remaining.
-                'max_status'       => 'false',
-
-                // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
-            ],
-        ]
     ];
 
     // Add more field groups if you want

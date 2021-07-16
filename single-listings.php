@@ -11,7 +11,7 @@
     <div class="container-fluid single-listings">
         <div class="row">
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 mt-3">
                 <div style="background-color: #ab9154;"><h1 class="text-center text-lg-start ms-0 ms-lg-5 mb-0"><?php the_title();?></h1></div>
                 <div class="row justify-content-center justify-content-lg-end ">
 
@@ -46,21 +46,28 @@
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2">
-                <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
-                <img class="w-100 img-fluid px-0" src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>" alt="">
 
-                <div class="row ps-4 ps-lg-5 pt-3 text-center">
+                <?php $images = rwmb_meta( 'listing_gallery', array( 'size' => 'full', 'limit' => '1' ) );
+                
+                foreach ( $images as $image ) { ?> 
+                <img class="w-100 img-fluid px-0" src="<?php echo $image['url']; ?>" alt="<?php the_title();?>">
+                <?php } ?>
+
+                <div class="row pt-3 text-center justify-content-center">
                     <div class="col-6 col-lg-3">
                         <h5><i class="fas fa-ruler-combined"></i> <?php echo rwmb_meta( 'lot_area' );?> m<sup>2</sup></h5>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-6 col-lg-2">
                         <h5><i class="fas fa-home"></i> <?php echo rwmb_meta( 'construction' );?> m<sup>2</sup></h5>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-6 col-lg-2">
                         <h5><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'bedrooms' );?></h5>
                     </div>
-                    <div class="col-6 col-lg-3">
+                    <div class="col-6 col-lg-2">
                         <h5><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?></h5>
+                    </div>
+                    <div class="col-9 col-lg-3">
+                        <h5><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?></h5>
                     </div>
                 </div>
             </div>
@@ -71,13 +78,10 @@
 
             <div class="col-lg-6">
                 <!--foto destacada-->
-                <?php $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'full' ) );
-                                $l = 0;
-                                    foreach ( $ft_photos as $ft_photo ) { ?>
-
-                <img class="img-fluid w-100" src="<?php echo $ft_photo[ 'url' ];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
-                <?php $l++; }?>
-                        
+                <?php $photos = rwmb_meta( 'listing_gallery', array( 'size' => 'full', 'limit' => '2' ) );?>
+                
+                <img class="img-fluid w-100" src="<?php echo $photos[1]['url'];?>" alt="<?php echo $photo[1][ 'title' ];?>">
+                
             </div>
             
            <!--datos generales-->
