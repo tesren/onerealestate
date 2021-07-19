@@ -1,4 +1,4 @@
-
+    </div><!--Contenedor-margin-->
     <!--boton whatsapp-->
     <a href="https://wa.me/523221002030?text=Hola%20quisiera%20saber%20mas%20información%20de%20One%20Real%20Estate" id="whatsapp" target="_blank"> 
         <i class="fab fa-whatsapp"></i>
@@ -6,7 +6,7 @@
 
      <!--boton Idioma-->
      <a href="#" id="boton-idioma"> 
-        <i class="fas fa-language"></i>
+        <i class="fas fa-globe"></i>
     </a>
       
       <!--FOOTER-->

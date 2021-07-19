@@ -303,7 +303,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
+                'api_key'       => 'AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0',
             ]
         ],
     ];

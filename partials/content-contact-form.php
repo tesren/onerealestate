@@ -1,7 +1,7 @@
 <div class="row contact-form text-center justify-content-center">
 
         <div class="col-lg-6 px-2 px-lg-0">
-            <img class=" img-fluid mx-0 mx-lg-4" src="<?php echo get_template_directory_uri() .'/assets/images/logo-onereal-cuadrado.png';?>" alt="One Real Estate Contact">
+            <img class=" img-fluid mx-0 mx-lg-4 mt-1 mt-lg-4" src="<?php echo get_template_directory_uri() .'/assets/images/logo-onereal-cuadrado.png';?>" alt="One Real Estate Contact">
         </div>
         
         <!--formulario-->

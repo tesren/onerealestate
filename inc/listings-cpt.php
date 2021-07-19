@@ -144,7 +144,24 @@ function listings_register_meta_boxes( $meta_boxes ) {
                     // How to show taxonomy.
                     'field_type' => 'radio_list',
             ],
-
+            [
+                'name'            => 'Disponibilidad',
+                'id'              => 'avaliable',
+                'type'            => 'select',
+                'required'        => true,
+                // Array of 'value' => 'Label' pairs
+                'options'         => array(
+                    'Disponible'  => 'Disponible',
+                    'Apartado'    => 'Apartado',
+                    'Vendido'     => 'Vendido',
+                ),
+                // Allow to select multiple value?
+                'multiple'        => false,
+                // Placeholder text
+                'placeholder'     => 'Elige una opción',
+                // Display "Select All / None" button?
+                'select_all_none' => false,
+            ],
             [
                     'name'       => 'Ubicación',
                     'id'         => 'location',
@@ -328,7 +345,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
+                'api_key'       => 'AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0',
             ]
         ],
     ];

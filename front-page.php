@@ -27,8 +27,25 @@
   ));
 ?>
 
-    <!--Imagen-->
-    <img class="img-fluid w-100 responsive-img" src="<?php echo get_template_directory_uri() .'/assets/images/header.jpg';?>" alt="">
+    <!--Carrusel-->
+    <div id="carouseFront" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="<?php echo get_template_directory_uri() .'/assets/images/portada-1.jpeg';?>" class="d-block w-100 responsive-img" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="<?php echo get_template_directory_uri() .'/assets/images/portada-2.jpeg';?>" class="d-block w-100 responsive-img" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouseFront" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouseFront" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
 
     <!--Propiedades en Venta-->
@@ -48,15 +65,19 @@
 
                 <?php $images = rwmb_meta( 'listing_gallery', array('size' => 'large', 'limit' => '1' ),$listing->ID); 
                 foreach ( $images as $image ) {?>
-                  <img src="<?php echo $image['url'];?>" class="img-front-listings" alt="<?php echo $image['title'];?>"/>
-                    <?php }?>
-                  <a href="#!">
+
+                  <a href="<?php echo get_the_permalink( $listing->ID );?>">
+                    <img src="<?php echo $image['url'];?>" class="img-front-listings" alt="<?php echo $image['title'];?>"/>
+                  </a>
+                <?php }?>
+                 
+
                   <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                   </a>
               </div>
               <div class="card-body">
                   <div class="card-text d-flex justify-content-between">
-                    <h5 id="item-name">EN VENTA</h5>
+                    <h5 id="item-name" class="fw-normal <?php echo rwmb_meta('avaliable',[],$listing->ID);?>"><?php echo rwmb_meta('avaliable',[],$listing->ID);?></h5>
                     <span><h2><?php echo $listing->currency;?> $<?php echo number_format($listing->price);?></h2></span>
                   </div>
                   <h3><?php echo get_the_title( $listing->ID );?></h3>
@@ -105,7 +126,9 @@
 
             <?php $imagesr = rwmb_meta( 'rental_gallery', array('size' => 'large', 'limit' => '1' ),$rental->ID); 
               foreach ( $imagesr as $imager ) {?>
-              <img src="<?php echo $imager['url'];?>" class="img-front-listings" alt="<?php echo $imager['title'];?>"/>
+                <a href="<?php echo get_the_permalink( $rental->ID );?>">
+                  <img src="<?php echo $imager['url'];?>" class="img-front-listings" alt="<?php echo $imager['title'];?>"/>
+                </a>
               <?php }?>
   
               <a href="#!">
@@ -171,7 +194,7 @@
           'post_type' => 'testimonials',
       )); ?>
 
-    <?php if( $testimonials ): 
+    <?php if( !empty($testimonials) ): 
                     
                     $i = 0;
                     $j = 0;
@@ -211,7 +234,7 @@
 
           <?php  $i++;  endforeach; ?>
         
-            <?php endif; ?>
+            
           
         </div>
 
@@ -224,7 +247,7 @@
           <span class="visually-hidden">Next</span>
         </button>
     </div>
- 
+    <?php endif; ?>
 
     <!--TITULO 2 Y BOTON-->
     <div class="row mt-5">

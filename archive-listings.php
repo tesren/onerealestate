@@ -51,7 +51,7 @@
             
         </form>
 
-        <div class="row p-0 mx-0">
+        <div class="row p-0 mx-0 mb-5">
 
             <?php if( have_posts() ): 
                 
@@ -68,12 +68,15 @@
                             
                             <div class="col-lg-6 <?php if( $i%2 == 0 ){echo 'order-1 order-lg-2';}?>">
                                 <?php foreach ( $images as $image ) {?>
-                                    <img class="img-fluid w-100" src="<?php echo $image['url'];?>" alt="Listing image">
+                                    <a href="<?php echo get_the_permalink();?>">
+                                        <img class="img-fluid w-100" src="<?php echo $image['url'];?>" alt="Listing image">
+                                    </a>
                                 <?php } ?>
                             </div>
 
                             <div class="col-lg-6 ps-0 pe-0 ps-lg-5 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
-                                <h2 class="pt-3 pt-lg-3 "><?php echo get_the_title();?></h3>
+                                <!-- <h3 class="mb-0 mt-2 fw-normal"><?php echo rwmb_meta('avaliable')?></h3> -->
+                                <h2 class="mt-3 pt-lg-1 "><?php echo get_the_title();?></h2>
                                 <hr class="<?php if( $i%2 == 0 ){echo 'hr-dorado';}?>" >
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php                                          
                                     $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );

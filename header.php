@@ -21,7 +21,7 @@
     <body <?php body_class();?>>
 
       <!--NAVBAR-->
-    <header>
+    <header class="fixed-top bg-light">
       <div class="container-fluid">
         <div class="row">
         
@@ -70,4 +70,5 @@
         </div>
       </div>
     </header>
+    <div class="contenedor-margin mt-5 pt-3 pt-lg-0">
 

@@ -51,7 +51,7 @@
             
         </form>
 
-        <div class="row p-0 mx-0">
+        <div class="row p-0 mx-0 mb-5">
 
             <?php if( have_posts() ): 
                 
@@ -67,7 +67,9 @@
                             
                             <div class="col-lg-6 <?php if( $i%2 == 0 ){echo 'order-1 order-lg-2';}?>">
                                 <?php foreach ( $images as $image ) {?>
-                                <img class="img-fluid w-100" src="<?php echo $image['url'];?>" alt="Rental image">
+                                    <a href="<?php echo get_the_permalink();?>">
+                                        <img class="img-fluid w-100" src="<?php echo $image['url'];?>" alt="Rental image">
+                                    </a>
                                 <?php } ?>
                             </div>
 
