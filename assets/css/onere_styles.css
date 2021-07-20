@@ -36,7 +36,7 @@ a{
 } 
 
 .responsive-img{
-    max-height: 75vh;
+    max-height: 95vh;
     object-fit: cover;
 }
 
@@ -176,11 +176,12 @@ color : darkgreen !important;
 }
 
 #prop-de-lujo{
+    font-weight: lighter;
     color: #fff;
     font-size: 8rem;
     position: absolute;
-    left: 0;
-    top: 0;
+    width: 100%;
+    top: 35%;
     z-index: 4;
 }
 
@@ -397,8 +398,9 @@ figure{
 }
 
 /*NAVBAR*/
-.logo{
-    height: 4rem;
+#nav_heder_logo{
+    width: 250px;
+    height: auto;
 }
 .nav-link{
     margin-right: 1rem;
@@ -553,7 +555,7 @@ nav .nav-item i{
     background-color: #A28234;
     padding-top: 2rem; 
     padding-bottom: 2rem;
-    background-image: url(/images/one_logo.svg);
+    /*background-image: url(/images/one_logo.svg);*/
     background-repeat: repeat-y;
     background-position: center;
 }
@@ -691,11 +693,12 @@ nav .nav-item i{
     }
 
     #prop-de-lujo{
-        font-size: 2rem;
+        font-size: 2.3rem;
+        top: 40%;
     }
 
     .responsive-img{
-        height: 55vh;
+        height: 95vh;
         object-fit: cover;
     }
 
@@ -840,6 +843,10 @@ nav .nav-item i{
     }
 
     /*NAVBAR MOBILE*/
+    #nav_heder_logo{
+        width: 200px;
+        height: auto;
+    }
     #ore_main_navbar li a:after{
         content: "";
     }
@@ -889,7 +896,8 @@ nav .nav-item i{
         width: 100%;
     }
     #prop-de-lujo{ 
-        font-size: 5rem;
+        top: 30%;
+        font-size: 4rem;
     }
 
     .single-listings p{
@@ -992,7 +1000,7 @@ nav .nav-item i{
         margin-right: 3.8rem;
     }
     .titulo2{
-        font-size: 3.5rem;
+        font-size: 2.5rem;
         font-weight: initial;
     }
     .nav-link{

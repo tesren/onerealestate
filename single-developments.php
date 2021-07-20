@@ -9,9 +9,9 @@
     <div class="container-fluid single-developments">
         <!--Imagen con texto-->
       <div class="container-fluid " style="position:relative;">
-            <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
+        <?php $images = rwmb_meta( 'more_photos', array( 'size' => 'full', 'limit' => '2' ) );?>
 
-            <img class="w-100 img-fluid mobile-img"  src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
+            <img class="w-100 img-fluid mobile-img"  src="<?php echo $images[0]['url']; ?>" alt="<?php the_title();?>">
 
             <!--logo Desarrollo-->
             <?php $logos = rwmb_meta( 'logo-dev', array( 'size' => 'large' ) );
@@ -53,12 +53,8 @@
         </div>
 
         <div class="fondo-oscuro"></div>
-        <?php $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'large' ) );
-                $i = 0;
-                    foreach ( $ft_photos as $ft_photo ) { ?>
+          <img class="img-fluid w-100 mobile-img" src="<?php echo $images[1]['url'];?>" alt="<?php echo $images[1]['title'];?>">
 
-          <img class="img-fluid w-100 mobile-img" src="<?php echo $ft_photo[ 'url' ];?>" alt="<?php echo $ft_photo[ 'title' ];?>">
-        <?php     $i++; }?>
       </div>
 
        <!--MAPA google-->
@@ -143,7 +139,7 @@
             <div class="row gallery-images">
                 <?php $images = rwmb_meta( 'more_photos', array( 'size' => 'full' ) );
                     $l = 0;
-        
+
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($l) ?> p-0 " style="position:relative;">

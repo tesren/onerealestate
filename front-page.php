@@ -25,18 +25,32 @@
           )
       ),
   ));
+
+  $frontImages = get_posts(array('post_type' => 'frontpage'));
 ?>
 
+
+  
     <!--Carrusel-->
     <div id="carouseFront" class="carousel slide" data-bs-ride="carousel">
+    <?php foreach($frontImages as $frontImage){ setup_postdata($frontImage); ?>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="<?php echo get_template_directory_uri() .'/assets/images/portada-1.jpeg';?>" class="d-block w-100 responsive-img" alt="...">
+
+        <?php
+        $frontImgs = rwmb_meta('front_gallery', array('size' => 'full'), $frontImage->ID); 
+        $f=0;
+        
+        foreach($frontImgs as $frontImg): ?>
+
+        <div class="carousel-item <?php if($f==0){echo 'active';}?>">
+          <img src="<?php echo $frontImg['url'];?>" class="d-block w-100 responsive-img" alt="<?php echo $frontImg['title'];?>">
         </div>
-        <div class="carousel-item">
-          <img src="<?php echo get_template_directory_uri() .'/assets/images/portada-2.jpeg';?>" class="d-block w-100 responsive-img" alt="...">
-        </div>
+
+       <?php $f++; endforeach; ?>
+
       </div>
+      <?php } ?>
+
       <button class="carousel-control-prev" type="button" data-bs-target="#carouseFront" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -46,11 +60,12 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+   
 
 
     <!--Propiedades en Venta-->
 
-    <h2 class="titulo2 text-center mt-5">PROPIEDADES EN <span class="fw-bold">VENTA</span></h2>
+    <h2 class="titulo2 text-center mt-5 pt-4">PROPIEDADES EN <span class="fw-bold">VENTA</span></h2>
 
     <?php if( $listings ): 
           $l = 0;?>
@@ -182,9 +197,9 @@
   
 
     <!--IMAGEN PROPIEDADES DE LUJO-->
-    <div class="container-fluid" style="position: relative; z-index: 1;">
+    <div class="container-fluid text-center" style="position: relative; z-index: 1;">
         <img src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid w-100 p-0 responsive-img" alt="Vive en el paraiso">
-        <h2 class="p-5" id="prop-de-lujo">Propiedades<br>de lujo</h2>
+        <h2 class="p-5" id="prop-de-lujo">Propiedades de lujo</h2>
         <div class="fondo-oscuro"></div>
     </div>
 

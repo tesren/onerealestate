@@ -37,7 +37,7 @@
                 'title',
                 'editor',
                 //'excerpt', 
-                'thumbnail',
+                //'thumbnail',
                 'revisions',
                 //'page-attributes',
             ),
@@ -166,34 +166,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
         'fields' => [
             [
                 'id'               => 'logo-dev',
-                'name'             => 'Image upload',
-                'type'             => 'image_upload',
-
-                // Delete file from Media Library when remove it from post meta?
-                // Note: it might affect other posts if you use same file for multiple posts
-                'force_delete'     => false,
-
-                // Maximum file uploads.
-                'max_file_uploads' => 1,
-
-                // Do not show how many files uploaded/remaining.
-                'max_status'       => 'false',
-
-                // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
-            ],
-        ]
-    ];
-
-    $meta_boxes[] = [
-        
-        'title' => 'Foto destacada 2',
-        'post_types' => 'developments',
-
-        'fields' => [
-            [
-                'id'               => 'featured_img_2',
-                'name'             => 'Image upload',
+                'name'             => 'Suba el logo del Desarrollo que sera mostrado en la página',
                 'type'             => 'image_upload',
 
                 // Delete file from Media Library when remove it from post meta?
@@ -220,7 +193,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
         'fields' => [
             [
                 'id'               => 'amenities_gallery',
-                'name'             => 'Image upload',
+                'name'             => 'Suba imagenes solamente de las amenidades',
                 'type'             => 'image_upload',
 
                 // Delete file from Media Library when remove it from post meta?
@@ -243,13 +216,13 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Galería',
+        'title' => 'Galería de fotos generales',
         'post_types' => 'developments',
 
         'fields' => [
             [
                 'id'               => 'more_photos',
-                'name'             => 'Image upload',
+                'name'             => 'Suba fotos generales del desarrollo',
                 'type'             => 'image_upload',
 
                 // Delete file from Media Library when remove it from post meta?
@@ -274,11 +247,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
         'post_types' => 'developments',
 
         'fields' => [
-            // [
-            //     'id'   => 'address',
-            //     'name' => 'Address',
-            //     'type' => 'text',
-            // ],
+     
             // Map field.
             [
                 'id'            => 'development_map',
@@ -292,7 +261,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
+                'api_key'       => 'AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0',
             ]
         ],
     ];
