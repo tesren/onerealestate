@@ -21,7 +21,7 @@
       
         <form class="row my-5 text-center justify-content-center mx-3 mx-lg-0" action="">
 
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar">
+            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar" name="lugar">
                 <option selected>Elige un lugar</option>
                 <option value="1">Puerto Vallarta</option>
                 <option value="2">Bucerías</option>
@@ -29,19 +29,19 @@
                 </option>
             </select>
 
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo">
+            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo" name="tipo">
                 <option selected>Tipo</option>
                 <option value="1">Casa</option>
                 <option value="2">Departamento</option>
             </select>
 
             <div class="col-lg-2 form-floating px-0 px-lg-2 mb-2 mb-lg-0">
-                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras">
+                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras" name="beds">
                 <label class="ms-2" for="bedrooms">Recámaras</label>
             </div>
 
             <div class="col-lg-2 form-floating px-0 px-lg-2 mb-4 mb-lg-0">
-                <input type="number" class="form-control" id="max-price" placeholder="Precio">
+                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
                 <label class="ms-2" for="max-price">Precio Máximo</label>
             </div>
             
@@ -78,21 +78,7 @@
                                 <!-- <h3 class="mb-0 mt-2 fw-normal"><?php echo rwmb_meta('avaliable')?></h3> -->
                                 <h2 class="mt-3 pt-lg-1 "><?php echo get_the_title();?></h2>
                                 <hr class="<?php if( $i%2 == 0 ){echo 'hr-dorado';}?>" >
-                                <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php                                          
-                                    $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
-
-                                    $j =1;
-                                    if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                        foreach ( $terms_list as $term ) {
-                                            echo $term->name;
-                                            if( $j < count($terms_list) ){
-                                                echo ', ';
-                                            }
-                                            $j++;
-                                        }
-                                    }                                                                                     
-                                    ?> 
-                                </h5>
+                                <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></h5>
                                 
                                 <!--camas baños y construction-->
                                 <div class="d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">

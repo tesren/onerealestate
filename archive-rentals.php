@@ -21,7 +21,7 @@
       
         <form class="row my-5 text-center justify-content-center mx-3 mx-lg-0" action="">
 
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar">
+            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar" name="lugar">
                 <option selected>Elige un lugar</option>
                 <option value="1">Puerto Vallarta</option>
                 <option value="2">Bucerías</option>
@@ -29,19 +29,19 @@
                 </option>
             </select>
 
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo">
+            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo" name="tipo">
                 <option selected>Tipo</option>
                 <option value="1">Casa</option>
                 <option value="2">Departamento</option>
             </select>
 
             <div class="col-lg-2 form-floating px-0 px-lg-2 mb-2 mb-lg-0">
-                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras">
-                <label class="ms-2" for="bedrooms">Recámaras</label>
+                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras" name="personas">
+                <label class="ms-2" for="bedrooms">Personas</label>
             </div>
 
             <div class="col-lg-2 form-floating px-0 px-lg-2 mb-4 mb-lg-0">
-                <input type="number" class="form-control" id="max-price" placeholder="Precio">
+                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
                 <label class="ms-2" for="max-price">Precio Máximo</label>
             </div>
             

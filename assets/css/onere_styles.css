@@ -318,6 +318,72 @@ figure{
     overflow: hidden;
 }
 
+/*Archive Developments*/
+.landing-desarrollos h1{
+    text-align: center;
+    color: #fff;
+    font-size: 6rem;
+    position: absolute;
+    top: 40% ;
+    left: 27.5%;
+    right: 27.5%;
+    width: 45%;
+    border: 5px solid white;
+}
+
+.card-desarrollos img{
+    max-height: 65vh;
+    object-fit: cover;
+}
+
+.card-desarrollos hr{
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 85%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+    color: #FFF;
+    background-color: #fff;
+}
+
+.card-desarrollos{
+    color: #fff;
+    background-color: #ab9154;
+}
+
+.card-desarrollos h2{
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+.card-desarrollos h4{
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.card-desarrollos h3{
+    font-size: 2.2rem;
+    font-weight: normal;
+}
+
+.boton-blanco{
+    font-size: 2rem;
+    font-weight: normal;
+    height: fit-content;
+    width: max-content;
+    text-align: center;
+    color: #ab9154;
+    background-color: #fff;
+    border-radius: 2rem;
+    box-shadow: 0px 3px 6px #929292;
+    margin-right: 7%;
+}
+.boton-blanco:hover{
+    color: black;
+    background-color: #fff;
+}
+
 /*Single developments*/
 .single-developments .dev-prices{
     position: absolute;
@@ -840,6 +906,23 @@ nav .nav-item i{
     /*form de busqueda*/
     .form-select{
         width: 100%;
+    }
+
+    /*Archive desarrollos mobile*/
+    .landing-desarrollos h1{
+        font-size: 2.5rem;
+        top: 35%;
+        left: 10%;
+        right: 10%;
+        width: 80%;
+        border: 5px solid white;
+    }
+    .boton-blanco{
+        margin-right:initial;
+    }
+
+    .card-desarrollos h3, .card-desarrollos h4{
+        font-size: 1.5rem;
     }
 
     /*NAVBAR MOBILE*/
