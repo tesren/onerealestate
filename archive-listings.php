@@ -75,7 +75,11 @@
                             </div>
 
                             <div class="col-lg-6 ps-0 pe-0 ps-lg-5 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
-                                <!-- <h3 class="mb-0 mt-2 fw-normal"><?php echo rwmb_meta('avaliable')?></h3> -->
+                                <div class="mb-0 mt-3 d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?>">
+                                    <span class="pr-type-archive px-2 mx-2"><?php echo onere_get_property_type(get_the_ID(),'property_type'); ?></span>
+                                    <span class="fw-light"><?php echo rwmb_meta('avaliable')?></span>
+                                </div>
+                                
                                 <h2 class="mt-3 pt-lg-1 "><?php echo get_the_title();?></h2>
                                 <hr class="<?php if( $i%2 == 0 ){echo 'hr-dorado';}?>" >
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></h5>

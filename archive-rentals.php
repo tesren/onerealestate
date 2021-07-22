@@ -73,23 +73,11 @@
                                 <?php } ?>
                             </div>
 
-                            <div class="col-lg-6 ps-0 pe-0 ps-lg-5 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
-                                <h2 class="pt-3 pt-lg-3 "><?php echo get_the_title();?></h3>
+                            <div class="col-lg-6 ps-0 pe-0 ps-lg-5 pt-3 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
+                                <span class="pr-type-archive px-2"><?php echo onere_get_property_type(get_the_ID(),'property_type'); ?></span>
+                                <h2 class="pt-2 pt-lg-1 "><?php echo get_the_title();?></h3>
                                 <hr class="<?php if( $i%2 == 0 ){echo 'hr-dorado';}?>" >
-                                <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php                                          
-                                    $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
-
-                                    $j =1;
-                                    if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                        foreach ( $terms_list as $term ) {
-                                            echo $term->name;
-                                            if( $j < count($terms_list) ){
-                                                echo ', ';
-                                            }
-                                            $j++;
-                                        }
-                                    }                                                                                     
-                                    ?> 
+                                <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php echo onere_get_list_terms( get_the_ID(), 'regiones' ); ?> 
                                 </h5>
                                 
                                 <!--camas baños y construction-->

@@ -79,7 +79,7 @@
             'rewrite' => array('slug' => 'property-type') //Este parametro saldra en la URL
         );
 
-        register_taxonomy('property_type', array('listings'), $args );
+        register_taxonomy('property_type', array('listings', 'rentals'), $args );
 
         //add new taxonomi NOT heirarchical
 

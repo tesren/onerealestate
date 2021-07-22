@@ -186,6 +186,29 @@ color : darkgreen !important;
 }
 
 /*Listings y rentals*/
+.pr-type{
+    border-radius: 4px;
+    background-color: #ab9154;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.pr-type-archive{
+    border-radius: 4px;
+    background-color: #ab9154;
+    color: #fff;
+    font-weight: bold;
+}
+
+.listings-dorado .pr-type-archive{
+    border-radius: 4px;
+    background-color: #fff;
+    color: #ab9154;
+    font-weight: bold;
+}
 
 .secondary-text{
     color: #707070;
@@ -212,7 +235,7 @@ color : darkgreen !important;
 }
 
 .listings-rentals img{
-    max-height: 50vh;
+    height: 55vh;
     object-fit: cover;
 }
 
@@ -803,6 +826,11 @@ nav .nav-item i{
     }
 
    /*Listings y rentasl mobile*/
+   .listings-rentals img{
+    height: initial;
+    max-height: 40vh;
+    object-fit: cover;
+}
 
    .single-listings p{
     font-size: 0.9rem;

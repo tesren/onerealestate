@@ -16,22 +16,7 @@
                 <div class="row justify-content-center justify-content-lg-end ">
 
                     <div style="background-color: #929292;" class="col-6 col-lg-4 p-0">
-                        <h3 class="py-1 mb-0 text-center"><?php 
-                
-                        $locations = array_reverse(rwmb_meta( 'location' ));
-
-                        $i =1;
-                        if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
-                            foreach ( $locations as $location ) {
-                                echo $location->name;
-                                if( $i < count($locations) ){
-                                    echo ', ';
-                                }
-                                $i++;
-                            }
-                        }
-                        ?></h3>
-                        
+                        <h3 class="py-1 mb-0 text-center"><?php onere_get_list_terms(get_the_ID(),'regiones');?></h3>
                     </div>
 
                 </div>
@@ -107,7 +92,7 @@
                     <div class="col-4 col-lg-3">
                         <h5><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?></h5>
                     </div>
-                    <div class="col-4 col-lg-3">
+                    <div class="col-8 col-lg-3">
                         <h5><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?></h5>
                     </div>
                 </div>

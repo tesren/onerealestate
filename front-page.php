@@ -74,7 +74,7 @@
 
       <?php foreach( $listings as $listing ):  setup_postdata($listing);?>
 
-        <div class="col-sm-4 col-md-6 col-lg-4">
+        <div class="col-sm-4 col-md-6 col-lg-4" style="position:relative;">
             <div class="card text-end bg-light">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 
@@ -83,6 +83,7 @@
 
                   <a href="<?php echo get_the_permalink( $listing->ID );?>">
                     <img src="<?php echo $image['url'];?>" class="img-front-listings" alt="<?php echo $image['title'];?>"/>
+                    <span class="pr-type px-2"><?php echo onere_get_property_type($listing->ID,'property_type'); ?></span>
                   </a>
                 <?php }?>
                  
@@ -101,20 +102,7 @@
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $listing->bathrooms;?></p>
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $listing->construction;?>m<sup>2</sup></p>
                   </div>
-                  <h5 style="margin-top: 0.5rem;"><?php                                          
-                                    $terms_list = array_reverse(wp_get_post_terms( $listing->ID, 'regiones' ) );
-
-                                    $j =1;
-                                    if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                        foreach ( $terms_list as $term ) {
-                                            echo $term->name;
-                                            if( $j < count($terms_list) ){
-                                                echo ', ';
-                                            }
-                                            $j++;
-                                        }
-                                    }                                                                                     
-                                    ?> </h5>
+                  <h5 style="margin-top: 0.5rem;"><?php onere_get_list_terms($listing->ID,'regiones'); ?> </h5>
                   <a href="<?php echo get_the_permalink( $listing->ID );?>"><p class="text-right">Mas info</p></a>
                </div>
             </div>
@@ -135,7 +123,7 @@
 
   <?php foreach( $rentals as $rental ):  setup_postdata($rental);?>
 
-    <div class="col-sm-4 col-md-6 col-lg-4">
+    <div class="col-sm-4 col-md-6 col-lg-4" style="position:relative;">
         <div class="card text-end bg-light">
           <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 
@@ -143,6 +131,7 @@
               foreach ( $imagesr as $imager ) {?>
                 <a href="<?php echo get_the_permalink( $rental->ID );?>">
                   <img src="<?php echo $imager['url'];?>" class="img-front-listings" alt="<?php echo $imager['title'];?>"/>
+                  <span class="pr-type px-2"><?php echo onere_get_property_type($rental->ID,'property_type'); ?></span>
                 </a>
               <?php }?>
   

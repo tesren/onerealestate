@@ -270,6 +270,17 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }
     }
 
+    function onere_get_property_type($postID, $taxonomy){
+        
+        $terms_list = array_reverse(wp_get_post_terms( $postID, $taxonomy ) );
+
+        if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
+            foreach ( $terms_list as $term ) {
+                echo $term->name;
+            }
+        }
+    }
+
     function gallery_grid($loops){
         if($loops==0){
             echo'col-12 d-block col-lg-4';
