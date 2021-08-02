@@ -14,7 +14,7 @@
 
         ?>
         <div class="container-fluid landing" style="position:relative;">
-            <img class="w-100 img-fluid" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
             <h1 class="fw-bold p-0">VENTA</h1>
         </div>
 
@@ -85,10 +85,10 @@
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></h5>
                                 
                                 <!--camas baños y construction-->
-                                <div class="d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <h3><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Bedrooms</h3>
-                                    <h3 class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baths</h3>
-                                    <h3><i class="fas fa-home"></i> <?php echo rwmb_meta('construction');?> m<sup>2</sup></h3>
+                                <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
+                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Bedrooms</span>
+                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baths</span>
+                                    <span><i class="fas fa-home"></i> <?php echo rwmb_meta('construction');?> m<sup>2</sup></span>
                                 </div>
                                 
                                 <!--precio y moneda-->

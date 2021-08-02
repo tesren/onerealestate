@@ -96,13 +96,13 @@
                     <h5 id="item-name" class="fw-normal <?php echo rwmb_meta('avaliable',[],$listing->ID);?>"><?php echo rwmb_meta('avaliable',[],$listing->ID);?></h5>
                     <span><h2><?php echo $listing->currency;?> $<?php echo number_format($listing->price);?></h2></span>
                   </div>
-                  <h3><?php echo get_the_title( $listing->ID );?></h3>
-                  <div class="flex1 justify-content-end justify-content-lg-start">
+                  <h3 class="text-start"><?php echo get_the_title( $listing->ID );?></h3>
+                  <div class="flex1 justify-content-start">
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1"><?php echo $listing->bedrooms;?></p>
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $listing->bathrooms;?></p>
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $listing->construction;?>m<sup>2</sup></p>
                   </div>
-                  <h5 style="margin-top: 0.5rem;"><?php onere_get_list_terms($listing->ID,'regiones'); ?> </h5>
+                  <h5 class="text-start" style="margin-top: 0.5rem;"><?php onere_get_list_terms($listing->ID,'regiones'); ?> </h5>
                   <a href="<?php echo get_the_permalink( $listing->ID );?>"><p class="text-right">Mas info</p></a>
                </div>
             </div>
@@ -151,26 +151,13 @@
                 ?>
                 <span><h2>Desde: <?php echo $rental->currency;?> $<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2></span>
               </div>
-              <h3><?php echo get_the_title( $rental->ID );?></h3>
-              <div class="flex1 justify-content-end justify-content-lg-start">
+              <h3 class="text-start"><?php echo get_the_title( $rental->ID );?></h3>
+              <div class="flex1 justify-content-start">
                 <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bed-solid.svg' ?>" alt="bed"><p class="margin1"><?php echo $rental->bedrooms;?></p>
                 <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/bath-solid.svg' ?>" alt="bath"><p class="margin1"><?php echo $rental->bathrooms;?></p>
                 <p class="fw-bold"><i class="fas fa-male"></i> <?php echo $rental->rentals_capacity;?></p>
               </div>
-              <h5 style="margin-top: 0.5rem;"><?php                                          
-                                $terms_list = array_reverse(wp_get_post_terms( $rental->ID, 'regiones' ) );
-
-                                $j =1;
-                                if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                    foreach ( $terms_list as $term ) {
-                                        echo $term->name;
-                                        if( $j < count($terms_list) ){
-                                            echo ', ';
-                                        }
-                                        $j++;
-                                    }
-                                }                                                                                     
-                                ?> </h5>
+              <h5 class="text-start" style="margin-top: 0.5rem;"><?php onere_get_list_terms($rental->ID, 'regiones') ?> </h5>
               <a href="<?php echo get_the_permalink( $rental->ID );?>"><p class="text-right">Mas info</p></a>
            </div>
         </div>

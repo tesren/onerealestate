@@ -25,12 +25,12 @@
                 <div style="background-color: #ab9154;" class="col-12 col-lg-5 p-2">
 
                     <div class="row">
-                        <p class="col-6">Precios Desde:</p>
-                        <p class ="col-6">Recámaras Desde:</p>
+                        <span class="col-6">Precios Desde:</span>
+                        <span class ="col-6">Recámaras Desde:</span>
                     </div>
 
                     <div class="row">
-                        <h3 class="col-6"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo rwmb_meta( 'starting_at' ); ?> </h3>
+                        <h3 class="col-6"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format(rwmb_meta( 'starting_at' )); ?> </h3>
                         <h3 class="col-6"><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'starting_at_bedrooms' ); ?></h3>
                     </div>
 
@@ -118,7 +118,7 @@
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($k) ?> p-0 ">
-                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
+                        <figure class="m-0 m-lg-1"><img class="img-fluid img-galerias w-100" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
                     </div>
 
                 <?php $k++;}?>
@@ -143,7 +143,7 @@
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($l) ?> p-0 " style="position:relative;">
-                        <figure class="m-0 m-lg-1"><img class="img-fluid w-100" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
+                        <figure class="m-0 m-lg-1"><img class="img-fluid img-galerias w-100" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
                     </div>
 
                 <?php $l++;}?>

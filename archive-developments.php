@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <div class="container-fluid landing-desarrollos" style="position:relative;">
-            <img class="w-100 img-fluid" src="<?php echo get_template_directory_uri(). '/assets/images/desaLanding.jpg' ?>" alt="Renta">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/desaLanding.jpg' ?>" alt="Renta">
             <h1 class="fw-bold p-0">DESARROLLOS</h1>
         </div>
 

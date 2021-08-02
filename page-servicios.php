@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <div class="container-fluid servicios" style="position:relative;">
-    <img class="w-100 img-fluid" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
+    <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
     <h1 class="fw-bold p-0">SERVICIOS</h1>
 </div>
 
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-6 ps-3 ps-lg-5">
                 <p>Inspecciones de propiedades</p>
-                <p>Mantenimiento 24/7</p>
+                <p>Mantenimiento</p>
                 <p>Servicio de limpieza</p>
                 <p>Preparaciones para tormentas</p>
                 <p>Compra de despensa</p>
@@ -34,7 +34,7 @@
                 <p>Chef privado</p>
                 <p>Transporte (aeropuerto-condo)</p>
                 <p>Regado de plantas</p>
-                <p>Compra de despensa</p>
+                <p>Logística de Arrendamiento</p>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@
 
         ?>
         <div class="container-fluid landing" style="position:relative;">
-            <img class="w-100 img-fluid" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
             <h1 class="fw-bold p-0">RENTA</h1>
         </div>
 
@@ -81,10 +81,10 @@
                                 </h5>
                                 
                                 <!--camas baños y construction-->
-                                <div class="d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <h3><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Bedrooms</h3>
-                                    <h3 class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baths</h3>
-                                    <h3><i class="fas fa-male"></i></i> <?php echo rwmb_meta('rentals_capacity');?></h3>
+                                <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
+                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</span>
+                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baños</span>
+                                    <span><i class="fas fa-male"></i></i> <?php echo rwmb_meta('rentals_capacity');?> Huéspedes</span>
                                 </div>
 
                                 <!--precio y moneda-->
@@ -93,7 +93,7 @@
                                       $priceSemana = $pricesBaja['semana'];
                                       $priceMes = $pricesBaja['mes'];
                                 ?>
-                                <h5>Precios desde:</h5>
+                                <span class="fw-light fs-4">Precios desde:</span>
                                 <h2 class="my-1"><?php echo rwmb_meta( 'currency');?>$<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2>
 
                                 <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1">Más Info</a>

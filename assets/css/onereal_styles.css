@@ -1,3 +1,4 @@
+/* Estilos generales*/
 html, body {
     height: 100%;
     margin: 0px;
@@ -62,6 +63,11 @@ color : darkred !important;
    
 .Disponible{
 color : darkgreen !important;
+}
+
+.img-galerias{
+    height: 35vh ;
+    object-fit: cover;
 }
 
   /*Servicios*/
@@ -345,7 +351,7 @@ figure{
 .landing-desarrollos h1{
     text-align: center;
     color: #fff;
-    font-size: 6rem;
+    font-size: 5.5rem;
     position: absolute;
     top: 40% ;
     left: 27.5%;
@@ -408,6 +414,10 @@ figure{
 }
 
 /*Single developments*/
+.mobile-img{
+    height: 90vh;
+    object-fit: cover;
+}
 .single-developments .dev-prices{
     position: absolute;
     bottom: 0;
@@ -415,7 +425,7 @@ figure{
     width: 100% !important;
 }
 
-.single-developments .dev-prices p{
+.single-developments .dev-prices span{
     color: #FFF;
     font-size: 1rem;
 }
@@ -462,7 +472,7 @@ figure{
 
 #el-content p{
     font-weight: lighter;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
 }
 
 .single-developments .location-titles{
@@ -794,18 +804,18 @@ nav .nav-item i{
     /*single developments*/
 
     .mobile-img{
-        min-height: 50vh;
+        height: 80vh;
         object-fit: cover;
     }
 
-    .single-developments .dev-prices p{
+    .single-developments .dev-prices span{
         color: #FFF;
         font-size: 1rem;
     }
     
     .single-developments .dev-prices h3{
         color: #FFF;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .description h2{
@@ -813,7 +823,7 @@ nav .nav-item i{
     }
 
     #el-content p{
-        font-size:0.8rem ;
+        font-size: 1.2rem ;
     }
 
     .single-developments .location-titles{
@@ -826,6 +836,10 @@ nav .nav-item i{
     }
 
    /*Listings y rentasl mobile*/
+   .img-galerias{
+    height: 50vh ;
+    object-fit: cover;
+}
    .listings-rentals img{
     height: initial;
     max-height: 40vh;
@@ -990,11 +1004,25 @@ nav .nav-item i{
     }
 
     #ore_main_navbar .nav-link{
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
   }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    .servicios h1{
+        font-size: 4.5rem;
+        top: 40% ;
+        left: 20%;
+        right: 20%;
+        width: 60%;
+    }
+    .landing-desarrollos h1{
+        font-size: 4.5rem;
+        top: 40% ;
+        left: 15%;
+        right: 15%;
+        width: 70%;
+    }
     .single-developments .location-titles{
         position: absolute;
         width: 100%;
@@ -1067,7 +1095,7 @@ nav .nav-item i{
     }
 
     #ore_main_navbar .nav-link{
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .navbar-collapse {
