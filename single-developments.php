@@ -1,5 +1,16 @@
 <?php 
 
+$units = get_posts(array(
+    'post_type' => 'inventory',
+    'meta_query' => array(
+        array(
+            'key' => 'developments', // name of custom field
+            'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+            'compare' => 'LIKE'
+        )
+    )
+));
+
     get_header(); 
 
     if ( have_posts() ){
@@ -150,6 +161,61 @@
             </div>
 
         </div>
+
+    <!--Inventario-->
+  <div class="container-fluid p-0 pt-5">
+    <div class="row justify-content-center text-center">
+        <div class="col-12 col-lg-5 p-0">
+            <div style="background-color: #ab9154;"><h2 class="mb-4 ps-0 ps-lg-2">Inventario</h2></div>
+        </div>
+    </div>
+
+        <div class="row justify-content-center">
+              
+            <?php if(!empty($units)):?>
+                <?php foreach($units as $unit): setup_postdata($unit); ?>
+
+                <div class="col-11 col-md-6 col-lg-4" style="position:relative;">
+                    <div class="card text-end bg-light">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+
+                        <?php $imagesInv = rwmb_meta( 'inventory_gallery', array('size' => 'large', 'limit' => '10' ),$unit->ID); ?>
+                        
+                        <?php $k=0;
+                        foreach($imagesInv as $imageInv): ?>
+                            <img src="<?php echo $imageInv['url'];?>" class="img-front-listings <?php if($k>0){echo 'd-none';} ?>" alt="Inventory" data-fancybox="inventory-<?php echo $unit->ID ?>"/>
+                        <?php $k++; 
+                        endforeach; ?>
+
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text d-flex mb-3 justify-content-between">
+                            <span class="fw-light fs-3 px-2 <?php echo rwmb_meta('status',[],$unit->ID);?>"><?php echo rwmb_meta('status',[],$unit->ID);?></span>
+                            <span class="fs-3 fw-bold text-end"><?php echo $unit->currency;?> $<?php echo number_format($unit->starting_at);?></span>
+                        </div>
+
+                        <h3 class="text-start fw-bold fs-3"><?php echo get_the_title( $unit->ID );?></h3>
+
+                        <div class="flex1 justify-content-start fs-4">
+                            <span class="ms-1"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?></span>
+                            <span class="ms-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?></span>
+                            <span class="ms-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?>m<sup>2</sup></span>
+                        </div>
+                        
+                        <span class="text-start fs-4 d-block">Modelo: <strong><?php echo $unit->model_type ?></strong></span>
+            
+                    </div>
+                    </div>
+                </div>
+                
+                <?php endforeach; ?>
+
+            <?php endif; ?>
+        </div>
+
+
 
     </div><!--Single developments-->
 

@@ -54,15 +54,21 @@ a{
 }
 /* Colores disponibilidad */
 .Apartado {
-    color : goldenrod !important;
+    color: #fff !important;
+    background-color : goldenrod !important;
+    border-radius: 3px;
    }
    
 .Vendido{
-color : darkred !important;
+    color: #fff !important;
+    background-color : darkred !important;
+    border-radius: 3px;
 }
    
 .Disponible{
-color : darkgreen !important;
+    color: #fff !important;
+    background-color : darkgreen !important;
+    border-radius: 3px;
 }
 
 .img-galerias{
@@ -179,6 +185,7 @@ color : darkgreen !important;
     width: 100%;
     object-fit: cover;
     overflow: hidden;
+    cursor: pointer;
 }
 
 #prop-de-lujo{
@@ -759,6 +766,48 @@ nav .nav-item i{
     border-radius: 50% !important;
     object-fit: cover;
 }
+
+/*Unete page*/
+.img-realtor{
+    border-radius: 50%;
+    width: 40%;
+}
+
+.card-realtor{
+    box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+}
+
+.icon-block{
+    display: flex;
+    justify-content: center;
+    float:left;
+    width:100%;
+    margin-top:15px;
+}
+
+.icon-block a{
+    text-decoration:none;
+}
+
+.card-realtor svg {
+    display: inline-block;
+    font-size: 23px;
+    color: #232323;
+    text-align: center;
+    border: 1px solid #232323;
+    width: 40px !important;
+    height: 40px;
+    line-height: 38px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+  .card-realtor svg:hover {
+    background-color:#232323;
+    color:#fff;
+    text-decoration:none;
+  }
+
 
 /*MEDIA QUERY*/
 @media (min-width: 375px) and (max-width: 414px){

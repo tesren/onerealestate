@@ -93,7 +93,7 @@
               </div>
               <div class="card-body">
                   <div class="card-text d-flex justify-content-between">
-                    <h5 id="item-name" class="fw-normal <?php echo rwmb_meta('avaliable',[],$listing->ID);?>"><?php echo rwmb_meta('avaliable',[],$listing->ID);?></h5>
+                    <h5 id="item-name" class="fw-normal px-2 <?php echo rwmb_meta('avaliable',[],$listing->ID);?>"><?php echo rwmb_meta('avaliable',[],$listing->ID);?></h5>
                     <span><h2><?php echo $listing->currency;?> $<?php echo number_format($listing->price);?></h2></span>
                   </div>
                   <h3 class="text-start"><?php echo get_the_title( $listing->ID );?></h3>

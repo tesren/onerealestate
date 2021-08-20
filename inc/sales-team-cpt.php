@@ -35,7 +35,7 @@
             'hierarchical' => true,
             'supports' => array(
                 'title',
-                'editor',
+                //'editor',
                 //'excerpt', 
                 //'thumbnail',
                 'revisions',

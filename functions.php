@@ -186,7 +186,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
         wp_nonce_field( 'v4you_save_contact_email_data', 'v4you_contact_email_meta_box_nonce' );
         
-        $value = get_post_meta( $post->ID, '_contact_email_value_key', tue);
+        $value = get_post_meta( $post->ID, '_contact_email_value_key', true);
 
         echo '<label for="v4you_contact_email_field">User Email Address</label>';
         echo '<input type="email" id="v4you_contact_email_field" name="v4you_contact_email_field" value="'. esc_attr( $value ) .'" size="25" />';

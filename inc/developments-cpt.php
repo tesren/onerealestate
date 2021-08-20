@@ -85,7 +85,7 @@
                 'title',
                 //'editor',
                 //'excerpt', 
-                'thumbnail',
+                //'thumbnail',
                 'revisions',
                 //'page-attributes',
             ),
@@ -280,10 +280,11 @@ function development_inventory_register_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
-                'name'  => 'Precios',
+                'name'  => 'Precios desde',
                 'desc'  => 'Solo números, sin signos ni puntos',
                 'id'    => 'starting_at',
                 'type'  => 'text',
+                'required'=> true,
             ],
             [
                 'name'            => 'Moneda',
@@ -306,24 +307,63 @@ function development_inventory_register_meta_boxes( $meta_boxes ) {
                 'desc'  => 'Solo numeros',
                 'id'    => 'bedrooms',
                 'type'  => 'number',
+                'required'=> true,
             ],
             [
                 'name'  => 'Baños',
                 'desc'  => 'Solo números',
                 'id'    => 'bathrooms',
                 'type'  => 'number',
+                'required'=> true,
             ],
             [
-                'name'  => 'Medios Baños',
-                'desc'  => 'Solo números',
-                'id'    => 'half_baths',
-                'type'  => 'number',
+                'name'  => 'Modelo',
+                'desc'  => 'Especifique el tipo de Modelo de la unidad',
+                'id'    => 'model_type',
+                'type'  => 'text',
             ],
             [
                 'name'  => 'Construcción',
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'construction',
                 'type'  => 'text',
+                'required'=> true,
+            ],
+            [
+                'name'            => 'Estado unidad(es)',
+                'id'              => 'status',
+                'type'            => 'select',
+                // Array of 'value' => 'Label' pairs
+                'options'         => array(
+                    'Disponible'    => 'Disponible',
+                    'Apartado'      => 'Apartado',
+                    'Vendido'       => 'Vendido',
+                ),
+                // Allow to select multiple value?
+                'multiple'        => false,
+                // Placeholder text
+                'placeholder'     => 'Elija uno',
+                // Display "Select All / None" button?
+                'select_all_none' => false,
+                'required'=> true,
+            ],
+            [
+                'id'               => 'inventory_gallery',
+                'name'             => 'Imagenes de la unidad',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 10,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
             ],
 
            
