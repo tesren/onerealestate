@@ -15,7 +15,7 @@ $units = get_posts(array(
 
     if ( have_posts() ){
         
-        while( have_posts() ){ ?>
+        while( have_posts() ){the_post(); ?>
 
     <div class="container-fluid single-developments">
         <!--Imagen con texto-->
@@ -129,7 +129,9 @@ $units = get_posts(array(
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($k) ?> p-0 ">
-                        <figure class="m-0 m-lg-1"><img class="img-fluid img-galerias w-100" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
+                        <figure class="m-0 m-lg-1">
+                            <img class="img-fluid img-galerias w-100" data-fancybox="amenities-gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>" loading="lazy">
+                        </figure>
                     </div>
 
                 <?php $k++;}?>
@@ -154,7 +156,9 @@ $units = get_posts(array(
                     foreach ( $images as $image ) { ?>
                         
                     <div class="<?php gallery_grid($l) ?> p-0 " style="position:relative;">
-                        <figure class="m-0 m-lg-1"><img class="img-fluid img-galerias w-100" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>"></figure>
+                        <figure class="m-0 m-lg-1">
+                            <img class="img-fluid img-galerias w-100" data-fancybox="gallery" data-caption="<?php echo $image['caption']?>" src="<?php echo $image['url'];?>" alt="<?php echo  $image['title'];?>" loading="lazy">
+                        </figure>
                     </div>
 
                 <?php $l++;}?>
@@ -163,57 +167,68 @@ $units = get_posts(array(
         </div>
 
     <!--Inventario-->
-  <div class="container-fluid p-0 pt-5">
-    <div class="row justify-content-center text-center">
-        <div class="col-12 col-lg-5 p-0">
-            <div style="background-color: #ab9154;"><h2 class="mb-4 ps-0 ps-lg-2">Inventario</h2></div>
-        </div>
+<div class="row mx-auto my-auto justify-content-center">
+
+    <div class="col-12 col-lg-5 p-0 text-center">
+        <div style="background-color: #ab9154;"><h2 class="mb-4 mt-5 ps-0 ps-lg-2">Inventario</h2></div>
     </div>
 
-        <div class="row justify-content-center">
+    <ul id="recipeCarousel" class="cs-hidden">
+
+      <?php if( $units ): ?>
+          <?php $i=1;?>
+          <?php foreach( $units as $unit ): ?>
+              <?php 
+
+          
+              $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+
+              ?>
               
-            <?php if(!empty($units)):?>
-                <?php foreach($units as $unit): setup_postdata($unit); ?>
-
-                <div class="col-11 col-md-6 col-lg-4" style="position:relative;">
+                <li class="item" >
                     <div class="card text-end bg-light">
-                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 
-                        <?php $imagesInv = rwmb_meta( 'inventory_gallery', array('size' => 'large', 'limit' => '10' ),$unit->ID); ?>
-                        
-                        <?php $k=0;
-                        foreach($imagesInv as $imageInv): ?>
-                            <img src="<?php echo $imageInv['url'];?>" class="img-front-listings <?php if($k>0){echo 'd-none';} ?>" alt="Inventory" data-fancybox="inventory-<?php echo $unit->ID ?>"/>
-                        <?php $k++; 
-                        endforeach; ?>
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
 
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-text d-flex mb-3 justify-content-between">
-                            <span class="fw-light fs-3 px-2 <?php echo rwmb_meta('status',[],$unit->ID);?>"><?php echo rwmb_meta('status',[],$unit->ID);?></span>
-                            <span class="fs-3 fw-bold text-end"><?php echo $unit->currency;?> $<?php echo number_format($unit->starting_at);?></span>
+                            <?php $imagesInv = rwmb_meta( 'inventory_gallery', array('size' => 'large', 'limit' => '10' ),$unit->ID); ?>
+                            
+                            <?php $m=0;
+                            foreach($imagesInv as $imageInv): ?>
+                                <img src="<?php echo $imageInv['url'];?>" class="img-front-listings <?php if($m>0){echo 'd-none';} ?>" alt="Inventory" data-fancybox="inventory-<?php echo $unit->ID ?>" loading="lazy" />
+                            <?php $m++; 
+                            endforeach; ?>
+
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                            </a>
                         </div>
 
-                        <h3 class="text-start fw-bold fs-3"><?php echo get_the_title( $unit->ID );?></h3>
+                        <div class="card-body">
+                            <div class="card-text d-flex mb-3 justify-content-between">
+                                <span class="fw-light fs-3 px-2 <?php echo rwmb_meta('status',[],$unit->ID);?>"><?php echo rwmb_meta('status',[],$unit->ID);?></span>
+                                <span class="fs-3 fw-bold text-end"><?php echo $unit->currency;?> $<?php echo number_format($unit->starting_at);?></span>
+                            </div>
 
-                        <div class="flex1 justify-content-start fs-4">
-                            <span class="ms-1"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?></span>
-                            <span class="ms-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?></span>
-                            <span class="ms-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?>m<sup>2</sup></span>
-                        </div>
-                        
-                        <span class="text-start fs-4 d-block">Modelo: <strong><?php echo $unit->model_type ?></strong></span>
-            
-                    </div>
-                    </div>
-                </div>
+                            <h3 class="text-start fw-bold fs-3"><?php echo get_the_title( $unit->ID );?></h3>
+
+                            <div class="flex1 justify-content-start fs-4">
+                                <span class="ms-1"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?></span>
+                                <span class="ms-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?></span>
+                                <span class="ms-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?>m<sup>2</sup></span>
+                            </div>
+                            
+                            <span class="text-start fs-4 d-block">Modelo: <strong><?php echo $unit->model_type ?></strong></span>
                 
-                <?php endforeach; ?>
+                        </div>
 
-            <?php endif; ?>
-        </div>
+                    </div>
+                </li>
+          <?php $i++; ?>
+          <?php endforeach; ?>
+         
+      <?php endif; ?>
+            
+    </ul>
+</div>
 
 
 
@@ -225,8 +240,16 @@ $units = get_posts(array(
            <?php get_template_part( 'partials/content', 'contact-form' ); ?>
        </div>
 
+         <!--boton whatsapp-->
+         <?php 
+            $permalink = get_the_permalink();
+            $text = "Hola estoy interesado en el Desarrollo ".get_the_title()." que ví en ";
+        ?>
+        <a href="https://wa.me/523221008151?text=<?php echo $text, $permalink ?>" id="whatsapp" target="_blank"> 
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
         <?php   
-      the_post();
         
 
         }

@@ -179,7 +179,18 @@
             <?php get_template_part( 'partials/content', 'contact-form' ); ?>
          </div>
 
+        <!--boton whatsapp-->
+        <?php 
+            $permalink = get_the_permalink();
+            $text = "Hola estoy interesado en la propiedad: ".get_the_title()." que vi en: ";
+        ?>
+        <a href="https://wa.me/523221008151?text=<?php echo $text, $permalink ?>" id="whatsapp" target="_blank"> 
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
     </div>
+
+
 
 
     <?php   

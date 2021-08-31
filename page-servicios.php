@@ -49,5 +49,10 @@
         <?php get_template_part( 'partials/content', 'contact-form' ); ?>
     </div>
 
+    <!--boton whatsapp-->
+    <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank"> 
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
 
 <?php get_footer(); ?>

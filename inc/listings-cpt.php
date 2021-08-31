@@ -115,7 +115,8 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'name'  => 'Precio',
                 'desc'  => 'Solo numeros, sin signos ni puntos',
                 'id'    => 'price',
-                'type'  => 'text',
+                'type'  => 'number',
+                'required'=> true,
             ],
             [
                 'name'            => 'Moneda',
@@ -212,13 +213,13 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'name'  => 'Construcción',
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'construction',
-                'type'  => 'text',
+                'type'  => 'number',
             ],
             [
                 'name'  => 'Lote',
                 'desc'  => 'Solo números (m2)',
                 'id'    => 'lot_area',
-                'type'  => 'text',
+                'type'  => 'number',
             ],
             [
                 'name'  => 'Estacionamiento',

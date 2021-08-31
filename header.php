@@ -70,5 +70,5 @@
         </div>
       </div>
     </header>
-    <div class="contenedor-margin mt-3 mt-lg-5">
+    <div class="contenedor-margin">
 

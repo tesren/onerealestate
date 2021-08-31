@@ -52,6 +52,10 @@ a{
     width: 25%;
     border: 5px solid white;
 }
+
+.contenedor-margin{
+    margin-top: 5.5rem;
+}
 /* Colores disponibilidad */
 .Apartado {
     color: #fff !important;
@@ -493,6 +497,32 @@ figure{
 
 
 /*Contact form*/
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 textarea{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 4px;
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.6);
+}
+
+.wpcf7-submit{
+    background-color:#ab9154;
+    font-size: 1.2rem;
+    color: #fff;
+    border: 0px;
+    border-radius: 4px;
+    font-weight: bold;
+    width: 100%;
+    padding: 5px 0px;
+}
+
+.wpcf7-form label{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    color: rgba(0, 0, 0, 0.6)
+}
 
 .contact-form h3{
     color: #A28234;
@@ -771,10 +801,13 @@ nav .nav-item i{
 .img-realtor{
     border-radius: 50%;
     width: 40%;
+    position: relative;
+    z-index: 15;
 }
 
 .card-realtor{
     box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+    position: relative;
 }
 
 .icon-block{
@@ -789,8 +822,9 @@ nav .nav-item i{
     text-decoration:none;
 }
 
-.card-realtor svg {
+.card-realtor .icon-block svg {
     display: inline-block;
+    padding: 6px;
     font-size: 23px;
     color: #232323;
     text-align: center;
@@ -807,6 +841,28 @@ nav .nav-item i{
     color:#fff;
     text-decoration:none;
   }
+
+  .y-line{
+      background-color: #A28234;
+      width: 100%;
+      height: 5px;
+      position: absolute;
+      bottom: 0;
+  }
+
+  .y-box{
+    background-color: #A28234;
+    width: 100%;
+    height: 125px;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+  }
+
+  /*single developments*/
+ 
+
+
 
 
 /*MEDIA QUERY*/
@@ -850,7 +906,16 @@ nav .nav-item i{
         object-fit: cover;
     }
 
-    /*single developments*/
+    .contenedor-margin{
+        margin-top: 3rem;
+    }
+/*single dev mobile*/
+    #recipeCarousel .carousel-inner .carousel-item > div {
+    display: none;
+    }
+    #recipeCarousel .carousel-inner .carousel-item > div:first-child {
+    display: block;
+    }
 
     .mobile-img{
         height: 80vh;
@@ -1058,6 +1123,10 @@ nav .nav-item i{
   }
 
 @media (min-width: 768px) and (max-width: 992px) {
+
+    .contenedor-margin{
+        margin-top: 3rem;
+    }
     .servicios h1{
         font-size: 4.5rem;
         top: 40% ;
@@ -1174,6 +1243,7 @@ nav .nav-item i{
     .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
     }
+
 }
 
 @media (min-width: 992px) {
@@ -1195,4 +1265,28 @@ nav .nav-item i{
         text-align: center;
     }
     
+}
+
+#recipeCarousel .carousel-inner .carousel-item.active,
+#recipeCarousel .carousel-inner .carousel-item-next,
+#recipeCarousel .carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+@media (min-width: 769px) {
+    
+    #recipeCarousel .carousel-inner .carousel-item-end.active,
+    #recipeCarousel .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    #recipeCarousel .carousel-inner .carousel-item-start.active, 
+    #recipeCarousel .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
+
+#recipeCarousel .carousel-inner .carousel-item-end,
+#recipeCarousel .carousel-inner .carousel-item-start { 
+  transform: translateX(0);
 }
