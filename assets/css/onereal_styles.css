@@ -54,7 +54,7 @@ a{
 }
 
 .contenedor-margin{
-    margin-top: 5.5rem;
+    margin-top: 4.9rem;
 }
 /* Colores disponibilidad */
 .Apartado {
@@ -539,9 +539,16 @@ figure{
     height: auto;
 }
 .nav-link{
-    margin-right: 1rem;
-    margin-left: 1rem;
+    margin-right: 1.2rem;
+    margin-left: 1.2rem;
+    transition: 0.2s;
+    animation: ease-in-out;
 }
+.nav-link:hover{
+    opacity: 1;
+    text-decoration: underline;
+}
+
 .navbar{
     z-index:10;
 }
@@ -551,20 +558,6 @@ figure{
 .icon-size-4{
     height: 3rem;
     margin: 1rem;
-}
-
-#ore_main_navbar li a:after{
-    content: "•";
-    font-weight: bold;
-    display: inline-block;
-    width: 1rem;
-    margin-left: 2rem;
-
-}
-
-#ore_main_navbar li:last-child a:after{
-    content:    none;
-
 }
 
 .text-4{
@@ -694,6 +687,10 @@ nav .nav-item i{
     /*background-image: url(/images/one_logo.svg);*/
     background-repeat: repeat-y;
     background-position: center;
+}
+
+.footer a{
+    color: white !important;
 }
 
 /*TITULO Y BOTON*/
@@ -907,7 +904,7 @@ nav .nav-item i{
     }
 
     .contenedor-margin{
-        margin-top: 3rem;
+        margin-top: 4.4rem;
     }
 /*single dev mobile*/
     #recipeCarousel .carousel-inner .carousel-item > div {
@@ -1082,21 +1079,21 @@ nav .nav-item i{
     }
 
     /*NAVBAR MOBILE*/
+    #logo-mobile::marker{
+        content: "";
+        display: none;
+    }
+
     #nav_heder_logo{
         width: 200px;
         height: auto;
     }
-    #ore_main_navbar li a:after{
-        content: "";
-    }
+
     .navbar-collapse {
         position: fixed;
         top: 0px;
         left: 0;
-        padding-top: 50px;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
+        padding: 15px;
         width: 75%;
         height: 100%;
         z-index: 100;
@@ -1125,7 +1122,7 @@ nav .nav-item i{
 @media (min-width: 768px) and (max-width: 992px) {
 
     .contenedor-margin{
-        margin-top: 3rem;
+        margin-top: 4.4rem;
     }
     .servicios h1{
         font-size: 4.5rem;
@@ -1208,8 +1205,9 @@ nav .nav-item i{
     }
 
     /*Navbar iPad*/
-    #ore_main_navbar li a:after{
+    #logo-mobile::marker{
         content: "";
+        display: none;
     }
 
     #ore_main_navbar .nav-link{
@@ -1220,10 +1218,7 @@ nav .nav-item i{
         position: fixed;
         top: 0px;
         left: 0;
-        padding-top: 50px;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
+        padding: 15px;
         width: 40%;
         height: 100%;
         z-index: 100;

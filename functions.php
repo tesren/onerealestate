@@ -109,6 +109,8 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/front-page-cpt.php';
 
+    require get_template_directory() . '/inc/services-cpt.php';
+
 
     function check_post_type_and_remove_media_buttons() {
         global $current_screen;
@@ -192,6 +194,33 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             return $precioNoche;
         }
     }
+
+    function tierra_set_strings_transtaltion(){
+        
+        $strings = array(
+            array(
+                'name'     =>'servicios',
+                'string'   =>'Servicios',
+                'group'    =>'Servicios',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'nuestros',
+                'string'   =>'Nuestros',
+                'group'    =>'Servicios',
+                'multiline'=>false,
+            ),
+        );
+
+
+        foreach ($strings as $string ) {
+            
+            pll_register_string( $string['name'], $string['string'], $string['group'], $string['multiline'] );
+        };
+
+    }
+
+    add_action('init', 'tierra_set_strings_transtaltion');
 
 
 ?>

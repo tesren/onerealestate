@@ -1,9 +1,9 @@
     </div><!--Contenedor-margin-->
 
      <!--boton Idioma-->
-     <a href="#" id="boton-idioma"> 
+     <a id="boton-idioma" lang="en-US" hreflang="en-US" href="http://localhost:8888/wordpress-onerealestate/en/services/"> 
         <i class="fas fa-globe"></i>
-    </a>
+     </a>
       
       <!--FOOTER-->
     <div class="row text-center footer footer2">
@@ -24,8 +24,19 @@
         </ul>
         
         <ul class="list-inline">
-            <li class="list-inline-item"><i class="fab fa-2x fa-facebook-square"></i></li>
-            <li class="list-inline-item"><i class="fab fa-2x fa-instagram"></i></li>
+
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/onerealestatemexico" target="_blank">
+                <i class="fab fa-2x fa-facebook-square"></i>
+              </a>
+            </li>
+            
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/one_realestate_mexico/" target="_blank">
+                <i class="fab fa-2x fa-instagram"></i>
+              </a>
+            </li>
+
         </ul>
 
       </div>

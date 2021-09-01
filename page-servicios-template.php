@@ -1,7 +1,11 @@
 <?php 
-$services = get_posts(array('post_type' => 'services'));
-get_header(); 
+ /*
+ Template Name: Services Page 
+  */
+    $services = get_posts(array('post_type' => 'services'));
+    get_header();
 ?>
+
 
 <div class="container-fluid servicios" style="position:relative;">
     <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
@@ -58,4 +62,6 @@ get_header();
     <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank"> 
         <i class="fab fa-whatsapp"></i>
     </a>
+
+
 <?php get_footer(); ?>
