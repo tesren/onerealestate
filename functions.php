@@ -210,6 +210,102 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'group'    =>'Servicios',
                 'multiline'=>false,
             ),
+            array(
+                'name'     =>'tour_virtual',
+                'string'   =>'Tour Virtual',
+                'group'    =>'Header',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'properties_for',
+                'string'   =>'PROPIEDADES EN',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'sale',
+                'string'   =>'VENTA',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'more_info',
+                'string'   =>'Más Info',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'rent',
+                'string'   =>'RENTA',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'for_sale',
+                'string'   =>'EN RENTA',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'from',
+                'string'   =>'Desde',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'rent_sale_properties',
+                'string'   =>'RENTA Y VENTA DE PROPIEDADES',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'En',
+                'string'   =>'EN',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'Luxury properties',
+                'string'   =>'Propiedades de lujo',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'Testimonials',
+                'string'   =>'TESTIMONIALES',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'Speak to agent',
+                'string'   =>'Hablar con un asesor',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'Sell or rent a',
+                'string'   =>'¿Quieres vender o rentar un',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'inmueble',
+                'string'   =>'inmueble?',
+                'group'    =>'Front Page',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'bedrooms',
+                'string'   =>'Recámaras',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'bathrooms',
+                'string'   =>'Baños',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
         );
 
 

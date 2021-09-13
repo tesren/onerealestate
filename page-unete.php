@@ -12,7 +12,64 @@
 
     <!--Equipo-->
 
-    <div class="container-fluid pt-5 mb-5">
+    <div class="container-fluid mb-5">
+
+        <div class="container-fluid landing-desarrollos" style="position:relative;">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/desaLanding.jpg' ?>" alt="Renta">
+
+            <div class="content">
+                <h1 class="fw-light p-0 mb-0">ÚNETE</h1>
+                <hr class="mt-0 mb-3" style="opacity:1;">
+                <p class="fs-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue eu magna ut accumsan.</p>
+            </div>
+        </div>
+
+
+        <div class="row" id="row-why-us">
+
+            <div class="col-12 col-lg-5 fs-1 text-center fw-light py-3" id="why-here" style="background-color:#A28234; color:#fff;">
+                ¿POR QUÉ DEBERÍAS TRABAJAR AQUÍ?
+            </div>
+
+            <div class="col-12 col-lg-8" id="reasons">
+                <div class="row text-center fs-1 fw-light py-4 ps-0 ps-lg-5" style="height:100%">
+
+                    <div class="col align-self-center">
+                        <i class="fas fa-hands-helping"></i>
+                        <div class="fs-4">La mejor opción para ti</div> 
+                    </div>
+
+                    <div class="col align-self-center">
+                        <i class="fas fa-suitcase"></i>
+                        <div class="fs-4">Experiencia en Bienes Raíces</div> 
+                    </div>
+
+                    <div class="col align-self-center">
+                        <i class="fas fa-home"></i>
+                        <div class="fs-4">Excelente equipo de trabajo</div> 
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 col-lg-6">
+                <img class="w-100" src="<?php echo get_template_directory_uri(). '/assets/images/our-team.png' ?>" alt="">
+            </div>
+
+            <div class="col-12 col-lg-6 px-3 px-lg-5" style="background-color:#A28234; color:#fff;">
+                <h2 class="mt-5 fs-1 fw-light">Nuestro <strong>Equipo</strong></h2>
+                <p class="mb-5 fs-4 fw-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue eu magna ut accumsan. 
+                    Suspendisse sit amet erat vel enim semper sollicitudin eget at mauris. Integer feugiat ullamcorper felis eget condimentum.
+                </p>
+            </div>
+
+        </div>
+
+
         <h1 class="my-5 text-center">Nuestro <strong>Equipo</strong></h1>
         
         <div class="row justify-content-evenly mt-4 pb-5">
@@ -51,6 +108,12 @@
             
             <?php endif; ?>
             
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 shadow-6 py-3 px-2 px-lg-5">
+                <?php echo do_shortcode( '[contact-form-7 id="225" title="unete-form"]', true ); ?>
+            </div>
         </div>
 
         <!--boton whatsapp-->

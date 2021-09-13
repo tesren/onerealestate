@@ -21,14 +21,14 @@
     <body <?php body_class();?>>
 
       <!--NAVBAR-->
-    <header class="fixed-top bg-light">
+    <header class="fixed-top bg-gradiente">
       <div class="container-fluid">
         <div class="row">
         
           <div class="col-12 col-md-9 col-lg-10">
             <nav class="navbar navbar-expand-lg navbar-light" role="navigation" style="position:relative;">
               <a class="navbar-brand" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
-                <img src="<?php echo get_template_directory_uri() .'/assets/svgs/ore/logo-one-real-estate-black.svg';?>" id="nav_heder_logo" alt="Logo One real estate">
+                <img src="<?php echo get_template_directory_uri() .'/assets/svgs/ore/logo-onere-blanco.svg';?>" id="nav_heder_logo" alt="Logo One real estate">
               </a>
              
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +53,11 @@
             </nav>
           </div>
   
-          <div class="col-12 col-md-3 col-lg-2 text-center" style="min-height:4px; background-color: #A28234; z-index: 1;">
+          <div class="col-12 col-md-3 col-lg-2 text-center" style="min-height:1px; background-color: #A28234; z-index: 1;">
               <div class="row g-0 justify-content-center" style="height:100%;">
                 <div class="col-10 col-md-8 align-self-center">
                     <div class="row justify-content-center">
-                      <span class="col-5 col-lg-12 text-4 d-none d-lg-block">Tour virtual</span>
+                      <span class="col-5 col-lg-12 text-4 d-none d-lg-block"><?php pll_e('Tour Virtual')?></span>
                       <span class="col-6 col-lg-12 d-none d-lg-block" style="color:white;"> 322 100 8151</span>
                     </div>
                 </div>

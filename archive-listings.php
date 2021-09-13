@@ -1,21 +1,9 @@
 <?php get_header();?>
 
 
-   
-
-        <?php 
-
-            /*
-            *  Query posts for a relationship value.
-            *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-            */
-
-      
-
-        ?>
         <div class="container-fluid landing" style="position:relative;">
             <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
-            <h1 class="fw-bold p-0">VENTA</h1>
+            <h1 class="fw-bold p-0"><?php pll_e('VENTA')?></h1>
         </div>
 
       
@@ -86,15 +74,15 @@
                                 
                                 <!--camas baños y construction-->
                                 <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Bedrooms</span>
-                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baths</span>
+                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?></span>
+                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños'); ?></span>
                                     <span><i class="fas fa-home"></i> <?php echo rwmb_meta('construction');?> m<sup>2</sup></span>
                                 </div>
                                 
                                 <!--precio y moneda-->
                                 <h2 class="my-3"><?php echo rwmb_meta( 'currency');?>$<?php echo number_format(rwmb_meta('price'));?></h2>
                                 
-                                <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1">Más Info</a>
+                                <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1"><?php pll_e('Más Info');?></a>
                             </div>
 
                         </div>

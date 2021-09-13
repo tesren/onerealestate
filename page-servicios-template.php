@@ -28,7 +28,6 @@
 
     <div class="col-lg-6 order-2 order-lg-1 pt-3">
         <h2 class="text-center">Nuestros <strong>Servicios</strong></h2>
-        <ul><?php pll_the_languages();?></ul>
         <hr>
         <div class="row ps-3 ps-lg-5">
 

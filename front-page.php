@@ -65,7 +65,7 @@
 
     <!--Propiedades en Venta-->
 
-    <h2 class="titulo2 text-center mt-5 pt-4">PROPIEDADES EN <span class="fw-bold">VENTA</span></h2>
+    <h2 class="titulo2 text-center mt-5 pt-4"><?php pll_e('PROPIEDADES EN'); ?> <span class="fw-bold"><?php pll_e('VENTA'); ?></span></h2>
 
     <?php if( $listings ): 
           $l = 0;?>
@@ -103,7 +103,7 @@
                     <img class="icon-size me-2" src="<?php echo get_template_directory_uri(). '/assets/images/home-solid.svg' ?>" alt="ruler"><p class="fw-bold"><?php echo $listing->construction;?>m<sup>2</sup></p>
                   </div>
                   <h5 class="text-start" style="margin-top: 0.5rem;"><?php onere_get_list_terms($listing->ID,'regiones'); ?> </h5>
-                  <a href="<?php echo get_the_permalink( $listing->ID );?>"><p class="text-right">Mas info</p></a>
+                  <a href="<?php echo get_the_permalink( $listing->ID );?>"><p class="text-right"><?php pll_e('Más Info'); ?></p></a>
                </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
 
      <!--Propiedades en Renta-->
 
-     <h2 class="titulo2 text-center mt-5">PROPIEDADES EN <span class="fw-bold">RENTA</span></h2>
+     <h2 class="titulo2 text-center mt-5"><?php pll_e('PROPIEDADES EN'); ?> <span class="fw-bold"><?php pll_e('RENTA') ?></span></h2>
 
 <?php if( $rentals ): 
       $k = 0;?>
@@ -141,7 +141,7 @@
           </div>
           <div class="card-body">
               <div class="card-text d-flex justify-content-between">
-                <h5 id="item-name">EN RENTA</h5>
+                <h5 id="item-name"><?php pll_e('EN RENTA') ?></h5>
 
                 <?php 
                   $pricesBaja = rwmb_meta( 'precio-baja',$args = [], $rental->ID); 
@@ -149,7 +149,7 @@
                   $priceSemana = $pricesBaja['semana'];
                   $priceMes = $pricesBaja['mes'];
                 ?>
-                <span><h2>Desde: <?php echo $rental->currency;?> $<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2></span>
+                <span><h2><?php pll_e('Desde') ?>: <?php echo $rental->currency;?> $<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2></span>
               </div>
               <h3 class="text-start"><?php echo get_the_title( $rental->ID );?></h3>
               <div class="flex1 justify-content-start">
@@ -158,7 +158,7 @@
                 <p class="fw-bold"><i class="fas fa-male"></i> <?php echo $rental->rentals_capacity;?></p>
               </div>
               <h5 class="text-start" style="margin-top: 0.5rem;"><?php onere_get_list_terms($rental->ID, 'regiones') ?> </h5>
-              <a href="<?php echo get_the_permalink( $rental->ID );?>"><p class="text-right">Mas info</p></a>
+              <a href="<?php echo get_the_permalink( $rental->ID );?>"><p class="text-right"><?php pll_e('Más Info'); ?></p></a>
            </div>
         </div>
     </div>
@@ -168,14 +168,14 @@
     
     <!--TITULO 1-->
     <div class="row text-center pad2">
-        <h1 class="titulo2">RENTA Y VENTA DE PROPIEDADES<br>EN <span style="font-weight: bold;">PUERTO VALLARTA.</span></h1>
+        <h1 class="titulo2"><?php pll_e('RENTA Y VENTA DE PROPIEDADES'); ?><br><?php pll_e('EN');?> <span style="font-weight: bold;">PUERTO VALLARTA.</span></h1>
     </div>
   
 
     <!--IMAGEN PROPIEDADES DE LUJO-->
     <div class="container-fluid text-center" style="position: relative; z-index: 1;">
         <img src="<?php echo get_template_directory_uri() .'/assets/images/img-2.jpg';?>" class="img-fluid w-100 p-0 responsive-img" alt="Vive en el paraiso">
-        <h2 class="p-5" id="prop-de-lujo">Propiedades de lujo</h2>
+        <h2 class="p-5" id="prop-de-lujo"><?php pll_e('Propiedades de lujo'); ?></h2>
         <div class="fondo-oscuro"></div>
     </div>
 
@@ -193,7 +193,7 @@
                     ?>
 
     <div class="row text-center mt-5 mb-3">
-      <h1 class="fw-bold mt-5">TESTIMONIALES</h1>
+      <h1 class="fw-bold mt-5"><?php pll_e('TESTIMONIALES')?></h1>
     </div>
 
     <div id="carouselTestimonials" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -244,11 +244,11 @@
     <div class="row mt-5">
         <div class="col-12">
             <div class="text-center p-2">
-            <h1 class="text1">¿Quieres vender o rentar un <span style="font-weight:bold">inmueble?</span></h1>
+            <h1 class="text1"><?php pll_e('¿Quieres vender o rentar un') ?><span style="font-weight:bold"> <?php pll_e('inmueble?') ?></span></h1>
             </div>
 
             <div style="padding-bottom: 10rem;" class="text-center">
-            <button class="btn2">Hablar con un asesor</button>
+            <button class="btn2"><?php pll_e('Hablar con un asesor'); ?></button>
             </div>
         </div>
     </div>

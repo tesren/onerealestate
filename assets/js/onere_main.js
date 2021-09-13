@@ -21,6 +21,7 @@ if($(window).width() <= 992){
     const logoImg = document.getElementById('nav_heder_logo');
     srcLogo = logoImg.getAttribute('src');
     navListImg.setAttribute('src', srcLogo);
+    navListImg.setAttribute('class', 'w-75');
     navListAnc.appendChild(navListImg);
         
     const element = document.getElementById("navbarSupportedContent");

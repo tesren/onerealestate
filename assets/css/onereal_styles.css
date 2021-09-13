@@ -6,7 +6,7 @@ html, body {
   }
 
 h1{
-    color: #76726A;;
+    color: #76726A;
     font-size: 2rem;
     font-weight: lighter;
 }
@@ -31,6 +31,14 @@ a{
     font-weight: 350;
 }
 
+.shadow-5 {
+    box-shadow: 0 3px 5px -1px #0003,0 5px 8px #00000024,0 1px 14px #0000001f;
+}
+
+.shadow-6 {
+    box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+}
+
 .container-fluid, .row, .col, .col-lg-6{
     padding: 0;
     margin: 0;
@@ -53,9 +61,10 @@ a{
     border: 5px solid white;
 }
 
-.contenedor-margin{
+/* .contenedor-margin{
     margin-top: 4.9rem;
-}
+} */
+
 /* Colores disponibilidad */
 .Apartado {
     color: #fff !important;
@@ -176,11 +185,27 @@ a{
       transition: 0.3s;
   }
 
-  #boton-idioma .fa-language {
-    position: relative;
-    vertical-align: top;
+  .lang-list{
+    position: absolute;
+    z-index: 2;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .lang-list .lang-item a{
+      color: white;
+      font-weight: 600;
+      text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  }
+
+  #boton-idioma .fa-globe {
+    position: absolute;
     top: 7px;
-    width: 70%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
   }
 
 /*Home page*/
@@ -359,16 +384,26 @@ figure{
 }
 
 /*Archive Developments*/
-.landing-desarrollos h1{
-    text-align: center;
-    color: #fff;
-    font-size: 5.5rem;
+#archive-devs{
+    color: #444444 !important;
+}
+
+#archive-devs h2{
+    color: #444444 !important;
+}
+
+.landing-desarrollos .content{
+    text-align: start;
+    color: #fff !important;
     position: absolute;
-    top: 40% ;
-    left: 27.5%;
-    right: 27.5%;
-    width: 45%;
-    border: 5px solid white;
+    top: 30% ;
+    left: 10%;
+    width: 50%;
+}
+
+.landing-desarrollos .content h1{
+    color: #fff !important;
+    font-size: 5.5rem;
 }
 
 .card-desarrollos img{
@@ -499,12 +534,16 @@ figure{
 /*Contact form*/
 .wpcf7 input[type="text"],
 .wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
 .wpcf7 textarea{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-radius: 4px;
+    border-radius: 0px;
     width: 100%;
     border-color: rgba(0, 0, 0, 0.6);
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .wpcf7-submit{
@@ -512,7 +551,7 @@ figure{
     font-size: 1.2rem;
     color: #fff;
     border: 0px;
-    border-radius: 4px;
+    border-radius: 50px;
     font-weight: bold;
     width: 100%;
     padding: 5px 0px;
@@ -534,6 +573,14 @@ figure{
 }
 
 /*NAVBAR*/
+.bg-gradiente{
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.4),rgba(0,0,0,0.15) ,transparent);
+}
+
+#navbarSupportedContent{
+ background-color: initial;
+}
+
 #nav_heder_logo{
     width: 250px;
     height: auto;
@@ -543,6 +590,8 @@ figure{
     margin-left: 1.2rem;
     transition: 0.2s;
     animation: ease-in-out;
+    color: #FFF !important;
+    font-weight: normal;
 }
 .nav-link:hover{
     opacity: 1;
@@ -623,6 +672,7 @@ nav .nav-item i{
     text-align: center;
     font-weight: bold;
     font-size: 1.3rem;
+    border-radius: 50px;
 }
 
 .form-control{
@@ -858,8 +908,25 @@ nav .nav-item i{
 
   /*single developments*/
  
+#why-here{
+    position: absolute;
+    left: 0;
+    z-index: 5;
+}
 
+#reasons{
+    position: absolute;
+    right: 0;
+    bottom: 44px;
+    background-color:#444444; color:#fff;
+    z-index: 1;
+}
 
+#row-why-us{
+    position:relative; 
+    margin: 7rem 0;
+    height: 30vh;
+}
 
 
 /*MEDIA QUERY*/
@@ -903,10 +970,17 @@ nav .nav-item i{
         object-fit: cover;
     }
 
-    .contenedor-margin{
+  /*   .contenedor-margin{
         margin-top: 4.4rem;
-    }
+    } */
+
 /*single dev mobile*/
+    #row-why-us{
+        position:relative; 
+        margin: 3rem 0;
+        height: 42vh;
+    }
+
     #recipeCarousel .carousel-inner .carousel-item > div {
     display: none;
     }
@@ -1062,14 +1136,18 @@ nav .nav-item i{
     }
 
     /*Archive desarrollos mobile*/
-    .landing-desarrollos h1{
-        font-size: 2.5rem;
-        top: 35%;
-        left: 10%;
-        right: 10%;
-        width: 80%;
-        border: 5px solid white;
+    .landing-desarrollos .content{
+        text-align: center;
+        top: 15% ;
+        left: 5%;
+        width: 90%;
+        right: 5%;
     }
+    
+    .landing-desarrollos .content h1{
+        font-size: 2.5rem;
+    }
+
     .boton-blanco{
         margin-right:initial;
     }
@@ -1117,13 +1195,20 @@ nav .nav-item i{
     #ore_main_navbar .nav-link{
         font-size: 1.4rem;
     }
+
+    #navbarSupportedContent{
+        background-color: #A28234;
+    }
   }
 
 @media (min-width: 768px) and (max-width: 992px) {
-
-    .contenedor-margin{
-        margin-top: 4.4rem;
+    #navbarSupportedContent{
+        background-color: #A28234;
     }
+
+ /*    .contenedor-margin{
+        margin-top: 4.4rem;
+    } */
     .servicios h1{
         font-size: 4.5rem;
         top: 40% ;
@@ -1131,12 +1216,17 @@ nav .nav-item i{
         right: 20%;
         width: 60%;
     }
-    .landing-desarrollos h1{
-        font-size: 4.5rem;
-        top: 40% ;
-        left: 15%;
-        right: 15%;
-        width: 70%;
+  
+    .landing-desarrollos .content{
+        text-align: center;
+        top: 20% ;
+        left: 10%;
+        right: 10%;
+        width: 80%;
+    }
+    
+    .landing-desarrollos .content h1{
+        font-size: 3.5rem;
     }
     .single-developments .location-titles{
         position: absolute;

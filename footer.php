@@ -1,9 +1,12 @@
     </div><!--Contenedor-margin-->
 
      <!--boton Idioma-->
-     <a id="boton-idioma" lang="en-US" hreflang="en-US" href="http://localhost:8888/wordpress-onerealestate/en/services/"> 
+     <div id="boton-idioma"> 
+        <ul class="lang-list list-unstyled">
+          <?php pll_the_languages(array('hide_current'=> 1)); ?>
+        </ul>
         <i class="fas fa-globe"></i>
-     </a>
+    </div>
       
       <!--FOOTER-->
     <div class="row text-center footer footer2">
