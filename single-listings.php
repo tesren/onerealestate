@@ -8,7 +8,7 @@
             //$currentlang = get_bloginfo('language');
              //Declarar array con etiquetas
 ?>
-    <div class="container-fluid single-listings">
+    <div class="container-fluid single-listings contenedor-margin">
         <div class="row">
 
             <div class="col-12 col-lg-6 mt-3">
@@ -16,21 +16,7 @@
                 <div class="row justify-content-center justify-content-lg-end ">
 
                     <div style="background-color: #929292;" class="col-6 col-lg-4 p-0">
-                        <h3 class="py-1 text-center"><?php 
-                
-                        $locations = array_reverse(rwmb_meta( 'location' ));
-
-                        $i =1;
-                        if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
-                            foreach ( $locations as $location ) {
-                                echo $location->name;
-                                if( $i < count($locations) ){
-                                    echo ', ';
-                                }
-                                $i++;
-                            }
-                        }
-                        ?></h3>
+                        <h3 class="py-1 text-center"><?php onere_get_list_terms(get_the_ID(),'regiones'); ?></h3>
                         
                     </div>
 
@@ -42,7 +28,35 @@
 
             <div class="col-lg-6 order-2 order-lg-1">
                 <div class="px-4 px-lg-5 pt-4"><?php echo the_content(); ?></div>
-                <h2 class="py-3 mt-1 mt-lg-5 text-center"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?></h2>
+
+                <div class="row mt-5 text-center justify-content-evenly">
+
+                    <div class="col-6 col-lg-3">
+                        <i class="fas fa-ruler-combined fa-2x"></i> 
+                        <span class="d-block fs-5"><?php echo rwmb_meta( 'lot_area' );?> m<sup>2</sup></span>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <i class="fas fa-home fa-2x"></i> 
+                        <span class="d-block fs-5"><?php echo rwmb_meta( 'construction' );?> m<sup>2</sup></span>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <i class="fas fa-bed fa-2x"></i> 
+                        <span class="d-block fs-5"><?php echo rwmb_meta( 'bedrooms' );?> <?php pll_e('Recámaras');?></span>
+                    </div>
+                    <div class="col-6 col-lg-5">
+                        <i class="fas fa-shower fa-2x"></i> 
+                        <span class="d-block fs-5"><?php echo rwmb_meta( 'bathrooms' );?> <?php pll_e('Baños');?></span>
+                    </div>
+                    <div class="col-9 col-lg-5">
+                        <i class="fas fa-couch fa-2x"></i> 
+                        <span class="d-block fs-5"><?php echo rwmb_meta( 'furniture' );?></span>
+                    </div>
+
+                </div>
+
+                <h2 class="py-3 mt-1 mt-lg-5 text-center" style="color:#A28234;">
+                    <?php echo rwmb_meta( 'currency' );?> $<?php echo number_format( rwmb_meta( 'price' ) );?>
+                </h2>
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2">
@@ -53,23 +67,6 @@
                 <img class="w-100 img-fluid px-0" src="<?php echo $image['url']; ?>" alt="<?php the_title();?>">
                 <?php } ?>
 
-                <div class="row pt-3 text-center justify-content-center">
-                    <div class="col-6 col-lg-3">
-                        <h5><i class="fas fa-ruler-combined"></i> <?php echo rwmb_meta( 'lot_area' );?> m<sup>2</sup></h5>
-                    </div>
-                    <div class="col-6 col-lg-2">
-                        <h5><i class="fas fa-home"></i> <?php echo rwmb_meta( 'construction' );?> m<sup>2</sup></h5>
-                    </div>
-                    <div class="col-6 col-lg-2">
-                        <h5><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'bedrooms' );?></h5>
-                    </div>
-                    <div class="col-6 col-lg-2">
-                        <h5><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?></h5>
-                    </div>
-                    <div class="col-9 col-lg-3">
-                        <h5><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?></h5>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -87,7 +84,7 @@
            <!--datos generales-->
            <div class="col-lg-6 ps-2 ps-lg-4 datos-generales">
                 <div class="row justify-content-start">
-                    <h2 class="text-center fw-normal mt-2 mt-lg-5">Datos Generales</h2>
+                    <h2 class="text-center fw-normal mt-2 mt-lg-4"><?php pll_e('Datos Generales');?></h2>
                     
                     <?php $values = rwmb_meta( 'amenities' );
                         foreach ( $values as $value ) { ?>
@@ -106,7 +103,7 @@
         <div class="container-fluid text-center" style="position:relative;">
             <div class="row justify-content-center mb-2 location-titles">
                 <div class="col-12 col-lg-5 p-0">
-                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Galería</h2></div>
+                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2"><?php pll_e('Galería'); ?></h2></div>
                 </div>
                 
                 
@@ -133,25 +130,11 @@
 
                 <div class="col-12 col-lg-6 p-0">
                    
-                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Ubicación</h2></div>
+                    <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2"><?php pll_e('Ubicación'); ?></h2></div>
 
                     <div class="row justify-content-center">
                         <div class="col-6 col-lg-4 mb-3 mb-lg-0 p-0" style="background-color: #929292;">
-                            <h3 class="py-1 mb-0 ps-0 ps-lg-2"><?php 
-                                
-                                $locations = array_reverse(rwmb_meta( 'location' ));
-
-                                $i =1;
-                                if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
-                                    foreach ( $locations as $location ) {
-                                        echo $location->name;
-                                        if( $i < count($locations) ){
-                                            echo ', ';
-                                        }
-                                    $i++;
-                                }
-                            }
-                            ?></h3>
+                            <h3 class="py-1 mb-0 ps-0 ps-lg-2"><?php onere_get_list_terms(get_the_ID(),'regiones'); ?></h3>
                         </div>
                     </div>
                 </div>
@@ -199,4 +182,4 @@
 
     endif;
 
-    get_footer();
+    get_footer();?>

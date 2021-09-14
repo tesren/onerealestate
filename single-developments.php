@@ -19,87 +19,74 @@ $units = get_posts(array(
 
     <div class="container-fluid single-developments">
         <!--Imagen con texto-->
-      <div class="container-fluid " style="position:relative;">
-        <?php $images = rwmb_meta( 'more_photos', array( 'size' => 'full', 'limit' => '2' ) );?>
+        <div class="container-fluid landing-desarrollos" style="position:relative;">
+            <?php $images = rwmb_meta( 'more_photos', array( 'size' => 'full', 'limit' => '2' ) );?>
 
             <img class="w-100 img-fluid mobile-img"  src="<?php echo $images[0]['url']; ?>" alt="<?php the_title();?>">
-
-            <!--logo Desarrollo-->
-            <?php $logos = rwmb_meta( 'logo-dev', array( 'size' => 'large' ) );
-                $j = 0;
-                    foreach ( $logos as $logo ) { ?>
-
-                <img id="logo-desarrollo" class="img-fluid " src="<?php echo $logo[ 'url' ];?>" alt="<?php echo $logo[ 'title' ];?>">
-            <?php     $j++; }?>
             
-            <div class="row text-center dev-prices">
-                <div style="background-color: #ab9154;" class="col-12 col-lg-5 p-2">
-
-                    <div class="row">
-                        <span class="col-6">Precios Desde:</span>
-                        <span class ="col-6">Recámaras Desde:</span>
-                    </div>
-
-                    <div class="row">
-                        <h3 class="col-6"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format(rwmb_meta( 'starting_at' )); ?> </h3>
-                        <h3 class="col-6"><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'starting_at_bedrooms' ); ?></h3>
-                    </div>
-
-                </div>
+            <div class="content">
+                <h1 class="fw-light p-0 mb-0"><?php the_title();?></h1>
+                <hr class="mt-0 mb-3" style="opacity:1;">
+                <div class="fs-5"><?php the_excerpt();?></div>
+                <a href="#" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
             </div>
-     </div>
 
-      <!--foto destacada 2-->
-      <div class="container-fluid text-center text-lg-start" style="position:relative;">
-        
-        <div class="description row px-3 px-lg-5">
-
-            <div class="col-12 col-lg-4">
-                <div style="background-color: #ab9154;"><h2 class="p-2">Descripción</h2></div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-7" id="el-content"><p><?php echo the_content();?></p></div>
-            </div>
+            <div class="fondo-oscuro"></div>
 
         </div>
 
-        <div class="fondo-oscuro"></div>
-          <img class="img-fluid w-100 mobile-img" src="<?php echo $images[1]['url'];?>" alt="<?php echo $images[1]['title'];?>">
+      <!--foto destacada 2-->
+      <div class="row justify-content-center text-center text-lg-start my-5" style="position:relative;">
 
+            <div class="col-12 col-lg-4">
+                <h2 class="fs-1" style="color:#A28234;"><?php the_title();?></h2>
+                <div class="fs-5"><?php echo the_content();?></div>
+            </div>
+            
+            <div class="col-12 col-lg-6" id="el-content" style="color:#444444;">
+                <img class="w-100" src="<?php echo $images[1]['url'];?>" alt="<?php echo $images[1]['title'];?>">
+            </div>
+            
       </div>
 
+
+    <div class="row justify-content-center text-center fs-5" style="margin:6rem 0;">
+        <div class="col-6 col-md-3">
+            <i class="fas fa-dollar-sign fa-3x" style="color:#A28234;"></i>
+            <span class="d-block fw-bold my-2"><?php pll_e('Precios desde:'); ?></span>
+            <span class="d-block">
+                $ <?php echo number_format(rwmb_meta( 'starting_at' )); ?>
+                <?php echo rwmb_meta( 'currency' );?> 
+            </span> 
+        </div>
+
+        <div class="col-6 col-md-3">
+            <i class="fas fa-bed fa-3x" style="color:#A28234;"></i> 
+            <span class="d-block fw-bold my-2"><?php pll_e('Recámaras desde:'); ?></span>
+            <span class="d-block"><?php echo rwmb_meta( 'starting_at_bedrooms' ); ?></span>
+        </div>
+
+        <div class="col-12 col-md-3">
+            <i class="fas fa-map-marker-alt fa-3x" style="color:#A28234;"></i>
+            <span class="d-block fw-bold my-2"><?php pll_e('Locación:'); ?></span>
+            <span class="d-block"><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></span>
+        </div>
+    </div> 
+
        <!--MAPA google-->
-       <div class="container-fluid text-center text-lg-start" style="position:relative;">
+       <div class="container-fluid text-center" style="position:relative;">
 
-        <div class="row justify-content-center justify-content-lg-end location-titles">
+            <div class="row justify-content-center">
 
-            <div class="col-12 col-lg-4 p-0">
-            
-                <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Ubicación</h2></div>
-
-                <div class="row justify-content-center justify-content-lg-end">
-                    <div class="col-6 col-lg-6 mb-3 mb-lg-0 p-0" style="background-color: #929292;">
-                        <h3 class="py-1 mb-0 ps-0 ps-lg-2"><?php 
-                            
-                            $locations = array_reverse(rwmb_meta( 'location' ));
-
-                            $i =1;
-                            if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
-                                foreach ( $locations as $location ) {
-                                    echo $location->name;
-                                    if( $i < count($locations) ){
-                                        echo ', ';
-                                    }
-                                $i++;
-                            }
-                        }
-                        ?></h3>
-                    </div>
+                <div class="col-12 col-lg-4 p-0">
+                
+                    <h3 class="fw-light fs-1" style="color: #ab9154;"><?php pll_e('Ubicación'); ?></h3>
+                    <h3 class="fw-light fs-5 mb-4"><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></h3>
+                        
                 </div>
-            </div>
-
 
             </div>
+
             <div style="height: 60vh;" class="col-12">
                 <?php $args = array(
                     'width'        => '100%',
@@ -114,7 +101,7 @@ $units = get_posts(array(
         </div>
 
          <!--Galeria de Amenidades-->
-         <div class="container-fluid text-center mt-5" style="position:relative;">
+  <!--        <div class="container-fluid text-center mt-5" style="position:relative;">
             <div class="row justify-content-center mb-0 mb-lg-2">
                 <div class="col-12 col-lg-5 p-0">
                     <div style="background-color: #ab9154;"><h2 class="mb-0 ps-0 ps-lg-2">Amenidades</h2></div>
@@ -137,7 +124,7 @@ $units = get_posts(array(
                 <?php $k++;}?>
             </div>
 
-        </div>
+        </div> -->
 
 
         <!--Galeria de fotos-->
@@ -170,7 +157,7 @@ $units = get_posts(array(
 <div class="row mx-auto my-auto justify-content-center">
 
     <div class="col-12 col-lg-5 p-0 text-center">
-        <div style="background-color: #ab9154;"><h2 class="mb-4 mt-5 ps-0 ps-lg-2">Inventario</h2></div>
+        <div style="background-color: #ab9154;"><h2 class="mb-4 mt-5 ps-0 ps-lg-2"><?php pll_e('Inventario'); ?></h2></div>
     </div>
 
     <ul id="recipeCarousel" class="cs-hidden">

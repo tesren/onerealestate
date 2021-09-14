@@ -1,9 +1,15 @@
 <?php get_header();?>
 
 
-        <div class="container-fluid landing" style="position:relative;">
+        <div class="container-fluid landing-desarrollos" style="position:relative;">
             <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
-            <h1 class="fw-bold p-0"><?php pll_e('VENTA')?></h1>
+
+            <div class="content">
+                <h1 class="fw-light p-0 mb-0"><?php pll_e('VENTA')?></h1>
+                <hr class="mt-0 mb-3" style="opacity:1;">
+                <p class="fs-5"><?php pll_e('Venta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit')?></p>
+                <a href="#all-listings" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
+            </div>
         </div>
 
       
@@ -39,7 +45,7 @@
             
         </form>
 
-        <div class="row p-0 mx-0 mb-5">
+        <div class="row p-0 mx-0 mb-5" id="all-listings">
 
             <?php if( have_posts() ): 
                 

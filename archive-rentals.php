@@ -1,21 +1,14 @@
 <?php get_header();?>
 
 
-   
-
-        <?php 
-
-            /*
-            *  Query posts for a relationship value.
-            *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-            */
-
-      
-
-        ?>
-        <div class="container-fluid landing" style="position:relative;">
+        <div class="container-fluid landing-desarrollos" style="position:relative;">
             <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
-            <h1 class="fw-bold p-0">RENTA</h1>
+            <div class="content">
+                <h1 class="fw-light p-0 mb-0"><?php pll_e('RENTA')?></h1>
+                <hr class="mt-0 mb-3" style="opacity:1;">
+                <p class="fs-5"><?php pll_e('Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit')?></p>
+                <a href="#all-rentals" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
+            </div>
         </div>
 
       
@@ -51,7 +44,7 @@
             
         </form>
 
-        <div class="row p-0 mx-0 mb-5">
+        <div class="row p-0 mx-0 mb-5" id="all-rentals">
 
             <?php if( have_posts() ): 
                 
@@ -82,9 +75,9 @@
                                 
                                 <!--camas baños y construction-->
                                 <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</span>
-                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> Baños</span>
-                                    <span><i class="fas fa-male"></i></i> <?php echo rwmb_meta('rentals_capacity');?> Huéspedes</span>
+                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?></span>
+                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños') ?></span>
+                                    <span><i class="fas fa-male"></i></i> <?php echo rwmb_meta('rentals_capacity');?> <?php pll_e('Huéspedes') ?></span>
                                 </div>
 
                                 <!--precio y moneda-->
@@ -93,10 +86,10 @@
                                       $priceSemana = $pricesBaja['semana'];
                                       $priceMes = $pricesBaja['mes'];
                                 ?>
-                                <span class="fw-light fs-4">Precios desde:</span>
+                                <span class="fw-light fs-4"><?php pll_e('Precios desde:')?></span>
                                 <h2 class="my-1"><?php echo rwmb_meta( 'currency');?>$<?php echo number_format(check_empty_prices($priceNoche, $priceSemana, $priceMes));?></h2>
 
-                                <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1">Más Info</a>
+                                <a href="<?php echo get_the_permalink();?>" class="btn btn1 mt-3 mb-5 mb-lg-1"><?php pll_e('Más Info'); ?></a>
                             </div>
 
                         </div>

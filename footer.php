@@ -1,5 +1,3 @@
-    </div><!--Contenedor-margin-->
-
      <!--boton Idioma-->
      <div id="boton-idioma"> 
         <ul class="lang-list list-unstyled">
@@ -9,12 +7,17 @@
     </div>
       
       <!--FOOTER-->
-    <div class="row text-center footer footer2">
-      <div class="col-sm-12">
+    <div class="row text-center footer footer2 justify-content-center">
 
-        <h4 class="text-uppercase text3">ONE REAL ESTATE</h4>
+      <div class="col-md-2 d-none d-md-block">
+        <img class="w-100" src="<?php echo get_template_directory_uri()."/assets/svgs/ore/logo-solo-onere.svg" ?>" alt="logo">
+      </div>
 
-        <ul class="list-unstyled mb-0">
+      <div class="col-12 col-md-7">
+
+        <h4 class="text-uppercase fw-bold fs-4">ONE REAL ESTATE</h4>
+
+        <ul class="list-unstyled my-4">
           <li>
             <h6 href="#!" class="interlineado">Boulevard Nuevo Vallarta, Local 1</h6>
           </li>
@@ -43,6 +46,11 @@
         </ul>
 
       </div>
+
+      <div class="col-md-2 d-none d-md-block">
+        <img class="w-100" src="<?php echo get_template_directory_uri()."/assets/svgs/ore/logo-solo-onere.svg" ?>" alt="logo">
+      </div>
+
     </div>
 
     <!-- Optional JavaScript -->
