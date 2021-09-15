@@ -33,11 +33,11 @@
 
                     <div class="col-6 col-lg-3">
                         <i class="fas fa-ruler-combined fa-2x"></i> 
-                        <span class="d-block fs-5"><?php echo rwmb_meta( 'lot_area' );?> m<sup>2</sup></span>
+                        <span class="d-block fs-5"><?php echo onere_get_sqft(pll_current_language() ,rwmb_meta( 'lot_area' )); ?></span>
                     </div>
                     <div class="col-6 col-lg-3">
                         <i class="fas fa-home fa-2x"></i> 
-                        <span class="d-block fs-5"><?php echo rwmb_meta( 'construction' );?> m<sup>2</sup></span>
+                        <span class="d-block fs-5"><?php echo onere_get_sqft(pll_current_language() ,rwmb_meta( 'construction' ));?></span>
                     </div>
                     <div class="col-6 col-lg-3">
                         <i class="fas fa-bed fa-2x"></i> 
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-9 col-lg-5">
                         <i class="fas fa-couch fa-2x"></i> 
-                        <span class="d-block fs-5"><?php echo rwmb_meta( 'furniture' );?></span>
+                        <span class="d-block fs-5"><?php echo pll_e(rwmb_meta( 'furniture' ));?></span>
                     </div>
 
                 </div>
@@ -87,12 +87,11 @@
                     <h2 class="text-center fw-normal mt-2 mt-lg-4"><?php pll_e('Datos Generales');?></h2>
                     
                     <?php $values = rwmb_meta( 'amenities' );
-                        foreach ( $values as $value ) { ?>
-                            
-                    <div class="col-6 col-md-4 col-lg-4">
-                        <p><?php echo $value; ?></p>                
-                    </div>
-                    <?php } ?>
+                        foreach ( $values as $value ): ?>
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <p><?php echo pll_e($value); ?></p>                
+                            </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

@@ -31,12 +31,8 @@ a{
     font-weight: 350;
 }
 
-.shadow-5 {
-    box-shadow: 0 3px 5px -1px #0003,0 5px 8px #00000024,0 1px 14px #0000001f;
-}
-
-.shadow-6 {
-    box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
+.titulo2{
+    color: #76726A !important;
 }
 
 .container-fluid, .row, .col, .col-lg-6{
@@ -45,7 +41,7 @@ a{
 } 
 
 .responsive-img{
-    max-height: 95vh;
+    max-height: 100vh;
     object-fit: cover;
 }
 
@@ -63,6 +59,15 @@ a{
 
  .contenedor-margin{
     margin-top: 4.9rem;
+}
+
+/*elevation effect*/
+.shadow-5 {
+    box-shadow: 0 3px 5px -1px #0003,0 5px 8px #00000024,0 1px 14px #0000001f;
+}
+
+.shadow-6 {
+    box-shadow: 0 3px 5px -1px #0003,0 6px 10px #00000024,0 1px 18px #0000001f;
 }
 
 /* Colores disponibilidad */
@@ -562,6 +567,19 @@ figure{
     border-radius: 50%;
 }
 
+.btn-search{
+    position: relative;
+    background-color: #A28234;
+    padding: 2px;
+    font-size: 31px;
+    color: #fff;
+    text-align: center;
+    width: 55px !important;
+    height: 56px;
+    line-height: 25px;
+    border-radius: 50%;
+}
+
 .bg-gradiente{
     background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.4),rgba(0,0,0,0.15) ,transparent);
 }
@@ -656,6 +674,18 @@ nav .nav-item i{
     border: none;
     padding-right: 8.8rem;
     padding-left: 8.8rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border-radius: 50px;
+}
+.btn-blanco{
+    background-color: white;
+    color: #A28234;
+    outline: none;
+    border: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     text-align: center;
@@ -907,11 +937,6 @@ nav .nav-item i{
         top: 40%;
     }
 
-    .responsive-img{
-        height: 95vh;
-        object-fit: cover;
-    }
-
     .contenedor-margin{
         margin-top: 4.4rem;
     } 
@@ -931,7 +956,7 @@ nav .nav-item i{
     }
 
     .mobile-img{
-        height: 80vh;
+        height: 100vh;
         object-fit: cover;
     }
 
@@ -1019,6 +1044,7 @@ nav .nav-item i{
         height: 2rem;
     }
     .titulo2{
+        color: #76726A;
         font-size: 1.6rem;
         font-weight: initial;
     }

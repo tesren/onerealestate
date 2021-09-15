@@ -1,4 +1,7 @@
 <?php
+/*
+ Template Name: Unete Page 
+  */
         $realtors = get_posts(array(
             'post_type' => 'realtors',
             'numberofposts' => -1
@@ -46,7 +49,7 @@
                     </div>
 
                     <div class="col align-self-center">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-users"></i>
                         <div class="fs-4"><?php pll_e('Excelente equipo de trabajo'); ?></div> 
                     </div>
 
@@ -63,9 +66,12 @@
 
             <div class="col-12 col-lg-6 px-3 px-lg-5" style="background-color:#A28234; color:#fff;">
                 <h2 class="mt-5 fs-1 fw-light"><?php pll_e('Nuestro'); ?> <strong><?php pll_e('Equipo'); ?></strong></h2>
-                <p class="mb-5 fs-4 fw-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed congue eu magna ut accumsan. 
-                    Suspendisse sit amet erat vel enim semper sollicitudin eget at mauris. Integer feugiat ullamcorper felis eget condimentum.
+                <p class="mb-5 fs-4 fw-light">
+                    <?php pll_e('Nuestro equipo de Profesionales cuenta con una amplia experiencia en Venta, Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit. Contactanos para que formes parte de este gran equipo.'); ?>
                 </p>
+                <div class="w-100 text-center text-lg-start">
+                    <a href="#contact-form" class="my-4 px-4 btn btn-blanco"><?php pll_e('Contacto'); ?></a>
+                </div>
             </div>
 
         </div>
@@ -109,7 +115,7 @@
             
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" id="contact-form">
             <h3 class="fs-2 fw-bold text-center mb-2" style="color:#A28234;"><?php pll_e('Únete a nuestro equipo'); ?></h3>
             <div class="col-12 col-md-8 col-lg-6 shadow-6 py-3 px-2 px-lg-5">
                 <?php echo do_shortcode( '[contact-form-7 id="177" title="unete-form"]', true ); ?>

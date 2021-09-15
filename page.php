@@ -1,7 +1,4 @@
 <?php 
- /*
- Template Name: Services Page 
-  */
     $services = get_posts(array('post_type' => 'services'));
     get_header();
 ?>
@@ -53,7 +50,35 @@
     </div>
 
     <div class="col-lg-5 order-1 order-lg-2">
-        <img class="w-100 px-1" src="<?php echo get_template_directory_uri(). '/assets/images/servicios.jpg' ?>" alt="Servicios">
+        <div id="carouselServices" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                <?php 
+                foreach($services as $service):
+                    $servicesImgs = rwmb_meta('services_gallery', array('size'=>'full'), $service->ID); 
+                    $i=0;
+                    foreach($servicesImgs as $servicesImg):?>
+                        <div class="carousel-item <?php if($i==0){echo 'active';} ?>">
+                            <img src="<?php echo $servicesImg['url']?>" class="d-block w-100" alt="<?php echo $servicesImg['title']?>" style="height: 450px; object-fit:cover;">
+                        </div> 
+                <?php $i++;
+                    endforeach;
+                endforeach; 
+                ?>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselServices" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselServices" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+  
     </div>
 </div>
 

@@ -12,38 +12,12 @@
             </div>
         </div>
 
-      
-        <form class="row my-5 text-center justify-content-center mx-3 mx-lg-0" action="">
-
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar" name="lugar">
-                <option selected>Elige un lugar</option>
-                <option value="1">Puerto Vallarta</option>
-                <option value="2">Bucerías</option>
-                <option value="2">Punta de Mita</option>
-                </option>
-            </select>
-
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo" name="tipo">
-                <option selected>Tipo</option>
-                <option value="1">Casa</option>
-                <option value="2">Departamento</option>
-            </select>
-
-            <div class="col-lg-2 form-floating px-0 px-lg-2 mb-2 mb-lg-0">
-                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras" name="beds">
-                <label class="ms-2" for="bedrooms">Recámaras</label>
+        <div class="row justify-content-center my-5">
+            <div class="col-11 col-md-10 col-lg-6">
+                <?php get_search_form(); ?>
             </div>
-
-            <div class="col-lg-2 form-floating px-0 px-lg-2 mb-4 mb-lg-0">
-                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
-                <label class="ms-2" for="max-price">Precio Máximo</label>
-            </div>
-            
-            <div class="col-lg-3 px-0">
-                <button type="submit" class="btn btn1">Buscar</button>
-            </div>
-            
-        </form>
+        </div>
+        
 
         <div class="row p-0 mx-0 mb-5" id="all-listings">
 
@@ -71,7 +45,7 @@
                             <div class="col-lg-6 ps-0 pe-0 ps-lg-5 <?php if( $i%2 == 0 ){echo 'order-2 order-lg-1 text-lg-end pe-lg-5';}?>">
                                 <div class="mb-0 mt-3 d-flex justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?>">
                                     <span class="pr-type-archive px-2 mx-2"><?php echo onere_get_property_type(get_the_ID(),'property_type'); ?></span>
-                                    <span class="fw-light"><?php echo rwmb_meta('avaliable')?></span>
+                                    <span class="fw-light"><?php echo pll_e(rwmb_meta('avaliable'));?></span>
                                 </div>
                                 
                                 <h2 class="mt-3 pt-lg-1 "><?php echo get_the_title();?></h2>
@@ -79,10 +53,19 @@
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php onere_get_list_terms(get_the_ID(), 'regiones'); ?></h5>
                                 
                                 <!--camas baños y construction-->
-                                <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?></span>
-                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños'); ?></span>
-                                    <span><i class="fas fa-home"></i> <?php echo rwmb_meta('construction');?> m<sup>2</sup></span>
+                                <div class="row fw-bold fs-5 justify-content-center text-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
+                                    <div class="col-7 col-md-3">
+                                        <i class="fas fa-bed "></i> 
+                                        <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?>
+                                    </div>
+                                    <div class="col-7 col-md-3">
+                                        <i class="fas fa-shower "></i> 
+                                        <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños'); ?>
+                                    </div>
+                                    <div class="col-7 col-md-3">
+                                        <i class="fas fa-home "></i>
+                                        <?php echo onere_get_sqft(pll_current_language() ,rwmb_meta('construction'));?>
+                                    </div>
                                 </div>
                                 
                                 <!--precio y moneda-->

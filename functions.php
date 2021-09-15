@@ -34,7 +34,7 @@ function onere_register_styles()
     wp_enqueue_style('cb-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css", array(), '5.1.0', 'all');
     //wp_enqueue_style('onere-bootstrap', get_template_directory_uri() . "/assets/css/bootstrap.min.css", array(), '5.0.0', 'all');
     wp_enqueue_style('lightslider', get_template_directory_uri() . "/assets/css/lightslider.css", array(), $version , 'all');
-    wp_enqueue_style('onere-style-primary', get_template_directory_uri() . "/assets/css/onereal_styles.css", array(), $version , 'all');
+    wp_enqueue_style('onere-style-primary', get_template_directory_uri() . "/assets/css/one_real_styles.css", array(), $version , 'all');
     wp_enqueue_style('onere-fontawesome', get_template_directory_uri() . "/assets/css/all.min.css", array(), '5.15.1' , 'all');
     //Fontawesome cdn
     //wp_enqueue_style('cb-fontawesome', "/style.css", array(), '1.0', 'all');
@@ -195,12 +195,34 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }
     }
 
+    function onere_get_sqft( $lang, $val){
+
+        if( !empty($val) )
+        {
+            if($lang === 'en' ){
+                return number_format($val * 10.76 ) . ' ft²'; 
+            }
+            else
+            {
+                return number_format( $val ) . 'm²';
+            }
+        }else{
+             return '0';
+        }  
+    }
+
     function tierra_set_strings_transtaltion(){
         
         $strings = array(
             array(
                 'name'     =>'servicios',
                 'string'   =>'Servicios',
+                'group'    =>'Servicios',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'services-mayus',
+                'string'   =>'SERVICIOS',
                 'group'    =>'Servicios',
                 'multiline'=>false,
             ),
@@ -301,6 +323,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'multiline'=>false,
             ),
             array(
+                'name'     =>'contact',
+                'string'   =>'Contacto',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
                 'name'     =>'bathrooms',
                 'string'   =>'Baños',
                 'group'    =>'Listings',
@@ -326,9 +354,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             ),
             array(
                 'name'     =>'developments-desc',
-                'string'   =>'Desarrollos nuevos o en construcción que ofrecen una amplia gama de servicios y precios, desde viviendas de lujo hasta condominios.
-                            La información sobre cualquiera de estos desarrollos, como su ubicación, servicios, imágenes e inventario, se puede encontrar en 
-                            sus páginas de descripción haciendo clic en la fotos correspondiente a continuación',
+                'string'   =>'Desarrollos nuevos o en construcción que ofrecen una amplia gama de servicios y precios, desde viviendas de lujo hasta condominios. La información sobre cualquiera de estos desarrollos, como su ubicación, servicios, imágenes e inventario, se puede encontrar en sus páginas de descripción haciendo clic en la fotos correspondiente a continuación',
                 'group'    =>'Desarrollos',
                 'multiline'=>false,
             ),
@@ -364,7 +390,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             ),
             array(
                 'name'     =>'join-us',
-                'string'   =>'Únete',
+                'string'   =>'ÚNETE',
                 'group'    =>'Únete page',
                 'multiline'=>false,
             ),
@@ -462,6 +488,240 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'name'     =>'gallery',
                 'string'   =>'Galería',
                 'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'furnished',
+                'string'   =>'Amueblado',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'unfurnished',
+                'string'   =>'Sin amueblar',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'semi-furnished',
+                'string'   =>'Semi-amueblado',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'prices-low',
+                'string'   =>'Precios Temporada Baja',
+                'group'    =>'Rentals',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'prices-high',
+                'string'   =>'Precios Temporada Alta',
+                'group'    =>'Rentals',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'month',
+                'string'   =>'Mes',
+                'group'    =>'Rentals',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'week',
+                'string'   =>'Semana',
+                'group'    =>'Rentals',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'night',
+                'string'   =>'Noche',
+                'group'    =>'Rentals',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'pool',
+                'string'   =>'Alberca',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'kids-pool',
+                'string'   =>'Alberca para niños',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'restaurant',
+                'string'   =>'Restaurante',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'rooftop',
+                'string'   =>'Terraza',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'gym',
+                'string'   =>'Gimnasio',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'gardens',
+                'string'   =>'Jardines',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'grill',
+                'string'   =>'Asador',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'palm-roof',
+                'string'   =>'Palapa',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'kids-area',
+                'string'   =>'Área para niños',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'picnic-area',
+                'string'   =>'Área para picnic',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'beach-access',
+                'string'   =>'Acceso a playa',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'elevator',
+                'string'   =>'Elevador',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'parking',
+                'string'   =>'Estacionamiento',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'storage',
+                'string'   =>'Área de bodega',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'service-room',
+                'string'   =>'Cuarto de servicio',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'laundry-room',
+                'string'   =>'Cuarto de lavado',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'Balcony',
+                'string'   =>'Balcón',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'controled-access',
+                'string'   =>'Acceso controlado',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'beach-club',
+                'string'   =>'Club de playa',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'24-security',
+                'string'   =>'Seguridad 24 horas',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'basket-court',
+                'string'   =>'Cancha de baloncesto',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'tennis-court',
+                'string'   =>'Cancha de tennis',
+                'group'    =>'Amenidades',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'avaliable',
+                'string'   =>'Disponible',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'on-hold',
+                'string'   =>'Apartado',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'sold',
+                'string'   =>'Vendido',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'search',
+                'string'   =>'Buscar',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'results',
+                'string'   =>'Resultados',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'development',
+                'string'   =>'Desarrollo',
+                'group'    =>'Desarrollos',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'go-back',
+                'string'   =>'Volver',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'no-results',
+                'string'   =>'No hay resultados',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'our-team-desc',
+                'string'   =>'Nuestro equipo de Profesionales cuenta con una amplia experiencia en Venta, Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit. Contactanos para que formes parte de este gran equipo.',
+                'group'    =>'Únete page',
                 'multiline'=>false,
             ),
         );

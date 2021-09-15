@@ -44,32 +44,32 @@
 
                     <div class="row mt-3" id="carouselPrecios" > 
                         <div class="col-lg-6">
-                            <h2 class="col-12 pb-3 text-center">Precios Temporada Baja</h2>
+                            <h2 class="col-12 pb-3 text-center"><?php pll_e('Precios Temporada Baja'); ?></h2>
                             <div class="row justify-content-center">
                                 <?php if(!empty($priceBmes)){?>
-                                <h3 class="col-5 p-0">Mes:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Mes'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBmes);?></h3>
                                 <?php } if(!empty($priceBsemana)){?>
-                                <h3 class="col-5 p-0">Semana:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Semana'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBsemana);?></h3>
                                 <?php } if(!empty($priceBnoche)){?>
-                                <h3 class="col-5 p-0">Noche:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Noche'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceBnoche);?></h3>
                                 <?php } ?>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
-                            <h2 class="col-12 pb-3 text-center mt-3 mt-lg-0">Precios Temporada Alta</h2>
+                            <h2 class="col-12 pb-3 text-center mt-3 mt-lg-0"><?php pll_e('Precios Temporada Alta'); ?></h2>
                             <div class="row justify-content-center">
                                 <?php if(!empty($priceAmes)){?>
-                                <h3 class="col-5 p-0">Mes:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Mes'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAmes);?></h3>
                                 <?php } if(!empty($priceAsemana)){?>
-                                <h3 class="col-5 p-0">Semana:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Semana'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAsemana);?></h3>
                                 <?php } if(!empty($priceAnoche)){?>
-                                <h3 class="col-5 p-0">Noche:</h3>
+                                <h3 class="col-5 p-0"><?php pll_e('Noche'); ?>:</h3>
                                 <h3 class="p-0 col-5"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format($priceAnoche);?></h3>
                                 <?php } ?>
                             </div>
@@ -93,7 +93,7 @@
                         <h5><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?></h5>
                     </div>
                     <div class="col-8 col-lg-3">
-                        <h5><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?></h5>
+                        <h5><i class="fas fa-couch"></i> <?php echo pll_e(rwmb_meta( 'furniture' ));?></h5>
                     </div>
                 </div>
             </div>
@@ -114,12 +114,11 @@
                     <h2 class="text-center fw-normal mt-2 mt-lg-5"><?php pll_e('Datos Generales');?></h2>
                     
                     <?php $values = rwmb_meta( 'amenities' );
-                        foreach ( $values as $value ) { ?>
-                            
-                    <div class="col-6 col-md-4 col-lg-4">
-                        <p><?php echo $value; ?></p>                
-                    </div>
-                    <?php } ?>
+                        foreach ( $values as $value ): ?>
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <p><?php echo pll_e($value); ?></p>                
+                            </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

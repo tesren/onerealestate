@@ -12,37 +12,11 @@
         </div>
 
       
-        <form class="row my-5 text-center justify-content-center mx-3 mx-lg-0" action="">
-
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg lugar" name="lugar">
-                <option selected>Elige un lugar</option>
-                <option value="1">Puerto Vallarta</option>
-                <option value="2">Bucerías</option>
-                <option value="2">Punta de Mita</option>
-                </option>
-            </select>
-
-            <select class="col-md-12 col-lg-2 form-select form-select-lg mx-0 mx-lg-2 mb-2 mb-lg-0" aria-label="form-select-lg tipo" name="tipo">
-                <option selected>Tipo</option>
-                <option value="1">Casa</option>
-                <option value="2">Departamento</option>
-            </select>
-
-            <div class="col-lg-2 form-floating px-0 px-lg-2 mb-2 mb-lg-0">
-                <input type="number" class="form-control" id="bedrooms" placeholder="Recámaras" name="personas">
-                <label class="ms-2" for="bedrooms">Personas</label>
+        <div class="row justify-content-center my-5">
+            <div class="col-11 col-md-10 col-lg-6">
+                <?php get_search_form(); ?>
             </div>
-
-            <div class="col-lg-2 form-floating px-0 px-lg-2 mb-4 mb-lg-0">
-                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
-                <label class="ms-2" for="max-price">Precio Máximo</label>
-            </div>
-            
-            <div class="col-lg-3 px-0">
-                <button type="submit" class="btn btn1">Buscar</button>
-            </div>
-            
-        </form>
+        </div>
 
         <div class="row p-0 mx-0 mb-5" id="all-rentals">
 
@@ -73,11 +47,21 @@
                                 <h5 class="my-3"><i class="fas fa-map-marker-alt me-1"></i><?php echo onere_get_list_terms( get_the_ID(), 'regiones' ); ?> 
                                 </h5>
                                 
-                                <!--camas baños y construction-->
-                                <div class="d-flex fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
-                                    <span><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?></span>
-                                    <span class="px-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños') ?></span>
-                                    <span><i class="fas fa-male"></i></i> <?php echo rwmb_meta('rentals_capacity');?> <?php pll_e('Huéspedes') ?></span>
+                                
+                                 <!--camas baños y construction-->
+                                 <div class="row fw-bold fs-5 justify-content-center justify-content-lg-<?php if( $i%2 == 0 ){echo 'end';}else{echo 'start';}?> my-4">
+                                    <span class="col-7 col-md-4">
+                                        <i class="fas fa-bed"></i> 
+                                        <?php echo rwmb_meta('bedrooms');?> <?php pll_e('Recámaras')?>
+                                    </span>
+                                    <span class="col-7 col-md-3">
+                                        <i class="fas fa-shower"></i> 
+                                        <?php echo rwmb_meta('bathrooms');?> <?php pll_e('Baños'); ?>
+                                    </span>
+                                    <span class="col-7 col-md-3">
+                                        <i class="fas fa-male"></i>
+                                        <?php echo rwmb_meta('rentals_capacity');?> <?php pll_e('Huéspedes') ?>
+                                    </span>
                                 </div>
 
                                 <!--precio y moneda-->

@@ -25,7 +25,7 @@
       <div class="container-fluid">
         <div class="row justify-content-center">
         
-          <div class="col-12 col-md-9 col-lg-10" style="border-bottom: 2px solid #e5e5e5;">
+          <div class="col-12 col-lg-10" style="border-bottom: 2px solid #e5e5e5;">
             <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" style="position:relative;">
               <a class="navbar-brand" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
                 <img src="<?php echo get_template_directory_uri() .'/assets/svgs/ore/logo-onere-blanco.svg';?>" id="nav_heder_logo" alt="Logo One real estate">
@@ -57,7 +57,7 @@
   
           <div class="col-12 col-md-3 col-lg-1 text-center" >
 
-            <a class="d-none d-lg-block btn-call mt-3 me-auto"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="322-100-8151">
+            <a class="d-none d-lg-block btn-call mt-3 me-auto" href="tel:3221008151" data-bs-toggle="tooltip" data-bs-placement="bottom" title="322-100-8151">
               <i class="fa fa-phone"></i>
             </a>
     

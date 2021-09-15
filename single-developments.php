@@ -36,15 +36,15 @@ $units = get_posts(array(
         </div>
 
       <!--foto destacada 2-->
-      <div class="row justify-content-center text-center text-lg-start my-5" style="position:relative;">
+      <div class="row justify-content-center text-center text-lg-start my-5" style="position:relative;" id="el-content">
 
             <div class="col-12 col-lg-4">
                 <h2 class="fs-1" style="color:#A28234;"><?php the_title();?></h2>
                 <div class="fs-5"><?php echo the_content();?></div>
             </div>
             
-            <div class="col-12 col-lg-6" id="el-content" style="color:#444444;">
-                <img class="w-100" src="<?php echo $images[1]['url'];?>" alt="<?php echo $images[1]['title'];?>">
+            <div class="col-12 col-lg-6"  style="color:#444444;">
+                <img class="w-100" src="<?php echo $images[1]['url'];?>" alt="<?php echo $images[1]['title'];?>" style="max-height: 450px; object-fit:cover;">
             </div>
             
       </div>

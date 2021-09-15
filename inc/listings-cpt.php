@@ -255,6 +255,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
                     'Área para niños'     => 'Área para niños',
                     'Área para picnic'    => 'Área para picnic',
                     'Acceso a playa'      => 'Acceso a playa',
+                    'Club de playa'       => 'Club de playa',
                     'Elevador'            => 'Elevador',
                     'Estacionamiento'     => 'Estacionamiento',
                     'Área de bodega'      => 'Área de bodega',
