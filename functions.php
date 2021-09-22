@@ -107,9 +107,9 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/testimonials-cpt.php';
 
-    require get_template_directory() . '/inc/front-page-cpt.php';
+    //require get_template_directory() . '/inc/front-page-cpt.php';
 
-    require get_template_directory() . '/inc/services-cpt.php';
+    //require get_template_directory() . '/inc/services-cpt.php';
 
 
     function check_post_type_and_remove_media_buttons() {

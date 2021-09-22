@@ -26,31 +26,30 @@
       ),
   ));
 
-  $frontImages = get_posts(array('post_type' => 'frontpage'));
 ?>
 
 
   
     <!--Carrusel-->
     <div id="carouseFront" class="carousel slide" data-bs-ride="carousel">
-    <?php foreach($frontImages as $frontImage){ setup_postdata($frontImage); ?>
+   
       <div class="carousel-inner">
 
-        <?php
-        $frontImgs = rwmb_meta('front_gallery', array('size' => 'full'), $frontImage->ID); 
-        $f=0;
-        
-        foreach($frontImgs as $frontImg): ?>
+      <?php $ImgsHome = get_field('imagenes_inicio');
+          $i=0;
+          foreach($ImgsHome as $ImgHome):
+              ?>
 
-        <div class="carousel-item <?php if($f==0){echo 'active';}?>">
-          <img src="<?php echo $frontImg['url'];?>" class="d-block w-100 responsive-img" alt="<?php echo $frontImg['title'];?>">
-        </div>
+              <div class="carousel-item <?php if($i==0){echo 'active';} ?>">
+                  <img src="<?php echo $ImgHome['url']?>" class="d-block w-100 responsive-img" alt="<?php echo $ImgHome['title']?>">
+              </div> 
 
-       <?php $f++; endforeach; ?>
+          <?php $i++;  
+            endforeach; 
+          ?>
 
       </div>
-      <?php } ?>
-
+      
       <button class="carousel-control-prev" type="button" data-bs-target="#carouseFront" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>

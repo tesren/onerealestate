@@ -2,7 +2,7 @@
  /*
  Template Name: Services Page 
   */
-    $services = get_posts(array('post_type' => 'services'));
+    //$services = get_posts(array('post_type' => 'services'));
     get_header();
 ?>
 
@@ -20,11 +20,7 @@
 <div class="row justify-content-center text-center my-4 my-lg-5" id="all-services">
     <div class="col-11 col-md-8">
         <div class="fs-5 secondary-text">
-            <?php 
-                foreach($services as $service){
-                    echo get_the_content( " ", false, $service->ID );
-                }
-            ?>
+            <?php echo get_field( "descripcion" );?>
         </div>
     </div>
 </div>
@@ -35,19 +31,20 @@
         <h2 class="text-center"><?php pll_e('Nuestros');?> <strong><?php pll_e('Servicios');?></strong></h2>
         <hr>
         <div class="row ps-3 ps-lg-5">
+       
+            <?php 
 
-            <?php 
-            foreach($services as $service):
-                $servicesf = rwmb_meta('servicios_field', $args=[], $service->ID); 
-                foreach($servicesf as $servicef):?>
+            $fields = get_field('servicios');
+
+            if( $fields ): ?>
+            
+                <?php foreach( $fields as $name => $value ): ?>
                     <div class="col-6">
-                        <p><?php echo $servicef ?></p>
+                        <p><?php echo $value['servicio']; ?></p>
                     </div>
-                    
-            <?php 
-                endforeach;
-            endforeach; 
-            ?>
+                <?php endforeach; ?>
+                
+            <?php endif; ?>
         </div>
 
     </div>
@@ -57,17 +54,15 @@
 
             <div class="carousel-inner">
 
-                <?php 
-                foreach($services as $service):
-                    $servicesImgs = rwmb_meta('services_gallery', array('size'=>'full'), $service->ID); 
-                    $i=0;
-                    foreach($servicesImgs as $servicesImg):?>
-                        <div class="carousel-item <?php if($i==0){echo 'active';} ?>">
-                            <img src="<?php echo $servicesImg['url']?>" class="d-block w-100" alt="<?php echo $servicesImg['title']?>" style="height: 450px; object-fit:cover;">
-                        </div> 
+                <?php $servicesImgs = get_field('imagenes');
+                $i=0;
+                foreach($servicesImgs as $serviceImg):
+                    ?>
+                    <div class="carousel-item <?php if($i==0){echo 'active';} ?>">
+                        <img src="<?php echo $serviceImg['url']?>" class="d-block w-100" alt="<?php echo $serviceImg['title']?>" style="height: 450px; object-fit:cover;">
+                    </div> 
                 <?php $i++;
-                    endforeach;
-                endforeach; 
+                    endforeach; 
                 ?>
 
             </div>

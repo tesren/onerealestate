@@ -15,7 +15,7 @@
 
         </div>
 
-    <div class="row justify-content-center" id="search-page">
+    <div class="row justify-content-center" id="search-page" style="min-height:80vh;">
 
        <?php while( have_posts() ): the_post(); 
             $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
