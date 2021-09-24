@@ -13,19 +13,20 @@
     get_header();?>
     
 
-    <!--Equipo-->
-
     <div class="container-fluid mb-5">
 
         <div class="container-fluid landing-desarrollos" style="position:relative;">
-            <img class="w-100 mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/unete-landing.jpg' ?>" alt="Renta">
+            <?php $uneteimg1 = get_field('primer_imagen') ?>
+            <img class="w-100 mobile-img" src="<?php echo $uneteimg1['url'] ?>" alt="<?php echo $uneteimg1['title'] ?>">
 
             <div class="content">
                 <h1 class="fw-light p-0 mb-0"><?php pll_e('ÚNETE'); ?></h1>
                 <hr class="mt-0 mb-3" style="opacity:1;">
-                <p class="fs-5"><?php pll_e('Únete a nuestro equipo de Profesionales de Venta, Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit'); ?></p>
+                <p class="fs-5"><?php echo get_field( "description_unete" );?></p>
                 <a href="#why-here" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
             </div>
+
+            <div class="fondo-oscuro"></div>
         </div>
 
 
@@ -61,13 +62,14 @@
         <div class="row">
 
             <div class="col-12 col-lg-6">
-                <img class="w-100" src="<?php echo get_template_directory_uri(). '/assets/images/our-team.png' ?>" alt="">
+                <?php $uneteimg2 = get_field('segunda_imagen') ?>
+                <img class="w-100" src="<?php echo $uneteimg2['url'] ?>" alt="<?php echo $uneteimg2['title'] ?>" style="height:60vh; object-fit:cover;">
             </div>
 
             <div class="col-12 col-lg-6 px-3 px-lg-5" style="background-color:#A28234; color:#fff;">
                 <h2 class="mt-5 fs-1 fw-light"><?php pll_e('Nuestro'); ?> <strong><?php pll_e('Equipo'); ?></strong></h2>
                 <p class="mb-5 fs-4 fw-light">
-                    <?php pll_e('Nuestro equipo de Profesionales cuenta con una amplia experiencia en Venta, Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit. Contactanos para que formes parte de este gran equipo.'); ?>
+                    <?php echo get_field( "team_desc" );?>
                 </p>
                 <div class="w-100 text-center text-lg-start">
                     <a href="#contact-form" class="my-4 px-4 btn btn-blanco"><?php pll_e('Contacto'); ?></a>

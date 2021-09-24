@@ -8,14 +8,18 @@
 
 
 <div class="container-fluid landing-desarrollos" style="position:relative;">
-    <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
+    <?php $servImg = get_field('portada_servicios') ?>
+    <img class="w-100 mobile-img" src="<?php echo $servImg['url'] ?>" alt="<?php echo $servImg['title'] ?>">
     <div class="content">
         <h1 class="fw-light p-0 mb-0"><?php pll_e('SERVICIOS')?></h1>
         <hr class="mt-0 mb-3" style="opacity:1;">
-        <p class="fs-5"><?php pll_e('Profesionales en Venta, Renta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit') ?></p>
+        <p class="fs-5"><?php echo get_field('descripcion_servicios'); ?></p>
         <a href="#all-services" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
     </div>
+
+    <div class="fondo-oscuro"></div>
 </div>
+
 
 <div class="row justify-content-center text-center my-4 my-lg-5" id="all-services">
     <div class="col-11 col-md-8">
@@ -30,7 +34,7 @@
     <div class="col-lg-7 order-2 order-lg-1 pt-3">
         <h2 class="text-center"><?php pll_e('Nuestros');?> <strong><?php pll_e('Servicios');?></strong></h2>
         <hr>
-        <div class="row ps-3 ps-lg-5">
+        <div class="row justify-content-center">
        
             <?php 
 
@@ -39,7 +43,7 @@
             if( $fields ): ?>
             
                 <?php foreach( $fields as $name => $value ): ?>
-                    <div class="col-6">
+                    <div class="col-5">
                         <p><?php echo $value['servicio']; ?></p>
                     </div>
                 <?php endforeach; ?>
