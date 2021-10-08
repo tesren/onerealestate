@@ -9,8 +9,11 @@
 
             <h3 class="text-center text-lg-start fs-1 mt-3 mt-lg-1 mb-2"><?php pll_e('Contacto'); ?></h3>
 
-            <?php echo do_shortcode( '[contact-form-7 id="151" title="Formulario de contacto 1"]', true ) ?>
-
+            <?php if(pll_current_language()=="es"): ?>
+                <?php echo do_shortcode( '[contact-form-7 id="151" title="Formulario de contacto 1"]', true ) ?>
+            <?php else:?>
+                <?php echo do_shortcode( '[cf7form cf7key="formulario-de-contacto-ingles"]', true ) ?>
+            <?php endif; ?>
         </div>
 
 </div>

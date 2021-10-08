@@ -155,14 +155,14 @@ $units = get_posts(array(
 
     <!--Inventario-->
 <div class="row mx-auto my-auto justify-content-center">
-
+<?php if( $units ): ?>
     <div class="col-12 col-lg-5 p-0 text-center">
         <div style="background-color: #ab9154;"><h2 class="mb-4 mt-5 ps-0 ps-lg-2"><?php pll_e('Inventario'); ?></h2></div>
     </div>
 
     <ul id="recipeCarousel" class="cs-hidden">
 
-      <?php if( $units ): ?>
+      
           <?php $i=1;?>
           <?php foreach( $units as $unit ): ?>
               <?php 
@@ -212,9 +212,8 @@ $units = get_posts(array(
           <?php $i++; ?>
           <?php endforeach; ?>
          
-      <?php endif; ?>
-            
-    </ul>
+        </ul>
+    <?php endif; ?>
 </div>
 
 

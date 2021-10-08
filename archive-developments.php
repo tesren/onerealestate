@@ -24,14 +24,14 @@
                 $i = 1;
                 ?>
 
-            <div class="row justify-content-center my-5">
+            <div class="row justify-content-evenly my-5">
 
                 <?php while( have_posts()):  the_post();
 
                     $images = rwmb_meta( 'more_photos', array( 'size' => 'large', 'limit' => '1' ) );
                     $logo = rwmb_meta( 'logo-dev', array( 'size' => 'large', 'limit' => '1' ) ); ?>      
 
-                        <div class="col-11 col-md-5 col-lg-3 text-center mb-5" id="archive-devs">
+                        <div class="col-11 col-md-5 col-lg-3 text-center mb-5 mx-1" id="archive-devs">
                             <a href="<?php echo get_the_permalink(); ?>">
                                 <img class="w-100 shadow-5" src="<?php echo $images[0]['url'];?>" alt="<?php echo $images[0]['title'];?>" style="height: 500px; object-fit:cover;">
                                 <h2 class="fs-1 my-2"><?php echo get_the_title();?></h2>

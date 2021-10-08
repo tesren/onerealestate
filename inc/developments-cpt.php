@@ -223,7 +223,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
             [
                 'id'               => 'more_photos',
                 'name'             => 'Suba fotos generales del desarrollo',
-                'type'             => 'image_upload',
+                'type'             => 'image_advanced',
                 'desc'             => 'Las dos primeras imagenes no deben tener texto y deben ser de la fachada, de preferencia',
 
                 // Delete file from Media Library when remove it from post meta?
