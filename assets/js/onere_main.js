@@ -73,3 +73,42 @@ else{
     });  
     });
 }
+
+$('#slider-range-precios').slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 5000000,
+    values: [0,5000000],
+    step: 1000,
+    slide: function( event, ui ) {
+        $( "#minprice" ).val(ui.values[0]);
+        $( "#maxprice" ).val(ui.values[1]);
+    }
+});
+
+$('#slider-range-beds').slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 20,
+    values: [0,20],
+    step: 1,
+    slide: function( event, ui ) {
+        $( "#minbeds" ).val(ui.values[0]);
+        $( "#maxbeds" ).val(ui.values[1]);
+    }
+});
+
+$('#slider-range-const').slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 2000,
+    values: [0,2000],
+    step: 1,
+    slide: function( event, ui ) {
+        $( "#minconst" ).val(ui.values[0]);
+        $( "#maxconst" ).val(ui.values[1]);
+    }
+});

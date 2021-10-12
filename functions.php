@@ -38,9 +38,8 @@ function onere_register_styles()
     wp_enqueue_style('onere-fontawesome', get_template_directory_uri() . "/assets/css/all.min.css", array(), '5.15.1' , 'all');
     //Fontawesome cdn
     //wp_enqueue_style('cb-fontawesome', "/style.css", array(), '1.0', 'all');
-    if ( is_page( 'progress-construction' ) ) {
-        wp_enqueue_style('os-gallery', get_template_directory_uri() . "/assets/css/unite-gallery.css", array(), $version , 'all');
-    }
+    wp_enqueue_style('range-slider', get_template_directory_uri() . "/assets/css/jquery-ui.min.css", array(), $version , 'all');
+    
 }
 
 add_action('wp_enqueue_scripts', 'onere_register_styles');
@@ -51,7 +50,7 @@ function onere_register_scripts()
     
     $version = wp_get_theme()->get( 'Version' );
     wp_enqueue_script('onere_jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true);
-    // wp_enqueue_script('cb_popper', 'https://unpkg.com/@popperjs/core@2/dist/umd/popper.js', array(), '2.0', true);
+    wp_enqueue_script('range_slider', get_template_directory_uri().'/assets/js/jquery-ui.min.js', array(), '2.0', true);
     wp_enqueue_script('cb_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js', array(), '5.1.0', true);
     //wp_enqueue_script('one_bootstrap', get_template_directory_uri() .  '/assets/js/bootstrap.min.js', array(), '5.0.0', true);
     wp_enqueue_script('onere_gmaps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0', array(), '', true);
