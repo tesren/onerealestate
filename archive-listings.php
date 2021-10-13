@@ -12,7 +12,7 @@
         'hide_empty'        => false,
     ) );
 
-get_header();
+    get_header();
 
 
     if($_GET['regiones_s'] && !empty($_GET['regiones_s']))
@@ -73,7 +73,14 @@ get_header();
         $maxbeds = 999999999;
     }
 
-    if($_GET['minconst'] && !empty($_GET['minconst']))
+    if($_GET['currency'] && !empty($_GET['currency']))
+    {
+        $currency = $_GET['currency'];
+    } else {
+        $currency = array('MXN','USD');
+    }
+
+/*    if($_GET['minconst'] && !empty($_GET['minconst']))
     {
         if(pll_current_language()=="en"){
             $minconstfeet = $_GET['minconst'];
@@ -101,10 +108,9 @@ get_header();
         
     } else {
         $maxconst = 999999999;
-    }?>
+    } */
+?>
     
-
-
         <div class="container-fluid landing-desarrollos" style="position:relative;">
             <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
 
@@ -115,89 +121,6 @@ get_header();
                 <a href="#all-listings" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
             </div>
         </div>
-
-        <div class="row justify-content-center my-5">
-            <div class="col-10 col-md-8 col-lg-6">
-                <button title="<?php pll_e("Buscar");?>" type="button" class="btn d-flex justify-content-center mx-auto btn-search shadow-6" data-bs-toggle="modal" data-bs-target="#searchModal">
-                    <i class="fas fa-search"></i>
-                    <span class="d-flex ms-2"><?php pll_e("Buscar");?></span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5 class="modal-title fs-2" id="searchModalLabel"><?php pll_e("Busqueda"); ?></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    <form action="<?php get_the_permalink(); ?>" method="get">
-
-                        <label for="regiones_s">Ubicación</label>
-                        <select class="form-select w-100 mb-3" aria-label="Default select example" id="regiones_s" name="regiones_s">
-                            <option selected value="">Selecciona uno</option>
-                            <?php foreach($regiones as &$category):
-                                $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
-
-                                    foreach($childrenTerms as $child) :     
-                                        $term = get_term_by( 'id', $child, 'regiones');?>
-                                        <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
-                                    <?php endforeach; ?>
-
-                            <?php endforeach; ?>
-                        </select>
-
-                        <label for="type_s">Tipo de propiedad</label>
-                        <select class="form-select w-100 mb-3" aria-label="Default select example" id="type_s" name="type_s">
-                            <option selected value="">Selecciona uno</option>
-
-                            <?php foreach($propertiesType as &$type):?>
-                                <option value="<?php echo $type->slug; ?>"><?php echo $type->name; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <div class="row justify-content-center mb-3">
-                            <label class="text-center mb-2"><?php pll_e('Rango de precios')?></label>
-
-                            <input class="col-3 search-form" type="number" name="minprice" id="minprice" placeholder="Min" readonly>
-                            <span class="col-1 fs-4 text-center">-</span>
-                            <input class="col-3 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max" readonly>
-                            <div id="slider-range-precios" class="mt-2 col-11"></div>
-                           
-                        </div>
-
-                        <div class="row justify-content-center mb-3">
-                            <label class="text-center mb-2"><?php pll_e('Rango de Recámaras'); ?></label>
-                            <input class="col-3 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min" readonly>
-                            <span class="col-1 fs-4 text-center">-</span>
-                            <input class="col-3 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max" readonly>
-                            <div id="slider-range-beds" class="mt-2 col-11"></div>
-                        </div>
-
-                        <div class="row justify-content-center mb-3">
-                            <label class="text-center mb-2"><?php pll_e('Rango de m²'); ?></label>
-                            <input class="col-3 search-form" type="number" name="minconst" id="minconst" placeholder="Min" readonly>
-                            <span class="col-1 fs-4 text-center">-</span>
-                            <input class="col-3 search-form" type="number" name="maxconst" id="maxconst" placeholder="Max" readonly>
-                            <div id="slider-range-const" class="mt-2 col-11"></div>
-                        </div>
-
-                </div>
-
-                <div class="modal-footer text-center">
-                    <button type="submit" class="btn btn1 w-100"><?php pll_e("Buscar"); ?></button>
-                    </form>
-                </div>
-
-                </div>
-            </div>
-        </div><!-- End Modal -->
-
 
         <?php
                 $args = array(
@@ -217,13 +140,18 @@ get_header();
                             'value' => array($minbeds, $maxbeds),
                             'compare' => 'BETWEEN'
                         ),
-
                         array(
+                            'key' => 'currency',
+                            'value' => $currency,
+                            'compare' => 'LIKE'
+                        ),
+
+                        /* array(
                             'key' => 'construction',
                             'type' => 'NUMERIC',
                             'value' => array($minconst, $maxconst),
                             'compare' => 'BETWEEN'
-                        ),
+                        ), */
                     ),
                     'tax_query' => array(
                         array(
@@ -312,7 +240,7 @@ get_header();
                         wp_reset_postdata();
                         else:?>
                         <div class="container text-center my-5">
-                            <span class="fs-1">No hay resultados</span>
+                            <span class="fs-1"><?php pll_e('No hay resultados');?></span>
                         </div>
             <?php endif; ?>
 

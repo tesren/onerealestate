@@ -170,27 +170,27 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         
         //si solo llenan un campo
         if(empty($precioMes) && empty($precioSemana)){
-            return $precioNoche;
+            return (int)$precioNoche;
         }
         elseif(empty($precioNoche) && empty($precioSemana)){
-            return $precioMes;
+            return (int)$precioMes;
         }
         elseif( empty($precioNoche) && empty($precioMes)){
-            return $precioSemana;
+            return (int)$precioSemana;
         }
         //si llenan 2
         elseif(empty($precioMes) && !empty($precioSemana) && !empty($precioNoche)){
-            return $precioNoche;
+            return (int)$precioNoche;
         }
         elseif(empty($precioNoche) && !empty($precioSemana) && !empty($precioMes)){
-            return $precioSemana;
+            return (int)$precioSemana;
         }
         elseif(empty($precioSemana) && !empty($precioNoche) && !empty($precioMes)){
-            return $precioNoche;
+            return (int)$precioNoche;
         }
         //si llenan todos
         else{
-            return $precioNoche;
+            return (int)$precioNoche;
         }
     }
 
@@ -723,6 +723,49 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'group'    =>'Únete page',
                 'multiline'=>false,
             ),
+            array(
+                'name'     =>'searchs',
+                'string'   =>'Busqueda',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'ptype',
+                'string'   =>'Tipo de propiedad',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'select',
+                'string'   =>'Selecciona uno',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'price-range',
+                'string'   =>'Rango de precios',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'bed-range',
+                'string'   =>'Rango de Recámaras',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'const_range',
+                'string'   =>'Rango de m²',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'people_range',
+                'string'   =>'Rango de Personas',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+
         );
 
 

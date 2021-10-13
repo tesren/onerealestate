@@ -559,7 +559,7 @@ figure{
     background-color: #A28234;
     padding: 2px;
     font-size: 23px;
-    color: #fff;
+    color: #fff !important;
     text-align: center;
     width: 40px !important;
     height: 40px;
@@ -586,6 +586,7 @@ figure{
     animation: ease-in-out;
     color: #FFF !important;
     font-weight: normal;
+    /*text-shadow: 1px 0 0 black, -1px 0 0 black, 0 1px 0 black, 0 -1px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;*/
 }
 .nav-link:hover{
     opacity: 1;
@@ -624,13 +625,14 @@ nav .nav-item i{
 
 .btn-search{
     position: relative;
+    padding: 2px;
     background-color: #A28234;
-    font-size: 31px;
-    color: #fff;
+    font-size: 23px;
+    color: #fff !important;
     text-align: center;
-    width: 100% !important;
-    height: fit-content;
-    line-height: 33px;
+    width: 40px;
+    height: 40px;
+    line-height: 37px;
     border-radius: 50px;
 }
 
@@ -1180,6 +1182,44 @@ nav .nav-item i{
     #navbarSupportedContent{
         background-color: #A28234;
     }
+    /*boton idioma movil*/
+    #boton-idioma {
+        width:50px;
+        height:50px;
+        bottom:15px;
+        right:20px;
+        font-size:35px;
+    }
+
+    .lang-list{
+        font-size: 1.5rem;
+        margin-top: 8px;
+    }
+
+    /*Boton whatsapp movil*/
+    #whatsapp {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        left: 20px;
+        font-size: 35px;
+    }
+
+    /*boton de busqueda en movil*/
+
+    .btn-search{
+        display: block !important;
+        position: fixed;
+        right: 20px;
+        bottom: 75px;
+        background-color: #A28234;
+        font-size: 25px;
+        width: 50px;
+        height: 50px;
+        line-height: 37px;
+        z-index: 100;
+    }
+
   }
 
 @media (min-width: 768px) and (max-width: 992px) {

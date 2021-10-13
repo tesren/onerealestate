@@ -78,8 +78,8 @@ $('#slider-range-precios').slider({
     orientation: "horizontal",
     range: true,
     min: 0,
-    max: 5000000,
-    values: [0,5000000],
+    max: 4000000,
+    values: [0,4000000],
     step: 1000,
     slide: function( event, ui ) {
         $( "#minprice" ).val(ui.values[0]);
@@ -91,8 +91,8 @@ $('#slider-range-beds').slider({
     orientation: "horizontal",
     range: true,
     min: 0,
-    max: 20,
-    values: [0,20],
+    max: 10,
+    values: [0,10],
     step: 1,
     slide: function( event, ui ) {
         $( "#minbeds" ).val(ui.values[0]);
@@ -100,7 +100,7 @@ $('#slider-range-beds').slider({
     }
 });
 
-$('#slider-range-const').slider({
+/* $('#slider-range-const').slider({
     orientation: "horizontal",
     range: true,
     min: 0,
@@ -111,4 +111,28 @@ $('#slider-range-const').slider({
         $( "#minconst" ).val(ui.values[0]);
         $( "#maxconst" ).val(ui.values[1]);
     }
+}); */
+
+$('#slider-range-people').slider({
+    orientation: "horizontal",
+    range: true,
+    min: 0,
+    max: 50,
+    values: [0,50],
+    step: 1,
+    slide: function( event, ui ) {
+        $( "#minpeople" ).val(ui.values[0]);
+        $( "#maxpeople" ).val(ui.values[1]);
+    }
 });
+
+
+document.getElementById('searchform').buysell.onchange = function() {
+    var newaction = this.value;
+    document.getElementById('searchform').action = newaction;
+};
+
+var redirect = function(){
+    var link = document.getElementById('searchform').action;
+    document.location.href = link;
+ }

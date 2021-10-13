@@ -1,10 +1,15 @@
-     <!--boton Idioma-->
-     <div id="boton-idioma"> 
+      <!--boton Idioma-->
+      <div id="boton-idioma"> 
         <ul class="lang-list list-unstyled">
           <?php pll_the_languages(array('hide_current'=> 1)); ?>
         </ul>
         <i class="fas fa-globe"></i>
-    </div>
+      </div>
+
+      <!--Boton de busqueda en movil-->
+      <button title="<?php pll_e("Buscar");?>" type="button" class="btn d-block d-lg-none btn-search shadow-6" data-bs-toggle="modal" data-bs-target="#searchModal">
+        <i class="fas fa-search"></i>
+      </button>
       
       <!--FOOTER-->
     <div class="row text-center footer footer2 justify-content-center">
