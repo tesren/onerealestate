@@ -765,6 +765,24 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'group'    =>'Busquedas',
                 'multiline'=>false,
             ),
+            array(
+                'name'     =>'buy',
+                'string'   =>'Comprar',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'rentar',
+                'string'   =>'Rentar',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'buy_or_rent',
+                'string'   =>'Comprar o Rentar',
+                'group'    =>'Busquedas',
+                'multiline'=>false,
+            ),
 
         );
 

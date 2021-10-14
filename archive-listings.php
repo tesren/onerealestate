@@ -14,101 +14,6 @@
 
     get_header();
 
-
-    if($_GET['regiones_s'] && !empty($_GET['regiones_s']))
-    {
-        $regiones_s = $_GET['regiones_s'];
-
-    }else{
-        $regiones_s = array(); 
-
-        foreach($regiones as &$category):
-            $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
-
-                foreach($childrenTerms as $child) :     
-                    $term = get_term_by( 'id', $child, 'regiones');
-                    array_push($regiones_s, $term->slug);
-                 endforeach; 
-
-         endforeach;
-    }
-
-    if($_GET['type_s'] && !empty($_GET['type_s']))
-    {
-        $pType = $_GET['type_s'];
-    }
-    else{
-        $pType = array();
-
-        foreach ($propertiesType as $propertyType){
-            array_push($pType, $propertyType->slug);
-        } 
-    }
-
-    if($_GET['minprice'] && !empty($_GET['minprice']))
-    {
-        $minprice = $_GET['minprice'];
-    } else {
-        $minprice = 0;
-    }
-
-    if($_GET['maxprice'] && !empty($_GET['maxprice']))
-    {
-        $maxprice = $_GET['maxprice'];
-    } else {
-        $maxprice = 999999999;
-    }
-
-    if($_GET['minbeds'] && !empty($_GET['minbeds']))
-    {
-        $minbeds = $_GET['minbeds'];
-    } else {
-        $minbeds = -1;
-    }
-
-    if($_GET['maxbeds'] && !empty($_GET['maxbeds']))
-    {
-        $maxbeds = $_GET['maxbeds'];
-    } else {
-        $maxbeds = 999999999;
-    }
-
-    if($_GET['currency'] && !empty($_GET['currency']))
-    {
-        $currency = $_GET['currency'];
-    } else {
-        $currency = array('MXN','USD');
-    }
-
-/*    if($_GET['minconst'] && !empty($_GET['minconst']))
-    {
-        if(pll_current_language()=="en"){
-            $minconstfeet = $_GET['minconst'];
-
-            $minconst = $minconstfeet * 0.0929;
-
-        }else{
-            $minconst = $_GET['minconst'];
-        }
-
-    } else {
-        $minconst = -1;
-    }
-
-    if($_GET['maxconst'] && !empty($_GET['maxconst']))
-    {
-        if(pll_current_language()=="en"){
-            $maxconstfeet = $_GET['maxconst'];
-
-            $maxconst = $maxconstfeet * 0.0929;
-
-        }else{
-            $maxconst = $_GET['maxconst'];
-        }
-        
-    } else {
-        $maxconst = 999999999;
-    } */
 ?>
     
         <div class="container-fluid landing-desarrollos" style="position:relative;">
@@ -122,65 +27,15 @@
             </div>
         </div>
 
-        <?php
-                $args = array(
-                    'post_type' => 'listings',
-                    'posts_per_page' => -1,
-                    'meta_query' => array(
-                        array(
-                            'key' => 'price',
-                            'type' => 'NUMERIC',
-                            'value' => array($minprice, $maxprice),
-                            'compare' => 'BETWEEN'
-                        ),
-
-                        array(
-                            'key' => 'bedrooms',
-                            'type' => 'NUMERIC',
-                            'value' => array($minbeds, $maxbeds),
-                            'compare' => 'BETWEEN'
-                        ),
-                        array(
-                            'key' => 'currency',
-                            'value' => $currency,
-                            'compare' => 'LIKE'
-                        ),
-
-                        /* array(
-                            'key' => 'construction',
-                            'type' => 'NUMERIC',
-                            'value' => array($minconst, $maxconst),
-                            'compare' => 'BETWEEN'
-                        ), */
-                    ),
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'property_type',
-                            'field'    => 'slug',
-                            'terms'    => $pType,
-                        ),
-                        array(
-                            'taxonomy' => 'regiones',
-                            'field'    => 'slug',
-                            'include_children' => true,
-                            'terms'    => $regiones_s,
-                        ),
-                    ),
-                );
-
-                $query = new WP_Query($args);
-                
-        ?>
-        
 
         <div class="row p-0 mx-0 mb-5" id="all-listings">
 
-            <?php if( $query -> have_posts() ): 
+            <?php if(have_posts() ): 
                 
                 $i = 1;
                 ?>
                 
-                <?php while( $query -> have_posts()):  $query -> the_post();
+                <?php while(have_posts()): the_post();
 
                 $images = rwmb_meta( 'listing_gallery', array( 'size' => 'large', 'limit' => '1' ) );?>
             
@@ -237,7 +92,6 @@
                         $i++;
                         endwhile; 
                         the_posts_pagination();
-                        wp_reset_postdata();
                         else:?>
                         <div class="container text-center my-5">
                             <span class="fs-1"><?php pll_e('No hay resultados');?></span>

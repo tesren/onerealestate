@@ -127,12 +127,34 @@ $('#slider-range-people').slider({
 });
 
 
-document.getElementById('searchform').buysell.onchange = function() {
+/* document.getElementById('searchform').buysell.onchange = function() {
     var newaction = this.value;
     document.getElementById('searchform').action = newaction;
-};
+}; */
 
-var redirect = function(){
+/* var redirect = function(){
     var link = document.getElementById('searchform').action;
     document.location.href = link;
- }
+ } */
+
+ $(window).scroll(function () {
+
+    var scrolled = $(this).scrollTop();
+
+    let heightViewPort = $(window).height();
+    console.log(heightViewPort);
+
+
+    if (scrolled > heightViewPort) {
+        $('header').addClass('bg-darker');
+        $('header').removeClass('bg-gradiente');
+        //$('#col-10-navbar').css('border-bottom','none');
+        //$('#col-1-navbar').css('border-bottom','none');
+
+    } else {
+        $('header').removeClass('bg-darker');
+        $('header').addClass('bg-gradiente');
+        $('#col-10-navbar').css('border-bottom','2px solid #e5e5e5');
+        $('#col-1-navbar').css('border-bottom','2px solid #e5e5e5');
+    }
+});
