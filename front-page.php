@@ -206,7 +206,7 @@
         <div class="carousel-inner">
 
           <?php foreach( $testimonials as $testi ):  setup_postdata($testi);
-          $fotoTesti = wp_get_attachment_image_src( get_post_thumbnail_id( $testi->ID ), 'full' );?>
+          $fotoTesti = wp_get_attachment_image_src( get_post_thumbnail_id( $testi->ID ), 'large' );?>
             <div class="carousel-item <?php if($i==0){echo 'active';}?>">
               <div class="row justify-content-center pb-5">
 
@@ -247,13 +247,13 @@
             </div>
 
             <div style="padding-bottom: 10rem;" class="text-center">
-            <a href="https://wa.me/523221008151?text= " target="_blank" class="btn btn2"><?php pll_e('Hablar con un asesor'); ?></a>
+            <a href="https://wa.me/523221008151?text= " target="_blank" rel="noopener" class="btn btn2"><?php pll_e('Hablar con un asesor'); ?></a>
             </div>
         </div>
     </div>
 
        <!--boton whatsapp-->
-        <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank"> 
+        <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank" rel="noopener"> 
             <i class="fab fa-whatsapp"></i>
         </a>
     

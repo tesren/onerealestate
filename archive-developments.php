@@ -11,13 +11,6 @@
             </div>
         </div>
 
-      
-        <div class="row justify-content-center my-5">
-            <div class="col-11 col-md-10 col-lg-6">
-                <?php get_search_form(); ?>
-            </div>
-        </div>
-
 
             <?php if( have_posts() ): 
                 

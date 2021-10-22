@@ -166,7 +166,7 @@
             $permalink = get_the_permalink();
             $text = "Hola estoy interesado en la propiedad: ".get_the_title()." que vi en: ";
         ?>
-        <a href="https://wa.me/523221008151?text=<?php echo $text, $permalink ?>" id="whatsapp" target="_blank"> 
+        <a href="https://wa.me/523221008151?text=<?php echo $text, $permalink ?>" id="whatsapp" target="_blank" rel="noopener"> 
             <i class="fab fa-whatsapp"></i>
         </a>
 

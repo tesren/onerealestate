@@ -64,18 +64,18 @@ $propertiesType = get_terms( array(
                 <div class="row justify-content-center mb-3">
                     <label class="text-center mb-2"><?php pll_e('Rango de precios')?></label>
 
-                    <input class="col-3 search-form" type="number" name="minprice" id="minprice" placeholder="Min">
+                    <input class="col-5 col-lg-3 search-form" type="number" name="minprice" id="minprice" placeholder="Min">
                     <span class="col-1 fs-4 text-center">-</span>
-                    <input class="col-3 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max">
+                    <input class="col-5 col-lg-3 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max">
                     <div id="slider-range-precios" class="mt-2 col-11"></div>
                     
                 </div>
 
                 <div class="row justify-content-center mb-4">
                     <label class="text-center mb-2"><?php pll_e('Rango de Recámaras'); ?></label>
-                    <input class="col-3 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min" readonly>
+                    <input class="col-5 col-lg-3 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min">
                     <span class="col-1 fs-4 text-center">-</span>
-                    <input class="col-3 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max" readonly>
+                    <input class="col-5 col-lg-3 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max">
                     <div id="slider-range-beds" class="mt-2 col-11"></div>
                 </div>
 

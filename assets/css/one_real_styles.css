@@ -957,9 +957,7 @@ nav .nav-item i{
     .col-6{
         padding-bottom: 0mm;
     }
-    .footer{
-        background-image: url(/images/footer_movil.png);
-    }
+
 
 }
 @media (min-width: 360px) and (max-width: 767px) {
@@ -1111,9 +1109,7 @@ nav .nav-item i{
     #sidebar-container{
         padding-top: 36rem;
     }
-    .footer{
-        background-image: url(/images/footer_movil.png);
-    }
+    
     h1{
         font-size: 1.5rem;
     }

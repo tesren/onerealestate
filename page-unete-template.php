@@ -103,7 +103,7 @@
                         <a class="d-block fs-5 fw-light" href="tel:<?php echo $phone ?>" style="color:black;">
                             <strong><?php pll_e('Teléfono') ?> / </strong><?php echo $phone; ?>
                         </a>
-                        <a class="d-block fs-5 fw-light" href="mailto:<?php echo $mail ?>" target="_blank" style="color:black;">
+                        <a class="d-block fs-5 fw-light" href="mailto:<?php echo $mail ?>" target="_blank" rel="noopener" style="color:black;">
                             <strong><?php pll_e('Correo') ?> / </strong><?php echo $mail; ?>
                         </a>
 
@@ -125,7 +125,7 @@
         </div>
 
         <!--boton whatsapp-->
-        <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank"> 
+        <a href="https://wa.me/523221008151?text= " id="whatsapp" target="_blank" rel="noopener"> 
             <i class="fab fa-whatsapp"></i>
         </a>
 

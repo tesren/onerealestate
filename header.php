@@ -7,14 +7,13 @@
         <?php if( is_singular() && pings_open( get_queried_object() )  ) : ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url');?>">
         <?php endif; ?>
+        <meta name="description" content="Desarrolladora Inmobiliaria y profesionales en Venta, Renta y Administracion de Propiedades Vallarta-Riviera Nayarit">
         <?php wp_head();?>
         <!-- <link rel="shortcut icon" href="favicon.svg" type="image/x-icon"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--fuente-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <!--fancybox-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"/>
         
     </head>
     
