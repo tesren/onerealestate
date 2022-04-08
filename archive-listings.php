@@ -14,15 +14,19 @@
 
     get_header();
 
+    $page = get_page_by_path( 'listings-'.pll_current_language() );
+    $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
 ?>
     
         <div class="container-fluid landing-desarrollos" style="position:relative;">
-            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/renta-headImg.jpg' ?>" alt="Renta">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo $imgFull[0]; ?>" alt="Renta">
+            <div class="fondo-oscuro"></div>
 
             <div class="content">
-                <h1 class="fw-light p-0 mb-0"><?php pll_e('VENTA')?></h1>
+                <h1 class="fw-light p-0 mb-0"><?php echo get_the_title($page->ID);?></h1>
                 <hr class="mt-0 mb-3" style="opacity:1;">
-                <p class="fs-5"><?php pll_e('Venta y Administracion de Propiedades en Puerto Vallarta-Riviera Nayarit')?></p>
+
+                <div class="fs-5"><?php echo $page->post_content;?></div>
                 <a href="#all-listings" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
             </div>
         </div>

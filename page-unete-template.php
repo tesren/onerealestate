@@ -32,7 +32,7 @@
 
         <div class="row" id="row-why-us">
 
-            <div class="col-12 col-lg-5 fs-1 text-center fw-light py-3" id="why-here" style="background-color:#A28234; color:#fff;">
+            <div class="col-12 col-lg-4 fs-1 text-center fw-light py-3" id="why-here" style="background-color:#A28234; color:#fff;">
                 <?php pll_e('¿POR QUÉ DEBERÍAS TRABAJAR AQUÍ?'); ?>
             </div>
 

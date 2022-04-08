@@ -142,7 +142,7 @@ $('#slider-range-people').slider({
     var scrolled = $(this).scrollTop();
 
     let heightViewPort = $(window).height();
-    console.log(heightViewPort);
+    //console.log(heightViewPort);
 
 
     if (scrolled > heightViewPort) {

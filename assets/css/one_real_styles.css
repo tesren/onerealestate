@@ -61,6 +61,15 @@ a{
     margin-top: 4.9rem;
 }
 
+.fondo-oscuro{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 /*elevation effect*/
 .shadow-5 {
     box-shadow: 0 3px 5px -1px #0003,0 5px 8px #00000024,0 1px 14px #0000001f;
@@ -917,15 +926,10 @@ nav .nav-item i{
 
 /*single developments*/ 
 #why-here{
-    position: absolute;
-    left: 0;
     z-index: 5;
 }
 
 #reasons{
-    position: absolute;
-    right: 0;
-    bottom: 44px;
     background-color:#444444; color:#fff;
     z-index: 1;
 }
@@ -933,7 +937,7 @@ nav .nav-item i{
 #row-why-us{
     position:relative; 
     margin: 7rem 0;
-    height: 30vh;
+    height: fit-content;
 }
 
 

@@ -1,12 +1,17 @@
-<?php get_header();?>
+<?php 
+    get_header();
+    $page = get_page_by_path( 'developments-'.pll_current_language() );
+    $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'full' );
+?>
 
         <div class="container-fluid landing-desarrollos" style="position:relative;">
-            <img class="w-100 img-fluid mobile-img" src="<?php echo get_template_directory_uri(). '/assets/images/desaLanding.jpg' ?>" alt="Renta">
+            <img class="w-100 img-fluid mobile-img" src="<?php echo $imgFull[0]; ?>" alt="Renta">
+            <div class="fondo-oscuro"></div>
 
             <div class="content">
-                <h1 class="fw-light p-0 mb-0"><?php pll_e('DESARROLLOS');?></h1>
+                <h1 class="fw-light p-0 mb-0"><?php echo get_the_title($page->ID);?></h1>
                 <hr class="mt-0 mb-3" style="opacity:1;">
-                <p class="fs-5"><?php pll_e('Desarrollos nuevos o en construcción que ofrecen una amplia gama de servicios y precios, desde viviendas de lujo hasta condominios. La información sobre cualquiera de estos desarrollos, como su ubicación, servicios, imágenes e inventario, se puede encontrar en sus páginas de descripción haciendo clic en la fotos correspondiente a continuación')?></p>
+                <div class="fs-5"><?php echo $page->post_content;?></div>
                 <a href="#archive-devs" class="btn btn1 mt-4"><?php pll_e('Más Info'); ?></a>
             </div>
         </div>
