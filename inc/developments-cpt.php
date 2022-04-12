@@ -167,7 +167,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
             [
                 'id'               => 'logo-dev',
                 'name'             => 'Suba el logo del Desarrollo que sera mostrado en la página',
-                'type'             => 'image_upload',
+                'type'             => 'image_advanced',
 
                 // Delete file from Media Library when remove it from post meta?
                 // Note: it might affect other posts if you use same file for multiple posts
@@ -194,7 +194,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
             [
                 'id'               => 'amenities_gallery',
                 'name'             => 'Suba imagenes solamente de las amenidades',
-                'type'             => 'image_upload',
+                'type'             => 'image_advanced',
 
                 // Delete file from Media Library when remove it from post meta?
                 // Note: it might affect other posts if you use same file for multiple posts
@@ -262,7 +262,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0',
+                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
             ]
         ],
     ];
@@ -351,7 +351,7 @@ function development_inventory_register_meta_boxes( $meta_boxes ) {
             [
                 'id'               => 'inventory_gallery',
                 'name'             => 'Imagenes de la unidad',
-                'type'             => 'image_upload',
+                'type'             => 'image_advanced',
 
                 // Delete file from Media Library when remove it from post meta?
                 // Note: it might affect other posts if you use same file for multiple posts

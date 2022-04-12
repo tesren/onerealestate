@@ -289,7 +289,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
             [
                 'id'               => 'listing_gallery',
                 'name'             => 'Image upload',
-                'type'             => 'image_upload',
+                'type'             => 'image_advanced',
 
                 // Delete file from Media Library when remove it from post meta?
                 // Note: it might affect other posts if you use same file for multiple posts
@@ -347,7 +347,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDEIE8JW9xGP_o3sCjG-0gNean42Q8UhC0',
+                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
             ]
         ],
     ];
