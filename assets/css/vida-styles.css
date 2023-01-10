@@ -1,0 +1,81 @@
+:root{
+    --darkblue: #021834;
+    --blue: #55BAC5;
+}
+
+body{
+    font-family: 'UniversLTPro-LightCond';
+    color: var(--darkblue);
+}
+
+.ff-montserrat{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.mt-6{
+    margin-top: 5rem;
+}
+
+.mb-6{
+    margin-bottom: 5rem;
+}
+
+.my-6{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.text-blue{
+    color: var(--blue) !important;
+}
+
+.bg-darkblue{
+    background-color: var(--darkblue);
+    color: #fff !important;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+.btn-dark {
+    background-color: #062138;
+    box-shadow: 3px 3px 0 0 #55bac5;
+    line-height: 30px;
+    padding: 0.7rem 1.5rem;
+    color: #ffffff;
+    word-break: break-word;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.steps-element {
+    border-top: 1px solid #55bac5;
+    padding: 1.5rem 0;
+}
+
+.steps .title {
+    font-size: 80px;
+    color: #55BAC5;
+    line-height: 60px;
+    text-align: right;
+    margin-bottom: 0;
+    padding-right: 8px;
+}
+
+.terms {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0;
+}
+
+.asesor {
+    background-color: #F4F4F4;
+    text-align: center;
+    padding: 2rem 1rem;
+}
