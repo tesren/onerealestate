@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>One Real Estate Vacacional - Descubre la llave que le da acceso al extraordinario mundo vacacional.</title>
-        <meta name="description" content="FR Vacacional descubre la llave que le da acceso al extraordinario mundo vacacional.">
+        <title>DELAONE VACATIONS - Descubre la llave que le da acceso al extraordinario mundo vacacional.</title>
+        <meta name="description" content="DELAONE VACATIONS, descubre la llave que le da acceso al extraordinario mundo vacacional. Desde increíbles rondas de golf y exclusivos tratamientos de spa, hasta noches de cine en la comodidad de su habitación, o un hermoso y romántico picnic al atardecer en la playa.">
         <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/splide.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">        
 
         <?php wp_head(); ?>
 
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/vida-styles.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/vida-style.css">
     </head>
 
 <body  <?php body_class(); ?>>
@@ -25,24 +25,32 @@
         <div class="row justify-content-center position-absolute w-100 h-100 top-0 start-0" id="video-text">
             <div class="col-12 align-self-center text-center">
                 <img class="col-7 col-lg-4 mx-auto" src="<?php echo get_template_directory_uri()?>/assets/img/vg-logo.png" alt="Vida Getaway logo">
-                <h1 class="text-white mt-5">
+                <h1 class="text-white mt-5 d-none d-lg-block">
                     TE DAMOS LA LLAVE QUE DA ACCESO AL <br>
                     EXTRAORDINARIO MUNDO VACACIONAL
                 </h1>
             </div>
         </div>
 
-        <video id="introducing-video" class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/videos/vg-introducing-video.mp4" poster="<?php echo get_template_directory_uri(); ?>/assets/img/vg-home-banner.jpeg" controls="false" autoplay muted style="min-height:40vh; max-height:100vh; object-fit:cover;"></video>
+        <video id="introducing-video" class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/videos/vg-introducing-video.mp4" poster="<?php echo get_template_directory_uri(); ?>/assets/img/vg-home-banner.jpeg" controls="false" autoplay muted style="max-height:100vh; object-fit:cover;"></video>
+    </div>
+
+    <div class="bg-darkblue d-block d-lg-none py-5 text-center ff-montserrat">
+        <h2 class="text-white fs-4 fw-light">
+            TE DAMOS LA LLAVE QUE DA ACCESO AL
+            EXTRAORDINARIO MUNDO VACACIONAL
+        </h2>
     </div>
 
     <div class="text-center ff-montserrat mb-6">
-        <h2 class="fs-5 fw-light my-6">
-            <span class="text-blue">ENCUENTRA TU SIGUIENTE DESTINO CON</span> <br> 
-            <span class="fs-1 fw-normal">ONE REAL ESTATE</span>
+        <h2 class="fs-4 fw-light mt-6 mb-0 text-blue">
+            ENCUENTRA TU SIGUIENTE DESTINO CON
         </h2>
 
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/delaone-logo.jpeg" alt="Delaone" class="col-8 col-lg-3 mx-auto mb-5">
+
         <h2 class="fs-3 fw-normal mb-4">¿Quiénes somos?</h2>
-        <p class="fs-5 col-12 col-lg-6 mx-auto text-secondary">One Real Estate es una comercializadora autorizada de Vida Getaway es un programa de certificados vacacionales que, con una tarifa preferencial por única ocasión, le permitirá conocer los espectaculares desarrollos en cualquiera de los paradisíacos destinos de Vidanta y crear momentos inolvidables de felicidad.</p>
+        <p class="fs-5 col-11 col-lg-6 mx-auto text-secondary">DELAONE VACATIONS es una comercializadora autorizada de Vida Getaway es un programa de certificados vacacionales que, con una tarifa preferencial por única ocasión, le permitirá conocer los espectaculares desarrollos en cualquiera de los paradisíacos destinos de Vidanta y crear momentos inolvidables de felicidad.</p>
     </div>
 
     <div class="row bg-darkblue ff-montserrat py-5 mb-6">
@@ -172,10 +180,18 @@
 
         <hr class="w-25 mx-auto">
 
-        <div class="text-center col-12 col-lg-7 mx-auto mb-6">
-            <p class="my-4 fs-5">¡Es muy sencillo! únicamente seleccione a su comercializador autorizado y siga los tres sencillos pasos que le mostramos a continuación:</p>
-            <a class="btn btn-dark rounded-0" rel="noopener noreferrer" href="https://www.vidagetaway.com/assets/files/vg-comercializadores-autorizados.pdf?v=349f7sif" target="_blank">
-                LISTA DE COMERCIALIZADORES AUTORIZADOS 
+        <div class="text-center col-11 col-lg-7 mx-auto mb-6">
+            <p class="my-4 fs-5">¡Es muy sencillo! únicamente póngase en contacto con nosotros y siga los tres sencillos pasos que le mostramos a continuación:</p>
+            <a class="btn btn-dark rounded-0" rel="noopener noreferrer" href="https://wa.me/523223485420?text=Hola+me+interesa+Vida+Getaway" target="_blank">
+                WhatsApp
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a class="btn btn-dark rounded-0" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100063670636080&mibextid=LQQJ4d" target="_blank">
+                Facebook
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+            <a class="btn btn-dark rounded-0 mt-3 mt-lg-0" rel="noopener noreferrer" href="https://www.instagram.com/delaonevacations/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+                Instagram
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         </div>
@@ -452,7 +468,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-desayunoparaiso-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Desayuno en el Paraíso</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Desayuno en el Paraíso</div>
                                 </div>                    
                             </div>
 
@@ -460,7 +476,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-glampicnic-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Glam Picnic</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Glam Picnic</div>
                                 </div>
                             </div>
 
@@ -468,7 +484,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-golf-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-6">Increíbles campos de Golf</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-6">Increíbles campos de Golf</div>
                                 </div>
                             </div>
 
@@ -476,7 +492,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-lepetitchef-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Le Petit Chef</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Le Petit Chef</div>
                                 </div>
                             </div>
 
@@ -484,7 +500,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-movienight-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Movie Night</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Movie Night</div>
                                 </div>
                             </div>
 
@@ -492,7 +508,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-romanceatardecer-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Romance al Atardecer</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Romance al Atardecer</div>
                                 </div>
                             </div>
 
@@ -500,7 +516,7 @@
                                 <img class="w-100" src="<?php echo get_template_directory_uri(); ?>/assets/img/vg-modalModuls-carousel-ex-spa-desk.jpeg" alt="Entretenimiento Cirque du soleil Joyà">
                                 
                                 <div class="row justify-content-center position-absolute bottom-0 start-0 w-100">
-                                    <div class="col-10 col-lg-3 bg-white text-dark p-3 text-center fs-5">Spas de clase mundial</div>
+                                    <div class="col-10 col-lg-3 bg-white text-dark p-2 p-lg-3 text-center fs-5">Spas de clase mundial</div>
                                 </div>
                             </div>
 
@@ -522,6 +538,11 @@
             </div>
         </div>
     </div>
+
+    <!--boton whatsapp-->
+    <a href="https://wa.me/523223485420?text=Hola+me+interesa+Vida+Getaway" id="whatsapp_vida" target="_blank" rel="noopener"> 
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
   <script src="<?php echo get_template_directory_uri()?>/assets/js/splide.min.js"></script>
   <?php wp_footer();?>

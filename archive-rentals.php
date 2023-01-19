@@ -41,10 +41,14 @@
 
                 $images = rwmb_meta( 'rental_gallery', array( 'size' => 'large', 'limit' => '1' ) );?>
                 <!--precios-->
-                <?php $pricesBaja = rwmb_meta( 'precio-baja' ); 
-                        $priceNoche = $pricesBaja['noche'];
-                        $priceSemana = $pricesBaja['semana'];
-                        $priceMes = $pricesBaja['mes'];
+                <?php 
+                    $pricesBaja = rwmb_meta( 'precio-baja' );
+                    
+                    if(isset($pricesBaja)){
+                        $priceNoche = $pricesBaja['noche'] ?? '0';
+                        $priceSemana = $pricesBaja['semana'] ?? '0';
+                        $priceMes = $pricesBaja['mes'] ?? '0';
+                    }
                 ?>
             
                             <div class="col-12 p-0 m-0 text-center text-lg-start listings-rentals <?php if( $i%2 == 0 ){echo 'listings-dorado';}?>">

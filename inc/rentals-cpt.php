@@ -82,6 +82,7 @@ function onere_rentals_register_meta_boxes( $meta_boxes ) {
                 'name'    => 'Precios temporada baja',
                 'type'    => 'fieldset_text',
                 'desc'    => 'Ingrese los precios de la temporada alta, por mes, semana y noche',
+                'required'=> true,
                 // Options: array of key => Label for text boxes
                 // Note: key is used as key of array of values stored in the database
                 'options' => array(
