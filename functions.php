@@ -97,6 +97,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     require get_template_directory() . '/inc/rentals-cpt.php';
 
     require get_template_directory() . '/inc/developments-cpt.php';
+    require get_template_directory() . '/inc/dev-info-cpt.php';
 
     require get_template_directory() . '/inc/sales-team-cpt.php';
 
@@ -104,7 +105,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/messages-cpt.php';
 
-    //require get_template_directory() . '/inc/services-cpt.php';
+    require get_template_directory() . '/inc/devinfo-menupage.php';
 
 
     function check_post_type_and_remove_media_buttons() {
@@ -118,6 +119,19 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     
     add_action('admin_head','check_post_type_and_remove_media_buttons');
 
+    function my_login_logo_one() {
+        echo '<style type="text/css">
+        h1 a {
+            background-image: url('.get_template_directory_uri().'/assets/images/logo.png) !important;
+            background-size: 150px !important;
+            width:151px !important;
+            height:95px !important;
+            background-repeat: no-repeat;
+        }
+        </style>';
+    } 
+    add_action( 'login_enqueue_scripts', 'my_login_logo_one' );
+        
 
     function onere_get_list_terms($postID, $taxonomy)
     {
@@ -206,6 +220,37 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }  
     }
 
+    function onere_remove_menu_items() {
+        $user = wp_get_current_user();
+        $disallowed_roles = array( 'realtor' );
+
+        if ( array_intersect( $disallowed_roles, $user->roles ) ) {
+            // Stuff here for disallowed roles
+            remove_menu_page( 'edit.php?post_type=rentals' );
+            remove_menu_page( 'edit.php?post_type=realtors' );
+            remove_menu_page( 'edit.php?post_type=listings' );
+            remove_menu_page( 'edit.php?post_type=inventory' );
+            remove_menu_page( 'edit.php?post_type=developments' );
+            remove_menu_page( 'edit.php?post_type=testimonials' );
+            remove_menu_page( 'edit.php?post_type=mensaje' );
+            remove_menu_page( 'edit.php?post_type=dev-info' );
+            remove_menu_page( 'edit.php?post_type=wpcf7_contact_form' );
+            remove_menu_page( 'edit.php' );
+            remove_menu_page( 'index.php' );
+            remove_menu_page( 'tools.php' );
+            remove_menu_page( 'edit-comments.php' );
+        }
+
+        $disallowed_roles = array( 'administrator','editor', 'author' );
+        if ( array_intersect( $disallowed_roles, $user->roles ) ) {
+            // Stuff here for disallowed roles
+            remove_menu_page( 'dev-info-realtors' );
+        }
+
+    }
+    
+    add_action( 'admin_menu', 'onere_remove_menu_items' );
+
     function tierra_set_strings_transtaltion(){
         
         $strings = array(
@@ -213,6 +258,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'name'     =>'servicios',
                 'string'   =>'Servicios',
                 'group'    =>'Servicios',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'ingresar',
+                'string'   =>'INGRESAR',
+                'group'    =>'Front Page',
                 'multiline'=>false,
             ),
             array(

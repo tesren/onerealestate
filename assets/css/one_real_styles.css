@@ -248,6 +248,16 @@ a{
     top: 10px;
 }
 
+.btn-yellow{
+    background-color: #A28234;
+    color: #fff !important;
+}
+
+.btn-yellow:hover{
+    background-color: #8d712c;
+    transition: 0.2s;
+}
+
 .pr-type-archive{
     border-radius: 4px;
     background-color: #ab9154;
@@ -713,7 +723,7 @@ nav .nav-item i{
 }
 .btn1{
     background-color: #ab9154;
-    color: white;
+    color: white !important;
     outline: none;
     border: none;
     padding-right: 8.8rem;
@@ -725,6 +735,12 @@ nav .nav-item i{
     font-size: 1.3rem;
     border-radius: 50px;
 }
+
+.btn1:hover{
+    background-color: #86713f;
+    transition: 0.2s;
+}
+
 .btn-blanco{
     background-color: white;
     color: #A28234;
@@ -804,7 +820,7 @@ nav .nav-item i{
     font-weight: 600;
     font-size: 1.3rem;
     background-color: #A28234;
-    color: white;
+    color: white !important;
     outline: none;
     border: none;
     padding-right: 3rem;
@@ -812,6 +828,11 @@ nav .nav-item i{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     text-align: center;
+}
+
+.btn2:hover{
+    background-color: #876c2a;
+    transition: 0.2s;
 }
 
 /*NAVBAR VERTICAL*/

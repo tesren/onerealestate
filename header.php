@@ -54,15 +54,17 @@
             </nav>
           </div>
   
-          <div class="col-1 text-center d-none d-lg-flex" id="col-1-navbar" style="border-bottom: 2px solid #e5e5e5;">
+          <div class="col text-center d-none d-lg-flex" id="col-1-navbar" style="border-bottom: 2px solid #e5e5e5;">
 
-            <a class=" btn-call mt-3 me-auto shadow-6" href="tel:3221008151" data-bs-toggle="tooltip" data-bs-placement="bottom" title="322-100-8151">
+            <a class=" btn-call mt-3 me-1 shadow-6" href="tel:3221008151" data-bs-toggle="tooltip" data-bs-placement="bottom" title="322-100-8151">
               <i class="fa fa-phone"></i>
             </a>
 
-            <button title="<?php pll_e("Buscar");?>" type="button" class="btn mt-3 btn-search shadow-6" data-bs-toggle="modal" data-bs-target="#searchModal">
+            <button title="<?php pll_e("Buscar");?>" type="button" class="btn mt-3 me-2 btn-search shadow-6" data-bs-toggle="modal" data-bs-target="#searchModal">
               <i class="fas fa-search"></i>
             </button>
+
+            <a href="<?php echo wp_login_url( home_url().'/wp-admin/admin.php?page=dev-info-realtors'); ?>" class="btn btn-yellow align-self-center"><?php pll_e("INGRESAR");?></a>
     
           </div>
 
