@@ -64,7 +64,7 @@
               <i class="fas fa-search"></i>
             </button>
 
-            <a href="<?php echo wp_login_url( home_url().'/wp-admin/admin.php?page=dev-info-realtors'); ?>" class="btn btn-yellow align-self-center"><?php pll_e("INGRESAR");?></a>
+            <a href="<?php echo wp_login_url( '/wp-admin/admin.php?page=dev-info-realtors'); ?>" class="btn btn-yellow align-self-center"><?php pll_e("INGRESAR");?></a>
     
           </div>
 

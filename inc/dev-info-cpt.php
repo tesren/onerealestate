@@ -71,7 +71,6 @@ function dev_info_register_meta_boxes( $meta_boxes ) {
                 'name' => 'Archivos e imagenes',
                 'id'   => 'brochure',
                 'desc' => 'Suba archivos de cualquier tipo con información del Desarrollo', 
-                'max_file_uploads' => 20,
                 'max_status'       => true,
                 'required' => true,
             ],

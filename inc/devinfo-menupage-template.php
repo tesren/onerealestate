@@ -1,6 +1,6 @@
 
 <?php
-    if( isset( $_POST['dev_id'] ) ){
+    if( isset( $_POST['dev_id'] ) ):
         $files = rwmb_meta('brochure', [], $_POST['dev_id']);
 
         $clean_name = urlencode($_POST['dev_name']);
@@ -54,9 +54,8 @@
                 //link.remove();
             });
         </script>
-    <?php 
-
-    }?>
+        
+    <?php endif;?>
 
 <?php $devs = get_posts(array(
     'post_type' => 'dev-info',
@@ -87,10 +86,10 @@
 
             ?>
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-3 px-1">
 
                 <div class="card shadow-4 w-100 p-0">
-                    <img src="<?php echo $thumbnail_url; ?>" class="card-img-top" style="height:250px; object-fit:cover;" alt="<?php echo $dev->post_title; ?>">
+                    <img src="<?php echo $thumbnail_url; ?>" class="card-img-top" style="height:220px; object-fit:cover;" alt="<?php echo $dev->post_title; ?>">
                     <div class="card-body">
                         <h2 class="card-title fs-4"><?php echo $dev->post_title; ?></h2>
                         
@@ -119,25 +118,84 @@
                             <?php endif; ?>
                         </div>
                         
-
-
-                        <form action="" method="post" class="px-1">
-                            <input type="hidden" name="dev_id" value="<?php echo $dev->ID; ?>">
-                            <input type="hidden" name="dev_name" value="<?php echo $dev->post_title; ?>">
-                            <button type="submit" id="download_button" class="btn btn-primary w-100">
-                                <svg width="16" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zM432 456c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg>
-                                Descargar Información
-                            </button>
-                        </form>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#info-modal-<?php echo $dev->ID; ?>">
+                            Ver Información
+                        </button>
                         
                     </div>
                 </div>
 
-                <!-- <?php $files = rwmb_meta('brochure', [], $dev->ID);?>
-                <?php //foreach ( $files as $file ) : ?>
-                    <a class="link-primary file d-block" href="//<?php// echo $file['url']; ?>" download><?php// echo $file['name']; ?></a>
-                <?php// endforeach; ?> -->
+                
 
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="info-modal-<?php echo $dev->ID; ?>" tabindex="-1" aria-labelledby="info-modal-<?php echo $dev->ID; ?>-label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="info-modal-<?php echo $dev->ID; ?>-label">
+                            <?php echo $dev->post_title; ?>
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <?php $files = rwmb_meta('brochure', ['size'=>'full'], $dev->ID);?>
+
+                        <div class="row">
+                            <h2 class="mb-3">Archivos</h2>
+                            <?php foreach($files as $file): ?>
+
+                                <?php if( !isset($file['file']) ): ?>
+                                    <div class="col-12 col-lg-4 mb-4">
+                                        <div class="text-center">
+                                            <a href="<?php echo $file['url']?>" class="d-block link-primary fw-bold text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                                    <svg class="mb-2 d-block mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="#6c757d" width="80px"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H224v80c0 17.7 14.3 32 32 32h80V448c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0H64zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24H264c13.3 0 24-10.7 24-24s-10.7-24-24-24H120z"/></svg>
+                                                <?php echo $file['title']?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                
+                            <?php endforeach; ?>
+
+                            <h2 class="mt-5 mb-3">Imágenes</h2>
+
+                            <?php foreach($files as $file): ?>
+
+                                <?php if( isset($file['file']) ): ?>
+                                    <div class="col-12 col-lg-4 mb-4">
+                                        <div class="text-center">
+                                            <a href="<?php echo $file['url']?>" class="d-block link-primary fw-bold text-decoration-none" target="_blank" rel="noopener noreferrer">
+                                                <img src="<?php echo $file['url']; ?>" alt="<?php echo $file['title'] ?>" class="w-100 rounded-1 mb-3" loading="lazy">    
+                                                <?php echo $file['title']?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                            <?php endforeach; ?>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <form action="" method="post" class="px-1">
+                            <input type="hidden" name="dev_id" value="<?php echo $dev->ID; ?>">
+                            <input type="hidden" name="dev_name" value="<?php echo $dev->post_title; ?>">
+                            <button type="submit" id="download_button" class="btn btn-primary">
+                                <svg width="16" fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zM432 456c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg>
+                                Descargar Todo
+                            </button>
+                        </form>
+                    </div>
+                    </div>
+                </div>
             </div>
 
         <?php endforeach; ?>
